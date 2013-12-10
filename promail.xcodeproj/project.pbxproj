@@ -22,6 +22,8 @@
 		D4EEDF381857CA0600653625 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDF371857CA0600653625 /* Security.framework */; };
 		D4EEDF3B1857CB0900653625 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDF351857C9F300653625 /* MailCore.framework */; };
 		D4EEDF3F1857CB3C00653625 /* MailCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4EEDF351857C9F300653625 /* MailCore.framework */; };
+		D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDF421857CFE300653625 /* MainWindow.xib */; };
+		D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDF451857CFFF00653625 /* PMMainController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +114,9 @@
 		D4EEDF1A1857C9D800653625 /* promailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = promailTests.m; sourceTree = "<group>"; };
 		D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
 		D4EEDF371857CA0600653625 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D4EEDF421857CFE300653625 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		D4EEDF441857CFFF00653625 /* PMMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMainController.h; sourceTree = "<group>"; };
+		D4EEDF451857CFFF00653625 /* PMMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMainController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +186,8 @@
 		D4EEDEF31857C9D700653625 /* promail */ = {
 			isa = PBXGroup;
 			children = (
+				D4EEDF411857CFC400653625 /* Controllers */,
+				D4EEDF401857CFBC00653625 /* Resources */,
 				D4EEDEFF1857C9D700653625 /* PMAppDelegate.h */,
 				D4EEDF001857C9D700653625 /* PMAppDelegate.m */,
 				D4EEDF021857C9D700653625 /* MainMenu.xib */,
@@ -231,6 +238,23 @@
 				D4EEDF351857C9F300653625 /* MailCore.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D4EEDF401857CFBC00653625 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF421857CFE300653625 /* MainWindow.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D4EEDF411857CFC400653625 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF441857CFFF00653625 /* PMMainController.h */,
+				D4EEDF451857CFFF00653625 /* PMMainController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -357,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */,
+				D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */,
 				D4EEDF091857C9D700653625 /* Images.xcassets in Resources */,
 				D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */,
 				D4EEDF041857C9D700653625 /* MainMenu.xib in Resources */,
@@ -381,6 +406,7 @@
 				D4EEDEFA1857C9D700653625 /* main.m in Sources */,
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
+				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
