@@ -7,6 +7,7 @@
 //
 
 #import "PMAppDelegate.h"
+#import <MailCore/MailCore.h>
 
 @implementation PMAppDelegate
 
