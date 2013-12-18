@@ -12,6 +12,12 @@
 
 @property (assign) NSManagedObjectContext *managedContext;
 
+@property (retain) NSMutableIndexSet *selections;
+
+@property (retain) NSString *password;
+
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
+
+-(IBAction)setNewPassword:(id)sender;
 
 @end

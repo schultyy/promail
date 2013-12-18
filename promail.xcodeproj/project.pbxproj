@@ -1,1584 +1,749 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>3EB151FF531E4347A000EFF5</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>884EC42C269C45AAA5A14FAD</key>
-		<dict>
-			<key>fileRef</key>
-			<string>CCFEC80EFA28469188412AF3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>8AFECCB988D041EAAB5F6577</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>ACB781ACF0324C0AB2DBDE75</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>CCFEC80EFA28469188412AF3</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D472DFBB1857D37B00596E10</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>PMMailController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D472DFBC1857D37B00596E10</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>PMMailController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D472DFBD1857D37B00596E10</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D472DFBC1857D37B00596E10</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4AAB597186231DA00D38E9D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>AccountsWindow.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4AAB598186231DA00D38E9D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4AAB597186231DA00D38E9D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4AAB59D186231F100D38E9D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>PMAccountsWindowController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4AAB59E186231F100D38E9D</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>PMAccountsWindowController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4AAB59F186231F100D38E9D</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4AAB59E186231F100D38E9D</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDEE11857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDEF31857C9D700653625</string>
-				<string>D4EEDF141857C9D800653625</string>
-				<string>D4EEDEEC1857C9D700653625</string>
-				<string>D4EEDEEB1857C9D700653625</string>
-				<string>D4EEDF241857C9F200653625</string>
-				<string>8AFECCB988D041EAAB5F6577</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEE21857C9D700653625</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>CLASSPREFIX</key>
-				<string>PM</string>
-				<key>LastUpgradeCheck</key>
-				<string>0500</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>schultyy</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>D4EEDF0D1857C9D800653625</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>D4EEDEE91857C9D700653625</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>D4EEDEE51857C9D700653625</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-				<string>Base</string>
-			</array>
-			<key>mainGroup</key>
-			<string>D4EEDEE11857C9D700653625</string>
-			<key>productRefGroup</key>
-			<string>D4EEDEEB1857C9D700653625</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array>
-				<dict>
-					<key>ProductGroup</key>
-					<string>D4EEDF251857C9F200653625</string>
-					<key>ProjectRef</key>
-					<string>D4EEDF241857C9F200653625</string>
-				</dict>
-			</array>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>D4EEDEE91857C9D700653625</string>
-				<string>D4EEDF0D1857C9D800653625</string>
-			</array>
-		</dict>
-		<key>D4EEDEE51857C9D700653625</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D4EEDF1C1857C9D800653625</string>
-				<string>D4EEDF1D1857C9D800653625</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D4EEDEE61857C9D700653625</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D4EEDEFA1857C9D700653625</string>
-				<string>D4EEDF011857C9D700653625</string>
-				<string>D4EEDF071857C9D700653625</string>
-				<string>D4EEDF461857CFFF00653625</string>
-				<string>D4AAB59F186231F100D38E9D</string>
-				<string>D472DFBD1857D37B00596E10</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D4EEDEE71857C9D700653625</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D4EEDF3B1857CB0900653625</string>
-				<string>D4EEDF381857CA0600653625</string>
-				<string>D4EEDEEE1857C9D700653625</string>
-				<string>884EC42C269C45AAA5A14FAD</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D4EEDEE81857C9D700653625</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D4EEDEF81857C9D700653625</string>
-				<string>D4AAB598186231DA00D38E9D</string>
-				<string>D4EEDF431857CFE300653625</string>
-				<string>D4EEDF091857C9D700653625</string>
-				<string>D4EEDEFE1857C9D700653625</string>
-				<string>D4EEDF041857C9D700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D4EEDEE91857C9D700653625</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D4EEDF1E1857C9D800653625</string>
-			<key>buildPhases</key>
-			<array>
-				<string>ACB781ACF0324C0AB2DBDE75</string>
-				<string>D4EEDEE61857C9D700653625</string>
-				<string>D4EEDEE71857C9D700653625</string>
-				<string>D4EEDEE81857C9D700653625</string>
-				<string>D4EEDF3E1857CB2300653625</string>
-				<string>3EB151FF531E4347A000EFF5</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>D4EEDF3D1857CB1700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>promail</string>
-			<key>productName</key>
-			<string>promail</string>
-			<key>productReference</key>
-			<string>D4EEDEEA1857C9D700653625</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>D4EEDEEA1857C9D700653625</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>promail.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D4EEDEEB1857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDEEA1857C9D700653625</string>
-				<string>D4EEDF0E1857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEEC1857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF371857CA0600653625</string>
-				<string>D4EEDEED1857C9D700653625</string>
-				<string>D4EEDF0F1857C9D800653625</string>
-				<string>D4EEDEEF1857C9D700653625</string>
-				<string>CCFEC80EFA28469188412AF3</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEED1857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Cocoa.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Cocoa.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D4EEDEEE1857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDEED1857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDEEF1857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDEF01857C9D700653625</string>
-				<string>D4EEDEF11857C9D700653625</string>
-				<string>D4EEDEF21857C9D700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Other Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEF01857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>AppKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/AppKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D4EEDEF11857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreData.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreData.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D4EEDEF21857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D4EEDEF31857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF411857CFC400653625</string>
-				<string>D4EEDF401857CFBC00653625</string>
-				<string>D4EEDEFF1857C9D700653625</string>
-				<string>D4EEDF001857C9D700653625</string>
-				<string>D4EEDF021857C9D700653625</string>
-				<string>D4EEDF081857C9D700653625</string>
-				<string>D4EEDF051857C9D700653625</string>
-				<string>D4EEDEF41857C9D700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>promail</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEF41857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDEF51857C9D700653625</string>
-				<string>D4EEDEF61857C9D700653625</string>
-				<string>D4EEDEF91857C9D700653625</string>
-				<string>D4EEDEFB1857C9D700653625</string>
-				<string>D4EEDEFC1857C9D700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEF51857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>promail-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEF61857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDEF71857C9D700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEF71857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEF81857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDEF61857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDEF91857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEFA1857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDEF91857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDEFB1857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>promail-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEFC1857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDEFD1857C9D700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>Credits.rtf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEFD1857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.rtf</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/Credits.rtf</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDEFE1857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDEFC1857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDEFF1857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>PMAppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF001857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>PMAppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF011857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF001857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF021857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF031857C9D700653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>MainMenu.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF031857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>name</key>
-			<string>Base</string>
-			<key>path</key>
-			<string>Base.lproj/MainMenu.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF041857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF021857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF051857C9D700653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF061857C9D700653625</string>
-			</array>
-			<key>currentVersion</key>
-			<string>D4EEDF061857C9D700653625</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>promail.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>D4EEDF061857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>promail.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF071857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF051857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF081857C9D700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF091857C9D700653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF081857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF0A1857C9D800653625</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D4EEDF1B1857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D4EEDF0B1857C9D800653625</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D4EEDF111857C9D800653625</string>
-				<string>D4EEDF101857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D4EEDF0C1857C9D800653625</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>D4EEDF191857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D4EEDF0D1857C9D800653625</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>D4EEDF211857C9D800653625</string>
-			<key>buildPhases</key>
-			<array>
-				<string>D4EEDF0A1857C9D800653625</string>
-				<string>D4EEDF0B1857C9D800653625</string>
-				<string>D4EEDF0C1857C9D800653625</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>D4EEDF131857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>promailTests</string>
-			<key>productName</key>
-			<string>promailTests</string>
-			<key>productReference</key>
-			<string>D4EEDF0E1857C9D800653625</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>D4EEDF0E1857C9D800653625</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>promailTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D4EEDF0F1857C9D800653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>D4EEDF101857C9D800653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF0F1857C9D800653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF111857C9D800653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDEED1857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF121857C9D800653625</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D4EEDEE21857C9D700653625</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>D4EEDEE91857C9D700653625</string>
-			<key>remoteInfo</key>
-			<string>promail</string>
-		</dict>
-		<key>D4EEDF131857C9D800653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>D4EEDEE91857C9D700653625</string>
-			<key>targetProxy</key>
-			<string>D4EEDF121857C9D800653625</string>
-		</dict>
-		<key>D4EEDF141857C9D800653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF1A1857C9D800653625</string>
-				<string>D4EEDF151857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>promailTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF151857C9D800653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF161857C9D800653625</string>
-				<string>D4EEDF171857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF161857C9D800653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>promailTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF171857C9D800653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF181857C9D800653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF181857C9D800653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF191857C9D800653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF171857C9D800653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF1A1857C9D800653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>promailTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF1B1857C9D800653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF1A1857C9D800653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF1C1857C9D800653625</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.9</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D4EEDF1D1857C9D800653625</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>DEBUG_INFORMATION_FORMAT</key>
-				<string>dwarf-with-dsym</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_ENABLE_OBJC_EXCEPTIONS</key>
-				<string>YES</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>MACOSX_DEPLOYMENT_TARGET</key>
-				<string>10.9</string>
-				<key>SDKROOT</key>
-				<string>macosx</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D4EEDF1E1857C9D800653625</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D4EEDF1F1857C9D800653625</string>
-				<string>D4EEDF201857C9D800653625</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D4EEDF1F1857C9D800653625</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8AFECCB988D041EAAB5F6577</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>promail/promail-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>promail/promail-Info.plist</string>
-				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>-lctemplate</string>
-					<string>-letpan</string>
-					<string>-licudata</string>
-					<string>-licui18n</string>
-					<string>-licuuc</string>
-					<string>-lxml2</string>
-					<string>-lsasl2</string>
-					<string>-liconv</string>
-					<string>-ltidy</string>
-					<string>-lz</string>
-					<string>-lc++</string>
-					<string>-stdlib=libc++</string>
-					<string>-ObjC</string>
-					<string>-lcrypto</string>
-				</array>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D4EEDF201857C9D800653625</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>8AFECCB988D041EAAB5F6577</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>promail/promail-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>promail/promail-Info.plist</string>
-				<key>OTHER_LDFLAGS</key>
-				<array>
-					<string>-lctemplate</string>
-					<string>-letpan</string>
-					<string>-licudata</string>
-					<string>-licui18n</string>
-					<string>-licuuc</string>
-					<string>-lxml2</string>
-					<string>-lsasl2</string>
-					<string>-liconv</string>
-					<string>-ltidy</string>
-					<string>-lz</string>
-					<string>-lc++</string>
-					<string>-stdlib=libc++</string>
-					<string>-ObjC</string>
-					<string>-lcrypto</string>
-				</array>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D4EEDF211857C9D800653625</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>D4EEDF221857C9D800653625</string>
-				<string>D4EEDF231857C9D800653625</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>D4EEDF221857C9D800653625</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/promail.app/Contents/MacOS/promail</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>promail/promail-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>promailTests/promailTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>D4EEDF231857C9D800653625</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/promail.app/Contents/MacOS/promail</string>
-				<key>COMBINE_HIDPI_IMAGES</key>
-				<string>YES</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>promail/promail-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>promailTests/promailTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>D4EEDF241857C9F200653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.pb-project</string>
-			<key>name</key>
-			<string>mailcore2.xcodeproj</string>
-			<key>path</key>
-			<string>mailcore2/build-mac/mailcore2.xcodeproj</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF251857C9F200653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF2D1857C9F300653625</string>
-				<string>D4EEDF2F1857C9F300653625</string>
-				<string>D4EEDF311857C9F300653625</string>
-				<string>D4EEDF331857C9F300653625</string>
-				<string>D4EEDF351857C9F300653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF2C1857C9F300653625</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D4EEDF241857C9F200653625</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>2</string>
-			<key>remoteGlobalIDString</key>
-			<string>C64EA537169E772200778456</string>
-			<key>remoteInfo</key>
-			<string>static mailcore2 osx</string>
-		</dict>
-		<key>D4EEDF2D1857C9F300653625</key>
-		<dict>
-			<key>fileType</key>
-			<string>archive.ar</string>
-			<key>isa</key>
-			<string>PBXReferenceProxy</string>
-			<key>path</key>
-			<string>libMailCore.a</string>
-			<key>remoteRef</key>
-			<string>D4EEDF2C1857C9F300653625</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D4EEDF2E1857C9F300653625</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D4EEDF241857C9F200653625</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>2</string>
-			<key>remoteGlobalIDString</key>
-			<string>C6BA2C191705F4E6003F0E9E</string>
-			<key>remoteInfo</key>
-			<string>static mailcore2 ios</string>
-		</dict>
-		<key>D4EEDF2F1857C9F300653625</key>
-		<dict>
-			<key>fileType</key>
-			<string>archive.ar</string>
-			<key>isa</key>
-			<string>PBXReferenceProxy</string>
-			<key>path</key>
-			<string>libMailCore-ios.a</string>
-			<key>remoteRef</key>
-			<string>D4EEDF2E1857C9F300653625</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D4EEDF301857C9F300653625</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D4EEDF241857C9F200653625</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>2</string>
-			<key>remoteGlobalIDString</key>
-			<string>C64EA78C169F259200778456</string>
-			<key>remoteInfo</key>
-			<string>tests</string>
-		</dict>
-		<key>D4EEDF311857C9F300653625</key>
-		<dict>
-			<key>fileType</key>
-			<string>compiled.mach-o.executable</string>
-			<key>isa</key>
-			<string>PBXReferenceProxy</string>
-			<key>path</key>
-			<string>tests</string>
-			<key>remoteRef</key>
-			<string>D4EEDF301857C9F300653625</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D4EEDF321857C9F300653625</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D4EEDF241857C9F200653625</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>2</string>
-			<key>remoteGlobalIDString</key>
-			<string>C6A81B911706840C00882C15</string>
-			<key>remoteInfo</key>
-			<string>test-ios</string>
-		</dict>
-		<key>D4EEDF331857C9F300653625</key>
-		<dict>
-			<key>fileType</key>
-			<string>wrapper.application</string>
-			<key>isa</key>
-			<string>PBXReferenceProxy</string>
-			<key>path</key>
-			<string>test-ios.app</string>
-			<key>remoteRef</key>
-			<string>D4EEDF321857C9F300653625</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D4EEDF341857C9F300653625</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D4EEDF241857C9F200653625</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>2</string>
-			<key>remoteGlobalIDString</key>
-			<string>C6BD288D170BD71100A91AC1</string>
-			<key>remoteInfo</key>
-			<string>mailcore osx</string>
-		</dict>
-		<key>D4EEDF351857C9F300653625</key>
-		<dict>
-			<key>fileType</key>
-			<string>wrapper.framework</string>
-			<key>isa</key>
-			<string>PBXReferenceProxy</string>
-			<key>path</key>
-			<string>MailCore.framework</string>
-			<key>remoteRef</key>
-			<string>D4EEDF341857C9F300653625</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>D4EEDF371857CA0600653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Security.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Security.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>D4EEDF381857CA0600653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF371857CA0600653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF3B1857CB0900653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF351857C9F300653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF3C1857CB1700653625</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>D4EEDF241857C9F200653625</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>C6BD288C170BD71100A91AC1</string>
-			<key>remoteInfo</key>
-			<string>mailcore osx</string>
-		</dict>
-		<key>D4EEDF3D1857CB1700653625</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>name</key>
-			<string>mailcore osx</string>
-			<key>targetProxy</key>
-			<string>D4EEDF3C1857CB1700653625</string>
-		</dict>
-		<key>D4EEDF3E1857CB2300653625</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>dstPath</key>
-			<string></string>
-			<key>dstSubfolderSpec</key>
-			<string>10</string>
-			<key>files</key>
-			<array>
-				<string>D4EEDF3F1857CB3C00653625</string>
-			</array>
-			<key>isa</key>
-			<string>PBXCopyFilesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>D4EEDF3F1857CB3C00653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF351857C9F300653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF401857CFBC00653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF421857CFE300653625</string>
-				<string>D4AAB597186231DA00D38E9D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Resources</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF411857CFC400653625</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>D4EEDF441857CFFF00653625</string>
-				<string>D4EEDF451857CFFF00653625</string>
-				<string>D472DFBB1857D37B00596E10</string>
-				<string>D472DFBC1857D37B00596E10</string>
-				<string>D4AAB59D186231F100D38E9D</string>
-				<string>D4AAB59E186231F100D38E9D</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Controllers</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF421857CFE300653625</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>file.xib</string>
-			<key>path</key>
-			<string>MainWindow.xib</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF431857CFE300653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF421857CFE300653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>D4EEDF441857CFFF00653625</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>PMMainController.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF451857CFFF00653625</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>PMMainController.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>D4EEDF461857CFFF00653625</key>
-		<dict>
-			<key>fileRef</key>
-			<string>D4EEDF451857CFFF00653625</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>D4EEDEE21857C9D700653625</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEC80EFA28469188412AF3 /* libPods.a */; };
+		D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D472DFBC1857D37B00596E10 /* PMMailController.m */; };
+		D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* AccountsWindow.xib */; };
+		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
+		D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB5A818623CBB00D38E9D /* PMConstants.m */; };
+		D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
+		D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEF61857C9D700653625 /* InfoPlist.strings */; };
+		D4EEDEFA1857C9D700653625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDEF91857C9D700653625 /* main.m */; };
+		D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEFC1857C9D700653625 /* Credits.rtf */; };
+		D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDF001857C9D700653625 /* PMAppDelegate.m */; };
+		D4EEDF041857C9D700653625 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDF021857C9D700653625 /* MainMenu.xib */; };
+		D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDF051857C9D700653625 /* promail.xcdatamodeld */; };
+		D4EEDF091857C9D700653625 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDF081857C9D700653625 /* Images.xcassets */; };
+		D4EEDF101857C9D800653625 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDF0F1857C9D800653625 /* XCTest.framework */; };
+		D4EEDF111857C9D800653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
+		D4EEDF191857C9D800653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDF171857C9D800653625 /* InfoPlist.strings */; };
+		D4EEDF1B1857C9D800653625 /* promailTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDF1A1857C9D800653625 /* promailTests.m */; };
+		D4EEDF381857CA0600653625 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDF371857CA0600653625 /* Security.framework */; };
+		D4EEDF3B1857CB0900653625 /* MailCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDF351857C9F300653625 /* MailCore.framework */; };
+		D4EEDF3F1857CB3C00653625 /* MailCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4EEDF351857C9F300653625 /* MailCore.framework */; };
+		D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDF421857CFE300653625 /* MainWindow.xib */; };
+		D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDF451857CFFF00653625 /* PMMainController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D4EEDF121857C9D800653625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EEDEE21857C9D700653625 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D4EEDEE91857C9D700653625;
+			remoteInfo = promail;
+		};
+		D4EEDF2C1857C9F300653625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA537169E772200778456;
+			remoteInfo = "static mailcore2 osx";
+		};
+		D4EEDF2E1857C9F300653625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BA2C191705F4E6003F0E9E;
+			remoteInfo = "static mailcore2 ios";
+		};
+		D4EEDF301857C9F300653625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C64EA78C169F259200778456;
+			remoteInfo = tests;
+		};
+		D4EEDF321857C9F300653625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6A81B911706840C00882C15;
+			remoteInfo = "test-ios";
+		};
+		D4EEDF341857C9F300653625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C6BD288D170BD71100A91AC1;
+			remoteInfo = "mailcore osx";
+		};
+		D4EEDF3C1857CB1700653625 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C6BD288C170BD71100A91AC1;
+			remoteInfo = "mailcore osx";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D4EEDF3E1857CB2300653625 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				D4EEDF3F1857CB3C00653625 /* MailCore.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		CCFEC80EFA28469188412AF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D472DFBB1857D37B00596E10 /* PMMailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailController.h; sourceTree = "<group>"; };
+		D472DFBC1857D37B00596E10 /* PMMailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailController.m; sourceTree = "<group>"; };
+		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
+		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
+		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
+		D4AAB5A318623C3700D38E9D /* PMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMConstants.h; sourceTree = "<group>"; };
+		D4AAB5A818623CBB00D38E9D /* PMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConstants.m; sourceTree = "<group>"; };
+		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D4EEDEF11857C9D700653625 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D4EEDEF21857C9D700653625 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D4EEDEF51857C9D700653625 /* promail-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "promail-Info.plist"; sourceTree = "<group>"; };
+		D4EEDEF71857C9D700653625 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4EEDEF91857C9D700653625 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D4EEDEFB1857C9D700653625 /* promail-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "promail-Prefix.pch"; sourceTree = "<group>"; };
+		D4EEDEFD1857C9D700653625 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D4EEDEFF1857C9D700653625 /* PMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMAppDelegate.h; sourceTree = "<group>"; };
+		D4EEDF001857C9D700653625 /* PMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PMAppDelegate.m; sourceTree = "<group>"; };
+		D4EEDF031857C9D700653625 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D4EEDF061857C9D700653625 /* promail.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = promail.xcdatamodel; sourceTree = "<group>"; };
+		D4EEDF081857C9D700653625 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D4EEDF0E1857C9D800653625 /* promailTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = promailTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D4EEDF0F1857C9D800653625 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D4EEDF161857C9D800653625 /* promailTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "promailTests-Info.plist"; sourceTree = "<group>"; };
+		D4EEDF181857C9D800653625 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D4EEDF1A1857C9D800653625 /* promailTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = promailTests.m; sourceTree = "<group>"; };
+		D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = mailcore2.xcodeproj; path = "mailcore2/build-mac/mailcore2.xcodeproj"; sourceTree = "<group>"; };
+		D4EEDF371857CA0600653625 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D4EEDF421857CFE300653625 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
+		D4EEDF441857CFFF00653625 /* PMMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMainController.h; sourceTree = "<group>"; };
+		D4EEDF451857CFFF00653625 /* PMMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMainController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D4EEDEE71857C9D700653625 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EEDF3B1857CB0900653625 /* MailCore.framework in Frameworks */,
+				D4EEDF381857CA0600653625 /* Security.framework in Frameworks */,
+				D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */,
+				884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EEDF0B1857C9D800653625 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EEDF111857C9D800653625 /* Cocoa.framework in Frameworks */,
+				D4EEDF101857C9D800653625 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D4EEDEE11857C9D700653625 = {
+			isa = PBXGroup;
+			children = (
+				D4EEDEF31857C9D700653625 /* promail */,
+				D4EEDF141857C9D800653625 /* promailTests */,
+				D4EEDEEC1857C9D700653625 /* Frameworks */,
+				D4EEDEEB1857C9D700653625 /* Products */,
+				D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */,
+				8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		D4EEDEEB1857C9D700653625 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDEEA1857C9D700653625 /* promail.app */,
+				D4EEDF0E1857C9D800653625 /* promailTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4EEDEEC1857C9D700653625 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF371857CA0600653625 /* Security.framework */,
+				D4EEDEED1857C9D700653625 /* Cocoa.framework */,
+				D4EEDF0F1857C9D800653625 /* XCTest.framework */,
+				D4EEDEEF1857C9D700653625 /* Other Frameworks */,
+				CCFEC80EFA28469188412AF3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D4EEDEEF1857C9D700653625 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDEF01857C9D700653625 /* AppKit.framework */,
+				D4EEDEF11857C9D700653625 /* CoreData.framework */,
+				D4EEDEF21857C9D700653625 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D4EEDEF31857C9D700653625 /* promail */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF411857CFC400653625 /* Controllers */,
+				D4EEDF401857CFBC00653625 /* Resources */,
+				D4EEDEFF1857C9D700653625 /* PMAppDelegate.h */,
+				D4EEDF001857C9D700653625 /* PMAppDelegate.m */,
+				D4EEDF021857C9D700653625 /* MainMenu.xib */,
+				D4EEDF081857C9D700653625 /* Images.xcassets */,
+				D4EEDF051857C9D700653625 /* promail.xcdatamodeld */,
+				D4EEDEF41857C9D700653625 /* Supporting Files */,
+				D4AAB5A318623C3700D38E9D /* PMConstants.h */,
+				D4AAB5A818623CBB00D38E9D /* PMConstants.m */,
+			);
+			path = promail;
+			sourceTree = "<group>";
+		};
+		D4EEDEF41857C9D700653625 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDEF51857C9D700653625 /* promail-Info.plist */,
+				D4EEDEF61857C9D700653625 /* InfoPlist.strings */,
+				D4EEDEF91857C9D700653625 /* main.m */,
+				D4EEDEFB1857C9D700653625 /* promail-Prefix.pch */,
+				D4EEDEFC1857C9D700653625 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4EEDF141857C9D800653625 /* promailTests */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF1A1857C9D800653625 /* promailTests.m */,
+				D4EEDF151857C9D800653625 /* Supporting Files */,
+			);
+			path = promailTests;
+			sourceTree = "<group>";
+		};
+		D4EEDF151857C9D800653625 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF161857C9D800653625 /* promailTests-Info.plist */,
+				D4EEDF171857C9D800653625 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D4EEDF251857C9F200653625 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF2D1857C9F300653625 /* libMailCore.a */,
+				D4EEDF2F1857C9F300653625 /* libMailCore-ios.a */,
+				D4EEDF311857C9F300653625 /* tests */,
+				D4EEDF331857C9F300653625 /* test-ios.app */,
+				D4EEDF351857C9F300653625 /* MailCore.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D4EEDF401857CFBC00653625 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF421857CFE300653625 /* MainWindow.xib */,
+				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		D4EEDF411857CFC400653625 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF441857CFFF00653625 /* PMMainController.h */,
+				D4EEDF451857CFFF00653625 /* PMMainController.m */,
+				D472DFBB1857D37B00596E10 /* PMMailController.h */,
+				D472DFBC1857D37B00596E10 /* PMMailController.m */,
+				D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */,
+				D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D4EEDEE91857C9D700653625 /* promail */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4EEDF1E1857C9D800653625 /* Build configuration list for PBXNativeTarget "promail" */;
+			buildPhases = (
+				ACB781ACF0324C0AB2DBDE75 /* Check Pods Manifest.lock */,
+				D4EEDEE61857C9D700653625 /* Sources */,
+				D4EEDEE71857C9D700653625 /* Frameworks */,
+				D4EEDEE81857C9D700653625 /* Resources */,
+				D4EEDF3E1857CB2300653625 /* CopyFiles */,
+				3EB151FF531E4347A000EFF5 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4EEDF3D1857CB1700653625 /* PBXTargetDependency */,
+			);
+			name = promail;
+			productName = promail;
+			productReference = D4EEDEEA1857C9D700653625 /* promail.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D4EEDF0D1857C9D800653625 /* promailTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D4EEDF211857C9D800653625 /* Build configuration list for PBXNativeTarget "promailTests" */;
+			buildPhases = (
+				D4EEDF0A1857C9D800653625 /* Sources */,
+				D4EEDF0B1857C9D800653625 /* Frameworks */,
+				D4EEDF0C1857C9D800653625 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D4EEDF131857C9D800653625 /* PBXTargetDependency */,
+			);
+			name = promailTests;
+			productName = promailTests;
+			productReference = D4EEDF0E1857C9D800653625 /* promailTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D4EEDEE21857C9D700653625 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PM;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = schultyy;
+				TargetAttributes = {
+					D4EEDF0D1857C9D800653625 = {
+						TestTargetID = D4EEDEE91857C9D700653625;
+					};
+				};
+			};
+			buildConfigurationList = D4EEDEE51857C9D700653625 /* Build configuration list for PBXProject "promail" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D4EEDEE11857C9D700653625;
+			productRefGroup = D4EEDEEB1857C9D700653625 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D4EEDF251857C9F200653625 /* Products */;
+					ProjectRef = D4EEDF241857C9F200653625 /* mailcore2.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D4EEDEE91857C9D700653625 /* promail */,
+				D4EEDF0D1857C9D800653625 /* promailTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D4EEDF2D1857C9F300653625 /* libMailCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMailCore.a;
+			remoteRef = D4EEDF2C1857C9F300653625 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D4EEDF2F1857C9F300653625 /* libMailCore-ios.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libMailCore-ios.a";
+			remoteRef = D4EEDF2E1857C9F300653625 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D4EEDF311857C9F300653625 /* tests */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = tests;
+			remoteRef = D4EEDF301857C9F300653625 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D4EEDF331857C9F300653625 /* test-ios.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "test-ios.app";
+			remoteRef = D4EEDF321857C9F300653625 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D4EEDF351857C9F300653625 /* MailCore.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MailCore.framework;
+			remoteRef = D4EEDF341857C9F300653625 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D4EEDEE81857C9D700653625 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */,
+				D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */,
+				D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */,
+				D4EEDF091857C9D700653625 /* Images.xcassets in Resources */,
+				D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */,
+				D4EEDF041857C9D700653625 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EEDF0C1857C9D800653625 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EEDF191857C9D800653625 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3EB151FF531E4347A000EFF5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ACB781ACF0324C0AB2DBDE75 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D4EEDEE61857C9D700653625 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EEDEFA1857C9D700653625 /* main.m in Sources */,
+				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
+				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
+				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
+				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
+				D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */,
+				D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D4EEDF0A1857C9D800653625 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D4EEDF1B1857C9D800653625 /* promailTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4EEDF131857C9D800653625 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D4EEDEE91857C9D700653625 /* promail */;
+			targetProxy = D4EEDF121857C9D800653625 /* PBXContainerItemProxy */;
+		};
+		D4EEDF3D1857CB1700653625 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "mailcore osx";
+			targetProxy = D4EEDF3C1857CB1700653625 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D4EEDEF61857C9D700653625 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4EEDEF71857C9D700653625 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D4EEDEFC1857C9D700653625 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4EEDEFD1857C9D700653625 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D4EEDF021857C9D700653625 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4EEDF031857C9D700653625 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D4EEDF171857C9D800653625 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D4EEDF181857C9D800653625 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D4EEDF1C1857C9D800653625 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D4EEDF1D1857C9D800653625 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D4EEDF1F1857C9D800653625 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "promail/promail-Prefix.pch";
+				INFOPLIST_FILE = "promail/promail-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lctemplate",
+					"-letpan",
+					"-licudata",
+					"-licui18n",
+					"-licuuc",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-stdlib=libc++",
+					"-ObjC",
+					"-lcrypto",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D4EEDF201857C9D800653625 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "promail/promail-Prefix.pch";
+				INFOPLIST_FILE = "promail/promail-Info.plist";
+				OTHER_LDFLAGS = (
+					"-lctemplate",
+					"-letpan",
+					"-licudata",
+					"-licui18n",
+					"-licuuc",
+					"-lxml2",
+					"-lsasl2",
+					"-liconv",
+					"-ltidy",
+					"-lz",
+					"-lc++",
+					"-stdlib=libc++",
+					"-ObjC",
+					"-lcrypto",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D4EEDF221857C9D800653625 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/promail.app/Contents/MacOS/promail";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "promail/promail-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "promailTests/promailTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D4EEDF231857C9D800653625 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/promail.app/Contents/MacOS/promail";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "promail/promail-Prefix.pch";
+				INFOPLIST_FILE = "promailTests/promailTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D4EEDEE51857C9D700653625 /* Build configuration list for PBXProject "promail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4EEDF1C1857C9D800653625 /* Debug */,
+				D4EEDF1D1857C9D800653625 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4EEDF1E1857C9D800653625 /* Build configuration list for PBXNativeTarget "promail" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4EEDF1F1857C9D800653625 /* Debug */,
+				D4EEDF201857C9D800653625 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D4EEDF211857C9D800653625 /* Build configuration list for PBXNativeTarget "promailTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D4EEDF221857C9D800653625 /* Debug */,
+				D4EEDF231857C9D800653625 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D4EEDF051857C9D700653625 /* promail.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D4EEDF061857C9D700653625 /* promail.xcdatamodel */,
+			);
+			currentVersion = D4EEDF061857C9D700653625 /* promail.xcdatamodel */;
+			path = promail.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D4EEDEE21857C9D700653625 /* Project object */;
+}
