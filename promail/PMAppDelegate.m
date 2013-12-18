@@ -19,7 +19,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
-    [self setMainController: [[PMMainController alloc] init]];
+    [self setMainController: [[PMMainController alloc] initWithObjectContext: self.managedObjectContext]];
     
     [[self mainController] showWindow: self];
 }

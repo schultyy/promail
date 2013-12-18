@@ -13,7 +13,7 @@
         <customObject id="-3" userLabel="Application"/>
         <arrayController mode="entity" entityName="Account" automaticallyPreparesContent="YES" id="cL7-pM-0Kd">
             <connections>
-                <binding destination="-2" name="managedObjectContext" keyPath="managedContext" id="w7v-Wf-Tb5"/>
+                <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="mrv-ha-LZL"/>
                 <binding destination="-2" name="selectionIndexes" keyPath="selections" id="Kdy-Uu-IIG"/>
             </connections>
         </arrayController>

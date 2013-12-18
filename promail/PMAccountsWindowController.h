@@ -10,7 +10,7 @@
 
 @interface PMAccountsWindowController : NSWindowController<NSWindowDelegate>
 
-@property (assign) NSManagedObjectContext *managedContext;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (retain) NSMutableIndexSet *selections;
 

@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PMMailController.h"
 
 @interface PMMainController : NSWindowController
 
 @property (retain) NSMutableArray *mails;
 
-@property (retain) PMMailController *mailController;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+
+-(id) initWithObjectContext: (NSManagedObjectContext *) context;
+
+-(IBAction)loadMails:(id)sender;
 
 @end

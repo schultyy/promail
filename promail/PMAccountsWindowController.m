@@ -20,7 +20,7 @@
 {
     self = [super initWithWindowNibName:@"AccountsWindow"];
     if (self) {
-        [self setManagedContext:context];
+        [self setManagedObjectContext:context];
         [self setSelections: [[NSMutableIndexSet alloc]init]];
     }
     return self;
@@ -31,13 +31,14 @@
     [super windowDidLoad];
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
+    [[self window] setDelegate:self];
 }
 
 -(NSArray *) accounts{
     id fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity: [NSEntityDescription entityForName:@"Account"
-                                         inManagedObjectContext: [self managedContext]]];
-    id context = [self managedContext];
+                                         inManagedObjectContext: [self managedObjectContext]]];
+    id context = [self managedObjectContext];
     NSError *error = nil;
     return [context executeFetchRequest:fetchRequest error:&error];
 }
@@ -46,7 +47,7 @@
     
     NSError *error;
     
-    [[self managedContext] save: &error];
+    [[self managedObjectContext] save: &error];
     return YES;
 }
 

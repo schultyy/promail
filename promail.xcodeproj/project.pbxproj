@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEC80EFA28469188412AF3 /* libPods.a */; };
-		D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D472DFBC1857D37B00596E10 /* PMMailController.m */; };
 		D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* AccountsWindow.xib */; };
 		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
 		D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB5A818623CBB00D38E9D /* PMConstants.m */; };
@@ -99,8 +98,6 @@
 /* Begin PBXFileReference section */
 		8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CCFEC80EFA28469188412AF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D472DFBB1857D37B00596E10 /* PMMailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailController.h; sourceTree = "<group>"; };
-		D472DFBC1857D37B00596E10 /* PMMailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailController.m; sourceTree = "<group>"; };
 		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
 		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
 		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
@@ -273,8 +270,6 @@
 			children = (
 				D4EEDF441857CFFF00653625 /* PMMainController.h */,
 				D4EEDF451857CFFF00653625 /* PMMainController.m */,
-				D472DFBB1857D37B00596E10 /* PMMailController.h */,
-				D472DFBC1857D37B00596E10 /* PMMailController.m */,
 				D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */,
 				D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */,
 			);
@@ -468,7 +463,6 @@
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
 				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
 				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
-				D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */,
 				D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
