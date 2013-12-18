@@ -56,9 +56,7 @@
     
     NSManagedObject *account = [[self accounts] objectAtIndex:index];
     
-    NSString *accountName = [account valueForKey:@"name"];
-    
-    [SSKeychain setPassword: [self password] forService:PMApplicationName account: accountName];
+    [SSKeychain setPassword: [self password] forService:PMApplicationName account: [account valueForKey:@"email"]];
     
     [self setPassword:@""];
 }

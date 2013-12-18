@@ -91,6 +91,7 @@
                                     </tableColumns>
                                     <connections>
                                         <binding destination="cL7-pM-0Kd" name="content" keyPath="arrangedObjects" id="PHb-03-VdK"/>
+                                        <binding destination="cL7-pM-0Kd" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="PHb-03-VdK" id="dAk-WE-pmd"/>
                                     </connections>
                                 </tableView>
                             </subviews>
@@ -201,6 +202,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="setNewPassword:" target="-2" id="WXZ-vz-Q9k"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
