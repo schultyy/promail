@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D472DFBC1857D37B00596E10 /* PMMailController.m */; };
 		D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
 		D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEF61857C9D700653625 /* InfoPlist.strings */; };
 		D4EEDEFA1857C9D700653625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDEF91857C9D700653625 /* main.m */; };
@@ -92,6 +93,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D472DFBB1857D37B00596E10 /* PMMailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailController.h; sourceTree = "<group>"; };
+		D472DFBC1857D37B00596E10 /* PMMailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailController.m; sourceTree = "<group>"; };
 		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -253,6 +256,8 @@
 			children = (
 				D4EEDF441857CFFF00653625 /* PMMainController.h */,
 				D4EEDF451857CFFF00653625 /* PMMainController.m */,
+				D472DFBB1857D37B00596E10 /* PMMailController.h */,
+				D472DFBC1857D37B00596E10 /* PMMailController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -407,6 +412,7 @@
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
 				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
+				D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +660,7 @@
 				D4EEDF201857C9D800653625 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D4EEDF211857C9D800653625 /* Build configuration list for PBXNativeTarget "promailTests" */ = {
 			isa = XCConfigurationList;
@@ -662,6 +669,7 @@
 				D4EEDF231857C9D800653625 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

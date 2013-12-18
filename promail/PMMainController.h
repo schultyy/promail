@@ -7,7 +7,12 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PMMailController.h"
 
 @interface PMMainController : NSWindowController
+
+@property (retain) NSMutableArray *mails;
+
+@property (retain) PMMailController *mailController;
 
 @end
