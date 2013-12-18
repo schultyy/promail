@@ -87,8 +87,16 @@
     }
     
     NSURL *url = [applicationFilesDirectory URLByAppendingPathComponent:@"promail.storedata"];
+    
+    
+    NSMutableDictionary *options = [NSMutableDictionary dictionary];
+    [options setValue:[NSNumber numberWithBool:YES]
+               forKey:NSMigratePersistentStoresAutomaticallyOption];
+    [options setValue:[NSNumber numberWithBool:YES]
+               forKey:NSInferMappingModelAutomaticallyOption];
+    
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:nil error:&error]) {
+    if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }

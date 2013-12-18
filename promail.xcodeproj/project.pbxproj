@@ -103,6 +103,7 @@
 		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
 		D4AAB5A318623C3700D38E9D /* PMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMConstants.h; sourceTree = "<group>"; };
 		D4AAB5A818623CBB00D38E9D /* PMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConstants.m; sourceTree = "<group>"; };
+		D4AAB5AA18624ADA00D38E9D /* promail_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = promail_2.xcdatamodel; sourceTree = "<group>"; };
 		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -730,9 +731,10 @@
 		D4EEDF051857C9D700653625 /* promail.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D4AAB5AA18624ADA00D38E9D /* promail_2.xcdatamodel */,
 				D4EEDF061857C9D700653625 /* promail.xcdatamodel */,
 			);
-			currentVersion = D4EEDF061857C9D700653625 /* promail.xcdatamodel */;
+			currentVersion = D4AAB5AA18624ADA00D38E9D /* promail_2.xcdatamodel */;
 			path = promail.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
