@@ -112,6 +112,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.name" id="C8N-D1-D9n"/>
+                        </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pEH-SC-reY">
                         <rect key="frame" x="256" y="304" width="324" height="22"/>
@@ -121,6 +124,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.email" id="U3A-pN-Ytq"/>
+                        </connections>
                     </textField>
                     <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zLZ-3P-VHG">
                         <rect key="frame" x="256" y="251" width="324" height="22"/>
