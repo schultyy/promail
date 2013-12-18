@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D472DFBC1857D37B00596E10 /* PMMailController.m */; };
+		D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* AccountsWindow.xib */; };
+		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
 		D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
 		D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEF61857C9D700653625 /* InfoPlist.strings */; };
 		D4EEDEFA1857C9D700653625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDEF91857C9D700653625 /* main.m */; };
@@ -95,6 +97,9 @@
 /* Begin PBXFileReference section */
 		D472DFBB1857D37B00596E10 /* PMMailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailController.h; sourceTree = "<group>"; };
 		D472DFBC1857D37B00596E10 /* PMMailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailController.m; sourceTree = "<group>"; };
+		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
+		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
+		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
 		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -247,6 +252,7 @@
 			isa = PBXGroup;
 			children = (
 				D4EEDF421857CFE300653625 /* MainWindow.xib */,
+				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 				D4EEDF451857CFFF00653625 /* PMMainController.m */,
 				D472DFBB1857D37B00596E10 /* PMMailController.h */,
 				D472DFBC1857D37B00596E10 /* PMMailController.m */,
+				D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */,
+				D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -386,6 +394,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */,
+				D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */,
 				D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */,
 				D4EEDF091857C9D700653625 /* Images.xcassets in Resources */,
 				D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */,
@@ -412,6 +421,7 @@
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
 				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
+				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
 				D472DFBD1857D37B00596E10 /* PMMailController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
