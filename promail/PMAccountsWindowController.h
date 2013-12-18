@@ -12,4 +12,6 @@
 
 @property (assign) NSManagedObjectContext *managedContext;
 
+-(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
+
 @end

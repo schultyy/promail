@@ -14,11 +14,11 @@
 
 @implementation PMAccountsWindowController
 
-- (id)init
+- (id)initWithManagedObjectContext:(NSManagedObjectContext *)context
 {
     self = [super initWithWindowNibName:@"AccountsWindow"];
     if (self) {
-        // Initialization code here.
+        [self setManagedContext:context];
     }
     return self;
 }

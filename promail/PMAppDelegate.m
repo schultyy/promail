@@ -187,8 +187,7 @@
 
 -(IBAction)preferences:(id)sender{
     if(![self accountsController]){
-        [self setAccountsController: [[PMAccountsWindowController alloc] init]];
-        [[self accountsController] setManagedContext: [self managedObjectContext]];
+        [self setAccountsController: [[PMAccountsWindowController alloc] initWithManagedObjectContext: [self managedObjectContext]]];
     }
     [[self accountsController] showWindow: self];
 }
