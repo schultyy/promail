@@ -10,4 +10,6 @@
 
 @interface PMAccountsWindowController : NSWindowController
 
+@property (assign) NSManagedObjectContext *managedContext;
+
 @end

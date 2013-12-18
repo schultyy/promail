@@ -8,6 +8,7 @@
 
 #import "PMAppDelegate.h"
 #import <MailCore/MailCore.h>
+#import "PMAccountsWindowController.h"
 
 @implementation PMAppDelegate
 
@@ -182,6 +183,14 @@
     }
 
     return NSTerminateNow;
+}
+
+-(IBAction)preferences:(id)sender{
+    if(![self accountsController]){
+        [self setAccountsController: [[PMAccountsWindowController alloc] init]];
+        [[self accountsController] setManagedContext: [self managedObjectContext]];
+    }
+    [[self accountsController] showWindow: self];
 }
 
 @end

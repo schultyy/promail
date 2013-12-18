@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PMMainController.h"
+#import "PMAccountsWindowController.h"
 
 @interface PMAppDelegate : NSObject <NSApplicationDelegate>
 
@@ -16,8 +17,11 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (retain) PMAccountsWindowController *accountsController;
 @property (retain) PMMainController *mainController;
 
 - (IBAction)saveAction:(id)sender;
+
+-(IBAction)preferences:(id)sender;
 
 @end
