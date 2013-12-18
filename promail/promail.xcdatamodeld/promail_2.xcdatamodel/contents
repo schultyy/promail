@@ -3,6 +3,7 @@
     <entity name="Account" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="messages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="account" inverseEntity="Message" syncable="YES"/>
     </entity>
     <entity name="Message" syncable="YES">
         <attribute name="bcc" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,6 +13,7 @@
         <attribute name="received" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="to" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="messages" inverseEntity="Account" syncable="YES"/>
     </entity>
     <elements>
         <element name="Account" positionX="0" positionY="0" width="0" height="0"/>
