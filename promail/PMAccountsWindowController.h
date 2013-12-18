@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PMAccountsWindowController : NSWindowController
+@interface PMAccountsWindowController : NSWindowController<NSWindowDelegate>
 
 @property (assign) NSManagedObjectContext *managedContext;
 
