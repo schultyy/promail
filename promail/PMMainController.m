@@ -22,7 +22,6 @@
 {
     self = [super initWithWindowNibName:@"MainWindow"];
     if(self){
-        [self setMails: [NSMutableArray array]];
         [self setManagedObjectContext: context];
     }
     return self;
@@ -42,8 +41,7 @@
 
 -(IBAction)loadMails:(id)sender{
     Underscore.arrayEach([self accounts], ^(id obj){
-        NSString *email = [obj valueForKey:@"email"];
-        [self fetchMailsForAccount:email];
+        [self fetchMailsForAccount: obj];
     });
 }
 
@@ -51,12 +49,12 @@
     return [SSKeychain passwordForService:PMApplicationName account:email];
 }
 
--(void) fetchMailsForAccount: (NSString *) email{
+-(void) fetchMailsForAccount: (NSManagedObject *) account{
     MCOIMAPSession *session = [[MCOIMAPSession alloc] init];
     session.hostname = @"imap.gmail.com";
     session.port = 993;
-    session.username = email;
-    session.password = [self fetchPassword:email];
+    session.username = [account valueForKey:@"email"];
+    session.password = [self fetchPassword: [account valueForKey: @"email"]];
     session.connectionType = MCOConnectionTypeTLS;
     
     MCOIndexSet *uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];
@@ -72,11 +70,27 @@
         if(error) {
             NSLog(@"Error downloading message headers:%@", error);
         }
-        
-        [[self mails] addObjectsFromArray:fetchedMessages];
-        [self willChangeValueForKey:@"mails"];
-        [self didChangeValueForKey:@"mails"];
+        [self processNewMails:fetchedMessages forAccount: account];
     }];
+}
+
+-(NSManagedObject *) createNewMessage{
+    return [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext: self.managedObjectContext];
+}
+
+-(void) processNewMails: (NSArray *) newMails forAccount: (NSManagedObject *) account{
+    Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
+        id msg = [self createNewMessage];
+        [msg setValue:account forKey:@"account"];
+        NSString *subject = obj.header.subject;
+        [msg setValue: subject forKey: @"subject"];
+    });
+    NSError *errors = nil;
+    [[self managedObjectContext] save:&errors];
+    if(!errors){
+        return;
+    }
+    NSLog(@"Errors: %@", [errors localizedDescription]);
 }
 
 @end

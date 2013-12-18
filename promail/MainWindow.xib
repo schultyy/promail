@@ -60,7 +60,7 @@
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
                                                             <connections>
-                                                                <binding destination="1pC-O9-gwi" name="value" keyPath="objectValue.header.subject" id="smA-JI-SgG"/>
+                                                                <binding destination="1pC-O9-gwi" name="value" keyPath="objectValue.subject" id="jK1-pg-F6y"/>
                                                             </connections>
                                                         </textField>
                                                     </subviews>
@@ -101,12 +101,12 @@
                 </subviews>
             </view>
         </window>
-        <arrayController objectClassName="MCOIMAPMessage" id="7LD-dg-uBT">
+        <arrayController mode="entity" entityName="Message" automaticallyPreparesContent="YES" id="7LD-dg-uBT">
             <declaredKeys>
                 <string>Key</string>
             </declaredKeys>
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="mails" id="YG2-gc-Mp9"/>
+                <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="Oqn-ps-ujo"/>
             </connections>
         </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="86A-uS-ZDV"/>

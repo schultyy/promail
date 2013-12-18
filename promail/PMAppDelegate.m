@@ -96,7 +96,7 @@
                forKey:NSInferMappingModelAutomaticallyOption];
     
     NSPersistentStoreCoordinator *coordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:mom];
-    if (![coordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:url options:options error:&error]) {
+    if (![coordinator addPersistentStoreWithType:NSXMLStoreType configuration:nil URL:url options:options error:&error]) {
         [[NSApplication sharedApplication] presentError:error];
         return nil;
     }

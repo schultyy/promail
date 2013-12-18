@@ -10,8 +10,6 @@
 
 @interface PMMainController : NSWindowController
 
-@property (retain) NSMutableArray *mails;
-
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
