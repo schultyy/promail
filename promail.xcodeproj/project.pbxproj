@@ -205,7 +205,6 @@
 				D4EEDF401857CFBC00653625 /* Resources */,
 				D4EEDEFF1857C9D700653625 /* PMAppDelegate.h */,
 				D4EEDF001857C9D700653625 /* PMAppDelegate.m */,
-				D4EEDF021857C9D700653625 /* MainMenu.xib */,
 				D4EEDF081857C9D700653625 /* Images.xcassets */,
 				D4EEDF051857C9D700653625 /* promail.xcdatamodeld */,
 				D4EEDEF41857C9D700653625 /* Supporting Files */,
@@ -260,6 +259,7 @@
 		D4EEDF401857CFBC00653625 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D4EEDF021857C9D700653625 /* MainMenu.xib */,
 				D4EEDF421857CFE300653625 /* MainWindow.xib */,
 				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
 			);

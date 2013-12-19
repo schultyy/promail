@@ -64,9 +64,6 @@
                                               uids:uidSet];
     
     [fetchOperation start:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
-        //We've finished downloading the messages!
-        
-        //Let's check if there was an error:
         if(error) {
             NSLog(@"Error downloading message headers:%@", error);
         }
@@ -82,8 +79,21 @@
     Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
         id msg = [self createNewMessage];
         [msg setValue:account forKey:@"account"];
+        
+
         NSString *subject = obj.header.subject;
+        NSString *from = obj.header.from.mailbox;
+        NSString *to   = [obj.header.to componentsJoinedByString:@","];
+        NSString *cc   = [obj.header.cc componentsJoinedByString:@","];
+        NSString *bcc  = [obj.header.bcc componentsJoinedByString:@","];
+
         [msg setValue: subject forKey: @"subject"];
+        [msg setValue:from forKey:@"from"];
+        [msg setValue:to forKey: @"to"];
+        [msg setValue:cc forKey:@"cc"];
+        [msg setValue:bcc forKey:@"bcc"];
+        [msg setValue: [[obj header] messageID] forKey: @"message_id"];
+        [msg setValue: [[obj header] date] forKey: @"date"];
     });
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];
