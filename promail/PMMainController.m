@@ -84,7 +84,13 @@
         
         NSString *subject = obj.header.subject;
         NSString *from = obj.header.from.mailbox;
-        NSString *to   = [obj.header.to componentsJoinedByString:@","];
+        
+        NSArray *toList = Underscore.array([[obj header] to])
+            .map(^id (MCOAddress *address){
+                return [address nonEncodedRFC822String];
+        }).unwrap;
+        
+        NSString *to   = [toList componentsJoinedByString:@","];
         NSString *cc   = [obj.header.cc componentsJoinedByString:@","];
         NSString *bcc  = [obj.header.bcc componentsJoinedByString:@","];
 

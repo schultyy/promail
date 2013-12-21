@@ -21,14 +21,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="101" horizontalPageScroll="10" verticalLineScroll="101" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb5-yo-YnW">
-                        <rect key="frame" x="-1" y="-1" width="423" height="489"/>
+                        <rect key="frame" x="-1" y="-1" width="423" height="469"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="P6g-Z9-fiI">
-                            <rect key="frame" x="1" y="1" width="421" height="487"/>
+                            <rect key="frame" x="1" y="1" width="421" height="467"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="99" rowSizeStyle="automatic" viewBased="YES" id="4NY-ya-9Cb">
-                                    <rect key="frame" x="0.0" y="0.0" width="421" height="487"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="421" height="467"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,7 +52,7 @@
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <subviews>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="osU-WR-gJu">
-                                                            <rect key="frame" x="0.0" y="82" width="418" height="17"/>
+                                                            <rect key="frame" x="2" y="79" width="418" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="From" id="ErW-J0-lwC">
                                                                 <font key="font" metaFont="system"/>
@@ -68,7 +68,7 @@
                                                             </connections>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="izl-9K-3vW">
-                                                            <rect key="frame" x="0.0" y="10" width="418" height="39"/>
+                                                            <rect key="frame" x="2" y="10" width="418" height="39"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Subject" id="5IJ-6w-lep">
                                                                 <font key="font" metaFont="system"/>
@@ -80,7 +80,7 @@
                                                             </connections>
                                                         </textField>
                                                         <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k5J-X8-sgW">
-                                                            <rect key="frame" x="0.0" y="57" width="418" height="17"/>
+                                                            <rect key="frame" x="2" y="57" width="418" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="To" id="JQ5-8F-vDL">
                                                                 <font key="font" metaFont="system"/>
@@ -96,10 +96,10 @@
                                                             </connections>
                                                         </textField>
                                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64r-Vd-JGR">
-                                                            <rect key="frame" x="2" y="10" width="415" height="17"/>
+                                                            <rect key="frame" x="2" y="3" width="415" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Date" id="iHl-bs-SGl">
-                                                                <dateFormatter key="formatter" dateStyle="short" timeStyle="short" id="koV-yu-Ema"/>
+                                                                <dateFormatter key="formatter" dateStyle="short" timeStyle="medium" doesRelativeDateFormatting="YES" id="koV-yu-Ema"/>
                                                                 <font key="font" metaFont="system"/>
                                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -132,6 +132,17 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
+                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t4v-aC-eH0">
+                        <rect key="frame" x="396" y="473" width="28" height="29"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <buttonCell key="cell" type="bevel" bezelStyle="regularSquare" image="NSRefreshFreestandingTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5u6-Q7-Z9v">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system" size="10"/>
+                        </buttonCell>
+                        <connections>
+                            <action selector="loadMails:" target="-2" id="GrG-Tr-hmW"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="vb5-yo-YnW" secondAttribute="bottom" constant="-1" id="6M7-xI-SXg"/>
@@ -150,4 +161,7 @@
         </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="86A-uS-ZDV"/>
     </objects>
+    <resources>
+        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
+    </resources>
 </document>
