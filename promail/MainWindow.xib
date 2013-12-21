@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A2093" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
@@ -14,13 +14,13 @@
         <window title="promail" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="196" y="240" width="421" height="523"/>
+            <rect key="contentRect" x="196" y="240" width="960" height="523"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="2">
-                <rect key="frame" x="0.0" y="0.0" width="421" height="523"/>
+                <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="101" horizontalPageScroll="10" verticalLineScroll="101" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb5-yo-YnW">
+                    <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="101" horizontalPageScroll="10" verticalLineScroll="101" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vb5-yo-YnW">
                         <rect key="frame" x="-1" y="-1" width="423" height="489"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="P6g-Z9-fiI">
@@ -95,6 +95,19 @@
                                                                 </binding>
                                                             </connections>
                                                         </textField>
+                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="64r-Vd-JGR">
+                                                            <rect key="frame" x="2" y="10" width="415" height="17"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Date" id="iHl-bs-SGl">
+                                                                <dateFormatter key="formatter" dateStyle="short" timeStyle="short" id="koV-yu-Ema"/>
+                                                                <font key="font" metaFont="system"/>
+                                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                            </textFieldCell>
+                                                            <connections>
+                                                                <binding destination="1pC-O9-gwi" name="value" keyPath="objectValue.date" id="eQ3-3h-JrC"/>
+                                                            </connections>
+                                                        </textField>
                                                     </subviews>
                                                     <connections>
                                                         <outlet property="textField" destination="osU-WR-gJu" id="z48-vr-tvc"/>
@@ -119,18 +132,11 @@
                             <autoresizingMask key="autoresizingMask"/>
                         </scroller>
                     </scrollView>
-                    <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-rg-Xro">
-                        <rect key="frame" x="377" y="495" width="24" height="17"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="NSRefreshFreestandingTemplate" imagePosition="overlaps" alignment="center" controlSize="small" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="PqS-4T-0Kb">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
-                            <font key="font" metaFont="systemBold" size="12"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="loadMails:" target="-2" id="R4J-xv-hfG"/>
-                        </connections>
-                    </button>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="vb5-yo-YnW" secondAttribute="bottom" constant="-1" id="6M7-xI-SXg"/>
+                    <constraint firstItem="vb5-yo-YnW" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="-1" id="nbM-2e-0vt"/>
+                </constraints>
             </view>
         </window>
         <arrayController mode="entity" entityName="Message" automaticallyPreparesContent="YES" id="7LD-dg-uBT">
@@ -139,11 +145,9 @@
             </declaredKeys>
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="Oqn-ps-ujo"/>
+                <binding destination="-2" name="sortDescriptors" keyPath="sortDescriptors" id="fBD-VI-ueC"/>
             </connections>
         </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="86A-uS-ZDV"/>
     </objects>
-    <resources>
-        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
-    </resources>
 </document>

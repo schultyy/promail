@@ -12,6 +12,8 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
+@property (retain) NSArray *sortDescriptors;
+
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
 
 -(IBAction)loadMails:(id)sender;

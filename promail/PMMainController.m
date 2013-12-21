@@ -23,6 +23,8 @@
     self = [super initWithWindowNibName:@"MainWindow"];
     if(self){
         [self setManagedObjectContext: context];
+        [self setSortDescriptors: [NSArray arrayWithObject:
+                                    [NSSortDescriptor sortDescriptorWithKey:@"date" ascending: NO]]];
     }
     return self;
 }
@@ -80,7 +82,6 @@
         id msg = [self createNewMessage];
         [msg setValue:account forKey:@"account"];
         
-
         NSString *subject = obj.header.subject;
         NSString *from = obj.header.from.mailbox;
         NSString *to   = [obj.header.to componentsJoinedByString:@","];
