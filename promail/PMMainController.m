@@ -77,8 +77,24 @@
     return [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext: self.managedObjectContext];
 }
 
+-(BOOL) containsMessage: (NSString *) messageId{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity: [NSEntityDescription entityForName:@"Message" inManagedObjectContext: self.managedObjectContext ]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"message_id == %@", messageId];
+    [fetchRequest setPredicate:predicate];
+    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:nil];
+    BOOL result = [resultset count] > 0;
+    return result;
+}
+
 -(void) processNewMails: (NSArray *) newMails forAccount: (NSManagedObject *) account{
     Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
+        NSString *messageId = [[obj header] messageID];
+        
+        if([self containsMessage:messageId]){
+            return;
+        }
+        
         id msg = [self createNewMessage];
         [msg setValue:account forKey:@"account"];
         
@@ -99,7 +115,7 @@
         [msg setValue:to forKey: @"to"];
         [msg setValue:cc forKey:@"cc"];
         [msg setValue:bcc forKey:@"bcc"];
-        [msg setValue: [[obj header] messageID] forKey: @"message_id"];
+        [msg setValue: messageId forKey: @"message_id"];
         [msg setValue: [[obj header] date] forKey: @"date"];
     });
     NSError *errors = nil;
