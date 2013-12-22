@@ -98,6 +98,7 @@
 /* Begin PBXFileReference section */
 		8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CCFEC80EFA28469188412AF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D464389118673C0A001D26CB /* promail_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "promail_ 3.xcdatamodel"; sourceTree = "<group>"; };
 		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
 		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
 		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
@@ -731,10 +732,11 @@
 		D4EEDF051857C9D700653625 /* promail.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				D464389118673C0A001D26CB /* promail_ 3.xcdatamodel */,
 				D4AAB5AA18624ADA00D38E9D /* promail_2.xcdatamodel */,
 				D4EEDF061857C9D700653625 /* promail.xcdatamodel */,
 			);
-			currentVersion = D4AAB5AA18624ADA00D38E9D /* promail_2.xcdatamodel */;
+			currentVersion = D464389118673C0A001D26CB /* promail_ 3.xcdatamodel */;
 			path = promail.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
