@@ -29,6 +29,10 @@
     return self;
 }
 
+-(void) awakeFromNib{
+    [[self window] setBackgroundColor: NSColor.whiteColor];
+}
+
 -(NSArray *) accounts{
     NSFetchRequest *fetchAccounts = [[NSFetchRequest alloc] init];
     [fetchAccounts setEntity: [NSEntityDescription entityForName:@"Account" inManagedObjectContext: self.managedObjectContext]];
