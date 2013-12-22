@@ -22,6 +22,7 @@
 {
     self = [super initWithWindowNibName:@"MainWindow"];
     if(self){
+        [self setStatusText:@""];
         [self setManagedObjectContext: context];
         [self setSortDescriptors: [NSArray arrayWithObject:
                                     [NSSortDescriptor sortDescriptorWithKey:@"date" ascending: NO]]];
@@ -42,6 +43,7 @@
         NSLog(@"Error: %@\n%@", [error localizedDescription], [error userInfo]);
         return nil;
     }
+    NSLog(@"Accounts: %lu", (unsigned long)[results count]);
     return results;
 }
 
@@ -80,21 +82,35 @@
     [fetchOperation start:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
         if(error) {
             NSLog(@"Error downloading message headers:%@", error);
+            [self setStatusText:[error localizedDescription]];
         }
         [self processNewMails:fetchedMessages forAccount: account];
     }];
+}
+
+-(void) newStatus: (NSString *) status{
+    [self setStatusText:status];
+}
+
+-(void) clearStatus{
+    [self setStatusText:@""];
 }
 
 -(NSManagedObject *) createNewMessage{
     return [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext: self.managedObjectContext];
 }
 
--(BOOL) containsMessage: (NSString *) messageId{
+-(BOOL) containsMessage: (NSManagedObject *) account messageID: (NSString *) messageId{
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     [fetchRequest setEntity: [NSEntityDescription entityForName:@"Message" inManagedObjectContext: self.managedObjectContext ]];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"message_id == %@", messageId];
+    NSLog(@"Fetching for account %@", [account valueForKey:@"email"]);
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"message_id == %@ AND account == %@", messageId, account];
     [fetchRequest setPredicate:predicate];
-    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:nil];
+    NSError *error = nil;
+    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    if(error){
+        [self setStatusText: [error localizedDescription]];
+    }
     BOOL result = [resultset count] > 0;
     return result;
 }
@@ -103,7 +119,7 @@
     Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
         NSString *messageId = [[obj header] messageID];
         
-        if([self containsMessage:messageId]){
+        if([self containsMessage:account messageID: messageId]){
             return;
         }
         
@@ -133,6 +149,7 @@
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];
     if(!errors){
+        [self setStatusText: [errors localizedDescription]];
         return;
     }
     NSLog(@"Errors: %@", [errors localizedDescription]);
