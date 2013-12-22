@@ -57,11 +57,19 @@
 
 -(void) fetchMailsForAccount: (NSManagedObject *) account{
     MCOIMAPSession *session = [[MCOIMAPSession alloc] init];
-    session.hostname = @"imap.gmail.com";
-    session.port = 993;
+    session.hostname = [account valueForKey:@"server"];
+
+    NSInteger num = [[account valueForKey:@"port"] integerValue];
+    session.port = num;
     session.username = [account valueForKey:@"email"];
     session.password = [self fetchPassword: [account valueForKey: @"email"]];
-    session.connectionType = MCOConnectionTypeTLS;
+    BOOL useSSL = [[account valueForKey:@"use_ssl"] boolValue];
+    if(useSSL){
+       session.connectionType = MCOConnectionTypeTLS;
+    }
+    else{
+        session.connectionType = MCOConnectionTypeClear;
+    }
     
     MCOIndexSet *uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];
     MCOIMAPFetchMessagesOperation *fetchOperation =
