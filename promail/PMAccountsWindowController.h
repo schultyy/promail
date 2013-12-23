@@ -16,6 +16,8 @@
 
 @property (retain) NSString *password;
 
+@property (retain) NSArray *connectionTypes;
+
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
 
 -(IBAction)setNewPassword:(id)sender;

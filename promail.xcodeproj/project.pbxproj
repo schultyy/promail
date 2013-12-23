@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEC80EFA28469188412AF3 /* libPods.a */; };
+		D46438AB18689058001D26CB /* PMConnectionType.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438AA18689058001D26CB /* PMConnectionType.m */; };
 		D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* AccountsWindow.xib */; };
 		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
 		D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB5A818623CBB00D38E9D /* PMConstants.m */; };
@@ -98,8 +99,10 @@
 /* Begin PBXFileReference section */
 		8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CCFEC80EFA28469188412AF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D464389118673C0A001D26CB /* promail_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "promail_ 3.xcdatamodel"; sourceTree = "<group>"; };
-		D4643896186747DD001D26CB /* promail_ 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = "promail_ 4.xcdatamodel"; sourceTree = "<group>"; };
+		D464389118673C0A001D26CB /* promail_ 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "promail_ 3.xcdatamodel"; sourceTree = "<group>"; };
+		D4643896186747DD001D26CB /* promail_ 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "promail_ 4.xcdatamodel"; sourceTree = "<group>"; };
+		D46438A918689058001D26CB /* PMConnectionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMConnectionType.h; sourceTree = "<group>"; };
+		D46438AA18689058001D26CB /* PMConnectionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConnectionType.m; sourceTree = "<group>"; };
 		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
 		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
 		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
@@ -157,6 +160,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D46438A41868904C001D26CB /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				D46438A918689058001D26CB /* PMConnectionType.h */,
+				D46438AA18689058001D26CB /* PMConnectionType.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		D4EEDEE11857C9D700653625 = {
 			isa = PBXGroup;
 			children = (
@@ -203,6 +215,7 @@
 		D4EEDEF31857C9D700653625 /* promail */ = {
 			isa = PBXGroup;
 			children = (
+				D46438A41868904C001D26CB /* Utils */,
 				D4EEDF411857CFC400653625 /* Controllers */,
 				D4EEDF401857CFBC00653625 /* Resources */,
 				D4EEDEFF1857C9D700653625 /* PMAppDelegate.h */,
@@ -463,6 +476,7 @@
 			files = (
 				D4EEDEFA1857C9D700653625 /* main.m in Sources */,
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
+				D46438AB18689058001D26CB /* PMConnectionType.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
 				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
 				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
@@ -738,7 +752,7 @@
 				D4AAB5AA18624ADA00D38E9D /* promail_2.xcdatamodel */,
 				D4EEDF061857C9D700653625 /* promail.xcdatamodel */,
 			);
-			currentVersion = D464389118673C0A001D26CB /* promail_ 3.xcdatamodel */;
+			currentVersion = D4643896186747DD001D26CB /* promail_ 4.xcdatamodel */;
 			path = promail.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

@@ -7,6 +7,7 @@
 //
 
 #import "PMAccountsWindowController.h"
+#import "PMConnectionType.h"
 #import "SSKeychain.h"
 #import "PMConstants.h"
 
@@ -22,6 +23,14 @@
     if (self) {
         [self setManagedObjectContext:context];
         [self setSelections: [[NSMutableIndexSet alloc]init]];
+        
+        id types = [[NSMutableArray alloc] init];
+        
+        [types addObject:[[PMConnectionType alloc] initWithName: @"Clear" andKey: [NSNumber numberWithInt:0]]];
+        [types addObject:[[PMConnectionType alloc] initWithName: @"STARTTLS" andKey: [NSNumber numberWithInt:1]]];
+        [types addObject:[[PMConnectionType alloc] initWithName: @"TLS" andKey: [NSNumber numberWithInt:2]]];
+        
+        [self setConnectionTypes:types];
     }
     return self;
 }

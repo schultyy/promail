@@ -254,17 +254,6 @@
                             <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.port" id="3SO-77-1zd"/>
                         </connections>
                     </textField>
-                    <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="22i-Fw-P8n">
-                        <rect key="frame" x="256" y="145" width="70" height="18"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="check" title="Use SSL" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="oBm-BQ-K8e">
-                            <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.use_ssl" id="JaD-sb-kWa"/>
-                        </connections>
-                    </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6E-ZD-dAU">
                         <rect key="frame" x="256" y="254" width="43" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -286,9 +275,38 @@
                             <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.server" id="FpR-s5-h4l"/>
                         </connections>
                     </textField>
+                    <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSu-yV-HV1">
+                        <rect key="frame" x="256" y="137" width="327" height="26"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="RTT-a2-efE">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <menu key="menu" title="OtherViews" id="H0F-rc-j8z">
+                                <items>
+                                    <menuItem title="Item 1" id="9nX-ph-4wm"/>
+                                    <menuItem title="Item 2" id="EGl-vS-sE3"/>
+                                    <menuItem title="Item 3" id="vYZ-9g-z4h"/>
+                                </items>
+                            </menu>
+                        </popUpButtonCell>
+                        <connections>
+                            <binding destination="uF2-P6-Jc2" name="content" keyPath="arrangedObjects" id="PnD-EB-bix"/>
+                            <binding destination="uF2-P6-Jc2" name="contentObjects" keyPath="arrangedObjects.name" previousBinding="PnD-EB-bix" id="PA6-6m-Flp"/>
+                            <binding destination="uF2-P6-Jc2" name="contentValues" keyPath="arrangedObjects.key" previousBinding="PA6-6m-Flp" id="iPM-CM-wIG"/>
+                        </connections>
+                    </popUpButton>
                 </subviews>
             </view>
         </window>
+        <arrayController objectClassName="PMConnectionType" automaticallyPreparesContent="YES" id="uF2-P6-Jc2" userLabel="ConnectionTypes">
+            <declaredKeys>
+                <string>key</string>
+                <string>name</string>
+            </declaredKeys>
+            <connections>
+                <binding destination="-2" name="contentArray" keyPath="connectionTypes" id="1vd-eW-mJy"/>
+            </connections>
+        </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="Kcy-oZ-1Vj"/>
     </objects>
     <resources>
