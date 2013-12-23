@@ -26,6 +26,7 @@
         [self setManagedObjectContext: context];
         [self setSortDescriptors: [NSArray arrayWithObject:
                                     [NSSortDescriptor sortDescriptorWithKey:@"date" ascending: NO]]];
+        [self setBusyIndicatorVisible:NO];
     }
     return self;
 }
@@ -48,6 +49,8 @@
 }
 
 -(IBAction)loadMails:(id)sender{
+    [self setBusyIndicatorVisible:YES];
+    
     Underscore.arrayEach([self accounts], ^(id obj){
         [self fetchMailsForAccount: obj];
     });

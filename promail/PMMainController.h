@@ -16,6 +16,8 @@
 
 @property (retain) NSArray *sortDescriptors;
 
+@property (assign) BOOL busyIndicatorVisible;
+
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
 
 -(IBAction)loadMails:(id)sender;
