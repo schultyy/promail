@@ -63,7 +63,8 @@
 -(void) fetchMailsForAccount: (NSManagedObject *) account{
     MCOIMAPSession *session = [[MCOIMAPSession alloc] init];
     session.hostname = [account valueForKey:@"server"];
-
+    id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
+    [self setStatusText:str];
     NSInteger num = [[account valueForKey:@"port"] integerValue];
     session.port = num;
     session.username = [account valueForKey:@"email"];
@@ -99,12 +100,9 @@
     }];
 }
 
--(void) newStatus: (NSString *) status{
-    [self setStatusText:status];
-}
-
 -(void) clearStatus{
     [self setStatusText:@""];
+    [self setBusyIndicatorVisible:NO];
 }
 
 -(NSManagedObject *) createNewMessage{
@@ -159,11 +157,12 @@
     });
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];
-    if(!errors){
+    if(errors){
         [self setStatusText: [errors localizedDescription]];
+        NSLog(@"Errors: %@", [errors localizedDescription]);
         return;
     }
-    NSLog(@"Errors: %@", [errors localizedDescription]);
+    [self clearStatus];
 }
 
 @end
