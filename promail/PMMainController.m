@@ -65,12 +65,20 @@
     session.port = num;
     session.username = [account valueForKey:@"email"];
     session.password = [self fetchPassword: [account valueForKey: @"email"]];
-    BOOL useSSL = [[account valueForKey:@"use_ssl"] boolValue];
-    if(useSSL){
-       session.connectionType = MCOConnectionTypeTLS;
-    }
-    else{
-        session.connectionType = MCOConnectionTypeClear;
+    int connectionType = [[account valueForKey:@"encryption"] intValue];
+    switch (connectionType) {
+        case 0:
+            session.connectionType = MCOConnectionTypeClear;
+            break;
+        case 1:
+            session.connectionType = MCOConnectionTypeStartTLS;
+            break;
+        case 2:
+            session.connectionType = MCOConnectionTypeTLS;
+            break;
+        default:
+            NSLog(@"Invalid option %li", (long) connectionType);
+            break;
     }
     
     MCOIndexSet *uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];

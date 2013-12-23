@@ -291,8 +291,9 @@
                         </popUpButtonCell>
                         <connections>
                             <binding destination="uF2-P6-Jc2" name="content" keyPath="arrangedObjects" id="PnD-EB-bix"/>
-                            <binding destination="uF2-P6-Jc2" name="contentObjects" keyPath="arrangedObjects.name" previousBinding="PnD-EB-bix" id="PA6-6m-Flp"/>
-                            <binding destination="uF2-P6-Jc2" name="contentValues" keyPath="arrangedObjects.key" previousBinding="PA6-6m-Flp" id="iPM-CM-wIG"/>
+                            <binding destination="uF2-P6-Jc2" name="contentObjects" keyPath="arrangedObjects.key" previousBinding="PnD-EB-bix" id="3Ed-rh-jhF"/>
+                            <binding destination="uF2-P6-Jc2" name="contentValues" keyPath="arrangedObjects.name" previousBinding="3Ed-rh-jhF" id="JT2-MM-AqN"/>
+                            <binding destination="cL7-pM-0Kd" name="selectedIndex" keyPath="selection.encryption" previousBinding="JT2-MM-AqN" id="mw2-ul-1wb"/>
                         </connections>
                     </popUpButton>
                 </subviews>
