@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEC80EFA28469188412AF3 /* libPods.a */; };
 		D46438AB18689058001D26CB /* PMConnectionType.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438AA18689058001D26CB /* PMConnectionType.m */; };
+		D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438B1186A3EEB001D26CB /* PMMailDetailController.m */; };
+		D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46438B2186A3EEB001D26CB /* PMMailDetailView.xib */; };
 		D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* AccountsWindow.xib */; };
 		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
 		D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB5A818623CBB00D38E9D /* PMConstants.m */; };
@@ -103,6 +105,9 @@
 		D4643896186747DD001D26CB /* promail_ 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "promail_ 4.xcdatamodel"; sourceTree = "<group>"; };
 		D46438A918689058001D26CB /* PMConnectionType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMConnectionType.h; sourceTree = "<group>"; };
 		D46438AA18689058001D26CB /* PMConnectionType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMConnectionType.m; sourceTree = "<group>"; };
+		D46438B0186A3EEB001D26CB /* PMMailDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailDetailController.h; sourceTree = "<group>"; };
+		D46438B1186A3EEB001D26CB /* PMMailDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailDetailController.m; sourceTree = "<group>"; };
+		D46438B2186A3EEB001D26CB /* PMMailDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMMailDetailView.xib; sourceTree = "<group>"; };
 		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
 		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
 		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
@@ -277,6 +282,7 @@
 				D4EEDF021857C9D700653625 /* MainMenu.xib */,
 				D4EEDF421857CFE300653625 /* MainWindow.xib */,
 				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
+				D46438B2186A3EEB001D26CB /* PMMailDetailView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -284,6 +290,8 @@
 		D4EEDF411857CFC400653625 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D46438B0186A3EEB001D26CB /* PMMailDetailController.h */,
+				D46438B1186A3EEB001D26CB /* PMMailDetailController.m */,
 				D4EEDF441857CFFF00653625 /* PMMainController.h */,
 				D4EEDF451857CFFF00653625 /* PMMainController.m */,
 				D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */,
@@ -420,6 +428,7 @@
 				D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */,
 				D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */,
 				D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */,
+				D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */,
 				D4EEDF091857C9D700653625 /* Images.xcassets in Resources */,
 				D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */,
 				D4EEDF041857C9D700653625 /* MainMenu.xib in Resources */,
@@ -476,6 +485,7 @@
 			files = (
 				D4EEDEFA1857C9D700653625 /* main.m in Sources */,
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
+				D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */,
 				D46438AB18689058001D26CB /* PMConnectionType.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
 				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
