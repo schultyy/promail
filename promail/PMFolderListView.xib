@@ -31,6 +31,7 @@
                     <rect key="frame" x="0.0" y="445" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <connections>
+                        <binding destination="-2" name="animate" keyPath="busyIndicatorVisible" id="vId-iJ-DeQ"/>
                         <binding destination="-2" name="value" keyPath="busyIndicatorVisible" id="qWd-mf-n7r">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
