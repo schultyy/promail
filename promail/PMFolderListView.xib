@@ -36,17 +36,22 @@
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                             </dictionary>
                         </binding>
+                        <binding destination="-2" name="hidden" keyPath="busyIndicatorVisible" id="yzM-p6-i31">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
                     </connections>
                 </progressIndicator>
                 <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-LC-yuB">
                     <rect key="frame" x="0.0" y="1" width="802" height="436"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" ambiguous="YES" misplaced="YES" id="iDE-w2-du6">
-                        <rect key="frame" x="0.0" y="17" width="802" height="419"/>
+                        <rect key="frame" x="0.0" y="0.0" width="802" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="1tQ-60-Rzc" viewBased="YES" id="duk-FH-eAA">
-                                <rect key="frame" x="0.0" y="0.0" width="802" height="419"/>
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="duk-FH-eAA">
+                                <rect key="frame" x="0.0" y="0.0" width="802" height="436"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -77,6 +82,9 @@
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="tDG-1v-nkH" name="value" keyPath="objectValue.from" id="ek6-oG-KTF"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <connections>
@@ -110,6 +118,9 @@
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="VMJ-Gs-EH6" name="value" keyPath="objectValue.subject" id="cKz-74-uCM"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <connections>
@@ -119,6 +130,9 @@
                                         </prototypeCellViews>
                                     </tableColumn>
                                 </tableColumns>
+                                <connections>
+                                    <binding destination="Jvl-aW-nS8" name="content" keyPath="arrangedObjects" id="LMY-19-NxM"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -127,14 +141,10 @@
                         <rect key="frame" x="0.0" y="1" width="0.0" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="9OT-zl-nqf">
+                    <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="9OT-zl-nqf">
                         <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
-                    <tableHeaderView key="headerView" id="1tQ-60-Rzc">
-                        <rect key="frame" x="0.0" y="0.0" width="802" height="17"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </tableHeaderView>
                 </scrollView>
             </subviews>
         </customView>
