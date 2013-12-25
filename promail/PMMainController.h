@@ -7,19 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PMFolderListController.h"
 
 @interface PMMainController : NSWindowController
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-
-@property (retain) NSString *statusText;
-
-@property (retain) NSArray *sortDescriptors;
-
-@property (assign) BOOL busyIndicatorVisible;
-
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
 
--(IBAction)loadMails:(id)sender;
+-(IBAction)refresh:(id)sender;
+
+@property (retain) PMFolderListController *folderList;
+
+@property IBOutlet NSBox *currentView;
 
 @end

@@ -11,6 +11,8 @@
 		D46438AB18689058001D26CB /* PMConnectionType.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438AA18689058001D26CB /* PMConnectionType.m */; };
 		D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438B1186A3EEB001D26CB /* PMMailDetailController.m */; };
 		D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46438B2186A3EEB001D26CB /* PMMailDetailView.xib */; };
+		D46438BC186A4027001D26CB /* PMFolderListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46438BB186A4027001D26CB /* PMFolderListView.xib */; };
+		D46438C0186A403A001D26CB /* PMFolderListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438BE186A403A001D26CB /* PMFolderListController.m */; };
 		D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* AccountsWindow.xib */; };
 		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
 		D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB5A818623CBB00D38E9D /* PMConstants.m */; };
@@ -108,6 +110,9 @@
 		D46438B0186A3EEB001D26CB /* PMMailDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailDetailController.h; sourceTree = "<group>"; };
 		D46438B1186A3EEB001D26CB /* PMMailDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailDetailController.m; sourceTree = "<group>"; };
 		D46438B2186A3EEB001D26CB /* PMMailDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMMailDetailView.xib; sourceTree = "<group>"; };
+		D46438BB186A4027001D26CB /* PMFolderListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMFolderListView.xib; sourceTree = "<group>"; };
+		D46438BD186A403A001D26CB /* PMFolderListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMFolderListController.h; sourceTree = "<group>"; };
+		D46438BE186A403A001D26CB /* PMFolderListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMFolderListController.m; sourceTree = "<group>"; };
 		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
 		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
 		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
@@ -283,6 +288,7 @@
 				D4EEDF421857CFE300653625 /* MainWindow.xib */,
 				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
 				D46438B2186A3EEB001D26CB /* PMMailDetailView.xib */,
+				D46438BB186A4027001D26CB /* PMFolderListView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -296,6 +302,8 @@
 				D4EEDF451857CFFF00653625 /* PMMainController.m */,
 				D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */,
 				D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */,
+				D46438BD186A403A001D26CB /* PMFolderListController.h */,
+				D46438BE186A403A001D26CB /* PMFolderListController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -430,6 +438,7 @@
 				D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */,
 				D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */,
 				D4EEDF091857C9D700653625 /* Images.xcassets in Resources */,
+				D46438BC186A4027001D26CB /* PMFolderListView.xib in Resources */,
 				D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */,
 				D4EEDF041857C9D700653625 /* MainMenu.xib in Resources */,
 			);
@@ -483,6 +492,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D46438C0186A403A001D26CB /* PMFolderListController.m in Sources */,
 				D4EEDEFA1857C9D700653625 /* main.m in Sources */,
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
 				D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */,
