@@ -156,6 +156,7 @@
             </declaredKeys>
             <connections>
                 <binding destination="-2" name="managedObjectContext" keyPath="managedObjectContext" id="E2A-mO-e7y"/>
+                <binding destination="-2" name="sortDescriptors" keyPath="sortDescriptors" id="JZN-R7-Ltd"/>
             </connections>
         </arrayController>
     </objects>
