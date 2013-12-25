@@ -31,6 +31,15 @@
     return self;
 }
 
+-(void)awakeFromNib{
+    [[self tableView] setDoubleAction:@selector(tableViewDoubleClick:)];
+    [[self tableView] setTarget:self];
+}
+
+-(void) tableViewDoubleClick: (id) sender{
+    NSManagedObject *message = [[[self mailArrayController] arrangedObjects] objectAtIndex: [sender selectedRow]];
+}
+
 -(void) processNewMails: (NSArray *) newMails forAccount: (NSManagedObject *) account{
     Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
         NSString *messageId = [[obj header] messageID];

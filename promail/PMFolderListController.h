@@ -18,7 +18,13 @@
 
 @property (assign) BOOL busyIndicatorVisible;
 
+@property IBOutlet NSTableView *tableView;
+
+@property IBOutlet NSArrayController *mailArrayController;
+
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
+
+-(void) tableViewDoubleClick: (id) sender;
 
 -(void)loadMails;
 

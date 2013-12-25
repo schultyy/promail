@@ -6,6 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMFolderListController">
             <connections>
+                <outlet property="mailArrayController" destination="Jvl-aW-nS8" id="D7n-Mx-JPy"/>
+                <outlet property="tableView" destination="duk-FH-eAA" id="19e-JD-Pn2"/>
                 <outlet property="view" destination="1" id="meJ-Q0-jn4"/>
             </connections>
         </customObject>
@@ -139,7 +141,7 @@
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="RFE-IC-sCX">
-                        <rect key="frame" x="0.0" y="1" width="0.0" height="16"/>
+                        <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="9OT-zl-nqf">
