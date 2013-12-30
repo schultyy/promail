@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PMFolderListController.h"
+#import "PMMailDetailController.h"
 
 @interface PMMainController : NSWindowController
 
@@ -16,6 +17,8 @@
 -(IBAction)refresh:(id)sender;
 
 @property (retain) PMFolderListController *folderList;
+
+@property (retain) PMMailDetailController *mailDetail;
 
 @property IBOutlet NSBox *currentView;
 

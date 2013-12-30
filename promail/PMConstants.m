@@ -10,3 +10,5 @@
 #import "PMConstants.h"
 
 NSString *const PMApplicationName = @"promail";
+
+NSString *const PMShowMessageDetail = @"PMShowMessageDetail";

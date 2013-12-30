@@ -13,4 +13,6 @@
 
 FOUNDATION_EXPORT NSString *const PMApplicationName;
 
+FOUNDATION_EXPORT NSString *const PMShowMessageDetail;
+
 #endif

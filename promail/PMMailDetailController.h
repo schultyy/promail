@@ -10,4 +10,6 @@
 
 @interface PMMailDetailController : NSViewController
 
+@property (retain) NSManagedObject *currentMail;
+
 @end

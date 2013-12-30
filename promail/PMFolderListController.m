@@ -38,6 +38,12 @@
 
 -(void) tableViewDoubleClick: (id) sender{
     NSManagedObject *message = [[[self mailArrayController] arrangedObjects] objectAtIndex: [sender selectedRow]];
+
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:message forKey:@"message"];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc postNotificationName:PMShowMessageDetail object:nil userInfo:userInfo];
 }
 
 -(void) processNewMails: (NSArray *) newMails forAccount: (NSManagedObject *) account{

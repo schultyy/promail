@@ -18,7 +18,6 @@
 {
     self = [super initWithNibName:@"PMMailDetailView" bundle:nil];
     if (self) {
-        // Initialization code here.
     }
     return self;
 }
