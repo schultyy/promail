@@ -10,6 +10,10 @@
 
 @interface PMMailDetailController : NSViewController
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @property (retain) NSManagedObject *currentMail;
+
+@property (assign) BOOL isBusy;
 
 @end

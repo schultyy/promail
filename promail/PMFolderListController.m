@@ -7,6 +7,7 @@
 //
 
 #import "PMFolderListController.h"
+#import "PMSessionManager.h"
 #import <MailCore/MailCore.h>
 #import "PMConstants.h"
 #import "Underscore.h"
@@ -59,6 +60,7 @@
         
         NSString *subject = obj.header.subject;
         NSString *from = obj.header.from.mailbox;
+        NSNumber *uid = [NSNumber numberWithInt:obj.uid];
         
         NSArray *toList = Underscore.array([[obj header] to])
         .map(^id (MCOAddress *address){
@@ -76,6 +78,7 @@
         [msg setValue:bcc forKey:@"bcc"];
         [msg setValue: messageId forKey: @"message_id"];
         [msg setValue: [[obj header] date] forKey: @"date"];
+        [msg setValue: uid forKey:@"uid"];
     });
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];
@@ -111,48 +114,21 @@
     return result;
 }
 
--(NSString *) fetchPassword: (NSString *) email{
-    return [SSKeychain passwordForService:PMApplicationName account:email];
-}
 
 -(void) fetchMailsForAccount: (NSManagedObject *) account{
-    MCOIMAPSession *session = [[MCOIMAPSession alloc] init];
-    session.hostname = [account valueForKey:@"server"];
     id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
     [self setStatusText:str];
-    NSInteger num = [[account valueForKey:@"port"] integerValue];
-    session.port = num;
-    session.username = [account valueForKey:@"email"];
-    session.password = [self fetchPassword: [account valueForKey: @"email"]];
-    int connectionType = [[account valueForKey:@"encryption"] intValue];
-    switch (connectionType) {
-        case 0:
-            session.connectionType = MCOConnectionTypeClear;
-            break;
-        case 1:
-            session.connectionType = MCOConnectionTypeStartTLS;
-            break;
-        case 2:
-            session.connectionType = MCOConnectionTypeTLS;
-            break;
-        default:
-            NSLog(@"Invalid option %li", (long) connectionType);
-            break;
-    }
     
-    MCOIndexSet *uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];
-    MCOIMAPFetchMessagesOperation *fetchOperation =
-    [session fetchMessagesByUIDOperationWithFolder:@"INBOX"
-                                       requestKind:MCOIMAPMessagesRequestKindHeaders
-                                              uids:uidSet];
+    PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
     
-    [fetchOperation start:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
-        if(error) {
-            NSLog(@"Error downloading message headers:%@", error);
-            [self setStatusText:[error localizedDescription]];
-        }
+    [sessionManager fetchMessagesForFolder:@"INBOX" completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
+                if(error) {
+                    NSLog(@"Error downloading message headers:%@", error);
+                    [self setStatusText:[error localizedDescription]];
+                }
         [self processNewMails:fetchedMessages forAccount: account];
     }];
+
 }
 
 -(NSArray *) accounts{
