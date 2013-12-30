@@ -38,7 +38,7 @@
 -(void) showMessage: (NSNotification *) notification{
     [[self currentView] setContentView: [[self mailDetail] view]];
     
-    NSManagedObject *mail = [notification valueForKey:@"message"];
+    NSManagedObject *mail = [[notification userInfo] valueForKey:@"message"];
     
     [[self mailDetail] setCurrentMail:mail];
 }
