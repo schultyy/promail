@@ -50,9 +50,9 @@
 }
 
 -(void) fetchBodyForMessage: (NSNumber *) uid completionBlock: (void (^)(NSError *error, NSData *data)) completionBlock{
-//    
-//    MCOIMAPFetchContentOperation * fetchOperation = [session fetchMessageByUIDOperationWithFolder:@"INBOX" uid:uid.unsignedIntValue];
-//    [fetchOperation start: completionBlock];
+    
+    MCOIMAPFetchContentOperation * fetchOperation = [session fetchMessageByUIDOperationWithFolder:@"INBOX" uid:uid.unsignedIntValue];
+    [fetchOperation start: completionBlock];
 }
 
 -(void) fetchMessagesForFolder: (NSString *) folder completionBlock: (void (^)(NSError * error, NSArray * messages, MCOIndexSet * vanishedMessages))completionBlock{
@@ -67,4 +67,11 @@
     
     [fetchOperation start: completionBlock];
 }
+
+-(NSString *) htmlBodyFromMessage: (NSData *)message{
+    MCOMessageParser *messageParser = [[MCOMessageParser alloc] initWithData:message];
+    
+    return [messageParser htmlBodyRendering];
+}
+
 @end

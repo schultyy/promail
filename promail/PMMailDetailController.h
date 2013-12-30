@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import <WebKit/WebKit.h>
 
 @interface PMMailDetailController : NSViewController
 
@@ -15,5 +16,7 @@
 @property (retain) NSManagedObject *currentMail;
 
 @property (assign) BOOL isBusy;
+
+@property (weak) IBOutlet WebView *webview;
 
 @end

@@ -45,10 +45,13 @@
     
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount:account];
     [sessionManager fetchBodyForMessage: uid completionBlock:^(NSError *error, NSData *data) {
-        NSString *bodyText = [[NSString alloc] initWithData:data encoding:NSStringEncodingConversionAllowLossy];
         [self setIsBusy:NO];
         
+        NSString *bodyText = [sessionManager htmlBodyFromMessage:data];
+        
         [[self currentMail] setValue:bodyText forKey:@"body"];
+
+        [[[self webview] mainFrame] loadHTMLString:bodyText baseURL:nil];
     }];
     
 }

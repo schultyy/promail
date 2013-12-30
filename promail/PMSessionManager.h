@@ -20,4 +20,6 @@
 
 -(void) fetchBodyForMessage: (NSNumber *) uid completionBlock: (void (^)(NSError *error, NSData *data)) completionBlock;
 
+-(NSString *) htmlBodyFromMessage: (NSData *)message;
+
 @end
