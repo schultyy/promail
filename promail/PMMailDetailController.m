@@ -34,6 +34,9 @@
         if(!bodyText){
             [self fetchBodyText];
         }
+        else{
+            
+        }
     }
 }
 

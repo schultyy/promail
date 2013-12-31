@@ -35,6 +35,18 @@
                     <autoresizingMask key="autoresizingMask"/>
                     <webPreferences key="preferences" defaultFontSize="12" defaultFixedFontSize="12" plugInsEnabled="NO" javaEnabled="NO" javaScriptCanOpenWindowsAutomatically="NO" loadsImagesAutomatically="NO"/>
                 </webView>
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="7qv-Nh-6eb">
+                    <rect key="frame" x="20" y="479" width="16" height="16"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <connections>
+                        <binding destination="-2" name="animate" keyPath="isBusy" id="kQn-AY-JZN"/>
+                        <binding destination="-2" name="hidden" keyPath="isBusy" id="Dvr-BW-fE2">
+                            <dictionary key="options">
+                                <string key="NSValueTransformerName">NSNegateBoolean</string>
+                            </dictionary>
+                        </binding>
+                    </connections>
+                </progressIndicator>
             </subviews>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="Zna-aU-Ss9"/>
