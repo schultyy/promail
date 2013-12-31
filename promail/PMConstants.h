@@ -15,4 +15,6 @@ FOUNDATION_EXPORT NSString *const PMApplicationName;
 
 FOUNDATION_EXPORT NSString *const PMShowMessageDetail;
 
+FOUNDATION_EXPORT NSString *const PMToolbarFolderList;
+
 #endif

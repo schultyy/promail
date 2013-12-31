@@ -12,3 +12,5 @@
 NSString *const PMApplicationName = @"promail";
 
 NSString *const PMShowMessageDetail = @"PMShowMessageDetail";
+
+NSString *const PMToolbarFolderList = @"PMToolbarFolderList";

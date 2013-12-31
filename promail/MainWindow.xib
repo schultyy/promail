@@ -17,7 +17,7 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="960" height="523"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -64,6 +64,13 @@
                     <constraint firstItem="ReR-3R-iMC" firstAttribute="trailing" secondItem="Waq-Su-ZH4" secondAttribute="trailing" id="poN-Do-Bck"/>
                 </constraints>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="labelOnly" sizeMode="regular" id="ekX-xO-GH4">
+                <allowedToolbarItems/>
+                <defaultToolbarItems/>
+                <connections>
+                    <outlet property="delegate" destination="-2" id="PpD-KH-ydz"/>
+                </connections>
+            </toolbar>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="86A-uS-ZDV"/>
     </objects>

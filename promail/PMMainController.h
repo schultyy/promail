@@ -10,7 +10,7 @@
 #import "PMFolderListController.h"
 #import "PMMailDetailController.h"
 
-@interface PMMainController : NSWindowController
+@interface PMMainController : NSWindowController<NSToolbarDelegate>
 
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
 
