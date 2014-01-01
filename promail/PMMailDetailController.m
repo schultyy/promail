@@ -70,7 +70,12 @@ decidePolicyForNavigationAction:(NSDictionary *)actionInformation
         request:(NSURLRequest *)request frame:(WebFrame *)frame
 decisionListener:(id < WebPolicyDecisionListener >)listener
 {
-    [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+    NSString *host = [[request URL] host];
+    if (host) {
+        [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+    } else {
+        [listener use];
+    }
 }
 
 @end
