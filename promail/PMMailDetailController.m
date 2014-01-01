@@ -63,7 +63,14 @@
         NSString *bodyText = [sessionManager htmlBodyFromMessage:data];
         [self showBodyText:bodyText];
     }];
-    
+}
+
+- (void)webView:(WebView *)webView
+decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+        request:(NSURLRequest *)request frame:(WebFrame *)frame
+decisionListener:(id < WebPolicyDecisionListener >)listener
+{
+    [[NSWorkspace sharedWorkspace] openURL:[request URL]];
 }
 
 @end
