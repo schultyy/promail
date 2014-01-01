@@ -74,6 +74,7 @@
         [showFolderList setTarget:self];
         [showFolderList setAction:@selector(showFolderList)];
         [showFolderList setLabel:@"Folder list"];
+        [showFolderList setImage: [NSImage imageNamed:@"NSListViewTemplate"]];
         return showFolderList;
     }
     return nil;

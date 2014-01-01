@@ -64,7 +64,7 @@
                     <constraint firstItem="ReR-3R-iMC" firstAttribute="trailing" secondItem="Waq-Su-ZH4" secondAttribute="trailing" id="poN-Do-Bck"/>
                 </constraints>
             </view>
-            <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="labelOnly" sizeMode="regular" id="ekX-xO-GH4">
+            <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ekX-xO-GH4">
                 <allowedToolbarItems/>
                 <defaultToolbarItems/>
                 <connections>
