@@ -14,7 +14,7 @@
 
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
 
--(IBAction)refresh:(id)sender;
+-(void) refresh;
 
 @property (retain) PMFolderListController *folderList;
 

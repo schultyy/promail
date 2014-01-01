@@ -53,16 +53,20 @@
     [[self mailDetail] setCurrentMail:mail];
 }
 
--(IBAction)refresh:(id)sender{
+-(void)refresh{
     [[self folderList] loadMails];
 }
 
+-(void) writeNew{
+    
+}
+
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
-    return [NSArray arrayWithObject:PMToolbarFolderList];
+    return [NSArray arrayWithObjects:PMToolbarFolderList, PMToolbarRefresh, PMToolbarWriteNew, nil];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return [NSArray arrayWithObject:PMToolbarFolderList];
+    return [NSArray arrayWithObjects:PMToolbarFolderList, PMToolbarRefresh, PMToolbarWriteNew, nil];
 }
 
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
@@ -76,6 +80,22 @@
         [showFolderList setLabel:@"Folder list"];
         [showFolderList setImage: [NSImage imageNamed:@"NSListViewTemplate"]];
         return showFolderList;
+    }
+    else if([itemIdentifier isEqualToString:PMToolbarRefresh]){
+        NSToolbarItem *refresh = [[NSToolbarItem alloc] initWithItemIdentifier:PMToolbarRefresh];
+        [refresh setTarget:self];
+        [refresh setAction:@selector(refresh)];
+        [refresh setLabel:@"Refresh"];
+        [refresh setImage: [NSImage imageNamed:@"NSRefreshFreestandingTemplate"]];
+        return refresh;
+    }
+    else if([itemIdentifier isEqualToString:PMToolbarWriteNew]){
+        NSToolbarItem *writeNew = [[NSToolbarItem alloc] initWithItemIdentifier:PMToolbarWriteNew];
+        [writeNew setTarget:self];
+        [writeNew setAction:@selector(writeNew)];
+        [writeNew setLabel:@"Write new"];
+        [writeNew setImage: [NSImage imageNamed:@"NSAddTemplate"]];
+        return writeNew;
     }
     return nil;
 }

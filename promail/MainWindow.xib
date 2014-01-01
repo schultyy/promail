@@ -22,47 +22,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Waq-Su-ZH4">
-                        <rect key="frame" x="20" y="431" width="131" height="34"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <buttonCell key="cell" type="smallSquare" title="Write" bezelStyle="smallSquare" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Mnh-8q-a5N">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                    </button>
-                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ReR-3R-iMC">
-                        <rect key="frame" x="20" y="402" width="131" height="23"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="21" id="eUH-ga-DcA"/>
-                            <constraint firstAttribute="width" constant="131" id="i5I-gP-Jmt"/>
-                        </constraints>
-                        <buttonCell key="cell" type="smallSquare" bezelStyle="smallSquare" image="NSRefreshFreestandingTemplate" imagePosition="overlaps" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iAR-PY-spd">
-                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                            <font key="font" metaFont="system"/>
-                        </buttonCell>
-                        <connections>
-                            <action selector="refresh:" target="-2" id="GLs-aT-nj6"/>
-                        </connections>
-                    </button>
                     <box autoresizesSubviews="NO" fixedFrame="YES" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
-                        <rect key="frame" x="156" y="-4" width="807" height="509"/>
+                        <rect key="frame" x="17" y="-4" width="946" height="509"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="807" height="509"/>
+                            <rect key="frame" x="0.0" y="0.0" width="946" height="509"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </box>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="ReR-3R-iMC" firstAttribute="top" secondItem="2" secondAttribute="top" constant="99" id="22h-q0-eeH"/>
-                    <constraint firstItem="ReR-3R-iMC" firstAttribute="leading" secondItem="Waq-Su-ZH4" secondAttribute="leading" id="2K1-hB-u7h"/>
-                    <constraint firstItem="ReR-3R-iMC" firstAttribute="top" secondItem="Waq-Su-ZH4" secondAttribute="bottom" constant="8" symbolic="YES" id="GiM-3I-38h"/>
-                    <constraint firstItem="ReR-3R-iMC" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" symbolic="YES" id="OF2-o8-77Y"/>
-                    <constraint firstItem="ReR-3R-iMC" firstAttribute="trailing" secondItem="Waq-Su-ZH4" secondAttribute="trailing" id="poN-Do-Bck"/>
-                </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ekX-xO-GH4">
                 <allowedToolbarItems/>
@@ -74,7 +44,4 @@
         </window>
         <userDefaultsController representsSharedInstance="YES" id="86A-uS-ZDV"/>
     </objects>
-    <resources>
-        <image name="NSRefreshFreestandingTemplate" width="14" height="14"/>
-    </resources>
 </document>
