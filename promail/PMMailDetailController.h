@@ -19,4 +19,6 @@
 
 @property (weak) IBOutlet WebView *webview;
 
+-(void) resetView;
+
 @end

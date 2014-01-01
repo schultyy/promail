@@ -35,9 +35,20 @@
             [self fetchBodyText];
         }
         else{
-            
+            [self showBodyText: bodyText];
         }
     }
+}
+
+-(void) resetView{
+    [[[self webview] mainFrame] loadHTMLString:@"about:blank" baseURL:nil];
+}
+
+-(void) showBodyText: (NSString *) bodyText{
+    
+    [[self currentMail] setValue:bodyText forKey:@"body"];
+    
+    [[[self webview] mainFrame] loadHTMLString:bodyText baseURL:nil];
 }
 
 -(void) fetchBodyText{
@@ -49,12 +60,8 @@
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount:account];
     [sessionManager fetchBodyForMessage: uid completionBlock:^(NSError *error, NSData *data) {
         [self setIsBusy:NO];
-        
         NSString *bodyText = [sessionManager htmlBodyFromMessage:data];
-        
-        [[self currentMail] setValue:bodyText forKey:@"body"];
-
-        [[[self webview] mainFrame] loadHTMLString:bodyText baseURL:nil];
+        [self showBodyText:bodyText];
     }];
     
 }

@@ -41,6 +41,7 @@
 }
 
 -(void) showFolderList{
+    [[self mailDetail] resetView];
     [[self currentView] setContentView: [[self folderList] view]];
 }
     
