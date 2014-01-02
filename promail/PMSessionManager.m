@@ -30,9 +30,6 @@
     session.password = [self fetchPassword: [account valueForKey: @"email"]];
     int connectionType = [[account valueForKey:@"encryption"] intValue];
     switch (connectionType) {
-        case 0:
-            session.connectionType = MCOConnectionTypeClear;
-            break;
         case 1:
             session.connectionType = MCOConnectionTypeStartTLS;
             break;

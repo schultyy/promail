@@ -26,7 +26,6 @@
         
         id types = [[NSMutableArray alloc] init];
         
-        [types addObject:[[PMConnectionType alloc] initWithName: @"Clear" andKey: [NSNumber numberWithInt:0]]];
         [types addObject:[[PMConnectionType alloc] initWithName: @"STARTTLS" andKey: [NSNumber numberWithInt:1]]];
         [types addObject:[[PMConnectionType alloc] initWithName: @"TLS" andKey: [NSNumber numberWithInt:2]]];
         
