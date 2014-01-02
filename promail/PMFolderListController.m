@@ -193,7 +193,31 @@
 }
 
 -(IBAction)markAsRead:(id)sender{
-    NSLog(@"mark as read");
+    [self mark:YES];
+}
+
+-(IBAction)markAsUnread:(id)sender{
+    [self mark:NO];
+}
+
+-(void) mark: (BOOL) seen {
+    NSUInteger selectedRow = [self.tableView selectedRow];
+    
+    NSManagedObject *message = [[[self mailArrayController] arrangedObjects] objectAtIndex: selectedRow];
+    NSNumber *uid = [message valueForKey:@"uid"];
+    NSManagedObject *account = [message valueForKey:@"account"];
+    PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
+    
+    [self setBusyIndicatorVisible:YES];
+    
+    [sessionManager markSeen:uid Seen:seen completionBlock:^(NSError *error) {
+        if(error){
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }else{
+            [message setValue: [NSNumber numberWithBool: seen] forKey:@"seen"];
+        }
+        [self setBusyIndicatorVisible:NO];
+    }];
 }
 
 @end

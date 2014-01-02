@@ -22,7 +22,7 @@
 
 -(void) fetchBodyForMessage: (NSNumber *) uid completionBlock: (void (^)(NSError *error, NSData *data)) completionBlock;
 
--(void) markAsRead:(NSNumber *)uid completionBlock: (void (^)(NSError *error)) completionBlock;
+-(void) markSeen:(NSNumber *)uid Seen: (BOOL) isSeen completionBlock: (void (^)(NSError *error)) completionBlock;
 
 -(NSString *) htmlBodyFromMessage: (NSData *)message;
 

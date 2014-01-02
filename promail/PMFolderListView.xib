@@ -227,6 +227,9 @@
                 </menuItem>
                 <menuItem title="Mark as unread" id="VzX-oW-clH">
                     <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="markAsUnread:" target="-2" id="l2k-S2-0x4"/>
+                    </connections>
                 </menuItem>
             </items>
         </menu>

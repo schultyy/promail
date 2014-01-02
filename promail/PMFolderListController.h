@@ -30,4 +30,6 @@
 
 -(IBAction)markAsRead:(id)sender;
 
+-(IBAction)markAsUnread:(id)sender;
+
 @end
