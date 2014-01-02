@@ -192,4 +192,8 @@
     });
 }
 
+-(IBAction)markAsRead:(id)sender{
+    NSLog(@"mark as read");
+}
+
 @end

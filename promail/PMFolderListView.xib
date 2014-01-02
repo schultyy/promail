@@ -191,6 +191,9 @@
                         <rect key="frame" x="-15" y="17" width="16" height="0.0"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
+                    <connections>
+                        <outlet property="menu" destination="2w7-aT-WTj" id="0xh-9H-zd0"/>
+                    </connections>
                 </scrollView>
             </subviews>
             <constraints>
@@ -214,5 +217,18 @@
                 <binding destination="-2" name="sortDescriptors" keyPath="sortDescriptors" id="JZN-R7-Ltd"/>
             </connections>
         </arrayController>
+        <menu id="2w7-aT-WTj">
+            <items>
+                <menuItem title="Mark as read" id="zIL-Lb-9gd">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="markAsRead:" target="-2" id="0mT-dZ-cv4"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Mark as unread" id="VzX-oW-clH">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                </menuItem>
+            </items>
+        </menu>
     </objects>
 </document>

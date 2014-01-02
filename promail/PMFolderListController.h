@@ -28,4 +28,6 @@
 
 -(void)loadMails;
 
+-(IBAction)markAsRead:(id)sender;
+
 @end

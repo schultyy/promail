@@ -22,6 +22,8 @@
 
 -(void) fetchBodyForMessage: (NSNumber *) uid completionBlock: (void (^)(NSError *error, NSData *data)) completionBlock;
 
+-(void) markAsRead:(NSNumber *)uid completionBlock: (void (^)(NSError *error)) completionBlock;
+
 -(NSString *) htmlBodyFromMessage: (NSData *)message;
 
 -(NSNumber *) lastUID;

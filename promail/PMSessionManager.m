@@ -96,4 +96,16 @@
     return [[messages firstObject] valueForKey:@"uid"];
 }
 
+-(void) markAsRead:(NSNumber *)uid completionBlock: (void (^)(NSError *error)) completionBlock{
+
+    MCOMessageFlag flag = MCOMessageFlagSeen;
+    
+    MCOIMAPOperation *op = [session storeFlagsOperationWithFolder:@"INBOX"
+                                                             uids:[MCOIndexSet indexSetWithIndex:uid.longValue]
+                                                             kind:MCOIMAPStoreFlagsRequestKindSet
+                                                            flags:flag];
+
+    [op start: completionBlock];
+}
+
 @end
