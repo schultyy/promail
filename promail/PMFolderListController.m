@@ -120,15 +120,44 @@
     [self setStatusText:str];
     
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
-    
-    [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: [sessionManager lastUID] completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
-                if(error) {
-                    NSLog(@"Error downloading message headers:%@", error);
-                    [self setStatusText:[error localizedDescription]];
-                }
-        [self processNewMails:fetchedMessages forAccount: account];
-    }];
 
+    [sessionManager fetchFlagsAndUIDsForFolder:@"INBOX" completionBlock:^(NSError *error, NSArray *messages, MCOIndexSet *vanishedMessages) {
+        
+        NSArray *fetchedUids = Underscore.array(messages)
+        .map(^(MCOIMAPMessage *obj){
+            return [obj valueForKey:@"uid"];
+        }).unwrap;
+        
+        NSArray *existingMessages = [account valueForKey:@"messages"];
+        
+        NSArray *existingUids = Underscore.array(existingMessages)
+        .map(^(NSManagedObject *obj){
+            return [obj valueForKey:@"uid"];
+        }).unwrap;
+        
+        NSArray *uidsToBeDeleted = Underscore.without(existingUids, fetchedUids);
+        
+        //get me (solo and the wookie)*
+        //* all messages which need to be deleted
+        NSArray *messagesToBeDeleted = Underscore.filter(existingMessages, ^BOOL (NSManagedObject *obj){
+            NSNumber *uid = [obj valueForKey:@"uid"];
+            return Underscore.any(uidsToBeDeleted, ^BOOL (NSNumber *number){
+                return [number isEqualToNumber:uid];
+            });
+        });
+        
+        Underscore.arrayEach(messagesToBeDeleted, ^(id msg){
+            [self.managedObjectContext deleteObject: msg];
+        });
+        
+        [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: [sessionManager lastUID] completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
+            if(error) {
+                NSLog(@"Error downloading message headers:%@", error);
+                [self setStatusText:[error localizedDescription]];
+            }
+            [self processNewMails:fetchedMessages forAccount: account];
+        }];
+    }];
 }
 
 -(NSArray *) accounts{

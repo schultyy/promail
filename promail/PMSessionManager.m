@@ -55,6 +55,17 @@
     [fetchOperation start: completionBlock];
 }
 
+-(void) fetchFlagsAndUIDsForFolder: (NSString *) folder completionBlock: (void (^)(NSError * error, NSArray * messages, MCOIndexSet * vanishedMessages))completionBlock{
+    
+     MCOIndexSet *uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];
+    
+    MCOIMAPFetchMessagesOperation *fetchOperation =
+    [session fetchMessagesByUIDOperationWithFolder:folder
+                                       requestKind:(MCOIMAPMessagesRequestKindFlags | MCOIMAPMessagesRequestKindFlags)
+                                              uids:uidSet];
+    [fetchOperation start: completionBlock];
+}
+
 -(void) fetchMessagesForFolder: (NSString *) folder lastUID: (NSNumber *) lastUID completionBlock: (void (^)(NSError * error, NSArray * messages, MCOIndexSet * vanishedMessages))completionBlock{
     MCOIndexSet *uidSet = nil;
     if (lastUID) {
@@ -63,6 +74,7 @@
     else{
         uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];
     }
+    
     MCOIMAPFetchMessagesOperation *fetchOperation =
     [session fetchMessagesByUIDOperationWithFolder:folder
                                        requestKind:MCOIMAPMessagesRequestKindHeaders
