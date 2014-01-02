@@ -17,9 +17,12 @@
             <rect key="frame" x="0.0" y="0.0" width="802" height="463"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fm9-rg-wHK">
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Fm9-rg-wHK">
                     <rect key="frame" x="28" y="444" width="776" height="17"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="772" id="Og3-qt-wje"/>
+                    </constraints>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="z38-vb-RTz">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -29,16 +32,16 @@
                         <binding destination="-2" name="value" keyPath="statusText" id="KYl-5E-dXd"/>
                     </connections>
                 </textField>
-                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-Mk-mZQ">
+                <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="Hkd-Mk-mZQ">
                     <rect key="frame" x="0.0" y="445" width="16" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <connections>
-                        <binding destination="-2" name="animate" keyPath="busyIndicatorVisible" id="vId-iJ-DeQ"/>
                         <binding destination="-2" name="value" keyPath="busyIndicatorVisible" id="qWd-mf-n7r">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
                             </dictionary>
                         </binding>
+                        <binding destination="-2" name="animate" keyPath="busyIndicatorVisible" id="vId-iJ-DeQ"/>
                         <binding destination="-2" name="hidden" keyPath="busyIndicatorVisible" id="yzM-p6-i31">
                             <dictionary key="options">
                                 <string key="NSValueTransformerName">NSNegateBoolean</string>
@@ -46,10 +49,10 @@
                         </binding>
                     </connections>
                 </progressIndicator>
-                <scrollView fixedFrame="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-LC-yuB">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-LC-yuB">
                     <rect key="frame" x="0.0" y="1" width="802" height="436"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <clipView key="contentView" ambiguous="YES" misplaced="YES" id="iDE-w2-du6">
+                    <clipView key="contentView" id="iDE-w2-du6">
                         <rect key="frame" x="0.0" y="0.0" width="802" height="436"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -150,6 +153,16 @@
                     </scroller>
                 </scrollView>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="GBR-LC-yuB" secondAttribute="bottom" constant="1" id="38j-bs-70n"/>
+                <constraint firstItem="Fm9-rg-wHK" firstAttribute="top" secondItem="1" secondAttribute="top" constant="2" id="3Sq-z6-NZG"/>
+                <constraint firstAttribute="trailing" secondItem="GBR-LC-yuB" secondAttribute="trailing" id="JML-Rm-Md6"/>
+                <constraint firstItem="Fm9-rg-wHK" firstAttribute="trailing" secondItem="GBR-LC-yuB" secondAttribute="trailing" id="MSf-Jo-4d6"/>
+                <constraint firstItem="Fm9-rg-wHK" firstAttribute="leading" secondItem="Hkd-Mk-mZQ" secondAttribute="trailing" constant="14" id="Oon-pt-e9g"/>
+                <constraint firstItem="Fm9-rg-wHK" firstAttribute="top" secondItem="Hkd-Mk-mZQ" secondAttribute="top" id="VOa-TA-ug1"/>
+                <constraint firstItem="GBR-LC-yuB" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="iXt-sr-t2T"/>
+                <constraint firstItem="GBR-LC-yuB" firstAttribute="top" secondItem="Fm9-rg-wHK" secondAttribute="bottom" constant="7" id="otV-TT-9TF"/>
+            </constraints>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="qGs-Bx-Y4v"/>
         <arrayController mode="entity" entityName="Message" automaticallyPreparesContent="YES" id="Jvl-aW-nS8">

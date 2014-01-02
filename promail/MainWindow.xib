@@ -22,17 +22,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
-                        <rect key="frame" x="17" y="-4" width="946" height="509"/>
+                    <box autoresizesSubviews="NO" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
+                        <rect key="frame" x="-3" y="-4" width="966" height="529"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="946" height="509"/>
+                            <rect key="frame" x="0.0" y="0.0" width="966" height="529"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </box>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="nd9-sD-aqy" secondAttribute="trailing" id="Ika-nZ-fAH"/>
+                    <constraint firstAttribute="bottom" secondItem="nd9-sD-aqy" secondAttribute="bottom" id="ZtR-gX-23j"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="top" secondItem="2" secondAttribute="top" id="cul-XY-4A0"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="vpI-Dt-X3y"/>
+                </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ekX-xO-GH4">
                 <allowedToolbarItems/>
