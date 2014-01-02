@@ -22,4 +22,6 @@
 
 -(NSString *) htmlBodyFromMessage: (NSData *)message;
 
+-(NSNumber *) lastUID;
+
 @end

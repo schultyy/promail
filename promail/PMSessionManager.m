@@ -77,4 +77,11 @@
     return [messageParser htmlBodyRendering];
 }
 
+-(NSNumber *) lastUID {
+    NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
+    
+    NSArray *messages = [[[account valueForKey:@"messages"] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
+    return [[messages firstObject] valueForKey:@"uid"];
+}
+
 @end

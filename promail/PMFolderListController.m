@@ -114,12 +114,6 @@
     return result;
 }
 
--(NSNumber *) lastUIDForAccount: (NSManagedObject *) account {
-    NSArray *sortDescriptors = [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"date" ascending:NO]];
-    
-    NSArray *messages = [[[account valueForKey:@"messages"] allObjects] sortedArrayUsingDescriptors:sortDescriptors];
-    return [[messages firstObject] valueForKey:@"uid"];
-}
 
 -(void) fetchMailsForAccount: (NSManagedObject *) account{
     id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
@@ -127,9 +121,7 @@
     
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
     
-    NSNumber *uid = [self lastUIDForAccount:account];
-    
-    [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: uid completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
+    [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: [sessionManager lastUID] completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
                 if(error) {
                     NSLog(@"Error downloading message headers:%@", error);
                     [self setStatusText:[error localizedDescription]];
