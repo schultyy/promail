@@ -89,7 +89,11 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="sdf-Mm-FDU" name="value" keyPath="objectValue.seen" id="Kzi-zh-dRd"/>
+                                                            <binding destination="sdf-Mm-FDU" name="value" keyPath="objectValue.seen" id="vuk-lS-hcO">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">PMSeenTransformer</string>
+                                                                </dictionary>
+                                                            </binding>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
