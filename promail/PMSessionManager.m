@@ -77,7 +77,7 @@
     
     MCOIMAPFetchMessagesOperation *fetchOperation =
     [session fetchMessagesByUIDOperationWithFolder:folder
-                                       requestKind:MCOIMAPMessagesRequestKindHeaders
+                                       requestKind:MCOIMAPMessagesRequestKindHeaders | MCOIMAPMessagesRequestKindFlags
                                               uids:uidSet];
     
     [fetchOperation start: completionBlock];

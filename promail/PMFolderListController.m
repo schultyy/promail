@@ -61,6 +61,7 @@
         NSString *subject = obj.header.subject;
         NSString *from = obj.header.from.mailbox;
         NSNumber *uid = [NSNumber numberWithInt:obj.uid];
+        BOOL seen = ([obj flags] & MCOMessageFlagSeen) == MCOMessageFlagSeen;
         
         NSArray *toList = Underscore.array([[obj header] to])
         .map(^id (MCOAddress *address){
@@ -79,6 +80,7 @@
         [msg setValue: messageId forKey: @"message_id"];
         [msg setValue: [[obj header] date] forKey: @"date"];
         [msg setValue: uid forKey:@"uid"];
+        [msg setValue: [NSNumber numberWithBool:seen] forKey:@"seen"];
     });
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];
@@ -148,6 +150,15 @@
         
         Underscore.arrayEach(messagesToBeDeleted, ^(id msg){
             [self.managedObjectContext deleteObject: msg];
+        });
+        
+        //Update flags
+        Underscore.arrayEach(messages, ^(MCOIMAPMessage *msg){
+            BOOL seen = ([msg flags] & MCOMessageFlagSeen) == MCOMessageFlagSeen;
+            NSManagedObject *found = Underscore.find([account valueForKey:@"messages"], ^BOOL (NSManagedObject *obj){
+                return [[obj valueForKey:@"uid"] isEqualToNumber: [msg valueForKey:@"uid"]];
+            });
+            [found setValue:[NSNumber numberWithBool:seen] forKey:@"seen"];
         });
         
         [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: [sessionManager lastUID] completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
