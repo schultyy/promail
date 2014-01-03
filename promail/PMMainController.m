@@ -69,6 +69,15 @@
     return [NSArray arrayWithObjects:PMToolbarFolderList, PMToolbarRefresh, PMToolbarWriteNew, nil];
 }
 
+-(BOOL)validateToolbarItem:(NSToolbarItem *)toolbarItem{
+    if([[toolbarItem itemIdentifier] isEqualToString: PMToolbarRefresh]){
+        if([[[self folderList] accounts] count] == 0){
+            return NO;
+        }
+    }
+    return YES;
+}
+
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
                             itemForItemIdentifier:(NSString *)itemIdentifier
                             willBeInsertedIntoToolbar:(BOOL)flag {

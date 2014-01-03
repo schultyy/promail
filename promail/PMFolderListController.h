@@ -24,6 +24,8 @@
 
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
 
+-(NSArray *) accounts;
+
 -(void) tableViewDoubleClick: (id) sender;
 
 -(void)loadMails;
