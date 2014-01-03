@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>E8F1246D-B99B-4AB3-B899-8D56FF9FDBDC</string>
+	<key>IDESourceControlProjectName</key>
+	<string>promail</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C186E7C9-8FFA-4B8C-8194-AF327DBE107E</key>
+		<string>ssh://github.com/schultyy/promail.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>promail.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C186E7C9-8FFA-4B8C-8194-AF327DBE107E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/schultyy/promail.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C186E7C9-8FFA-4B8C-8194-AF327DBE107E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C186E7C9-8FFA-4B8C-8194-AF327DBE107E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>promail</string>
+		</dict>
+	</array>
+</dict>
+</plist>

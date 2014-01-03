@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEC80EFA28469188412AF3 /* libPods.a */; };
+		CB029E5018763CD8004B9F7D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CB029E4F18763CD8004B9F7D /* README.md */; };
 		D44382B51871048500A81635 /* PMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D44382B41871048500A81635 /* PMSessionManager.m */; };
 		D46438AB18689058001D26CB /* PMConnectionType.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438AA18689058001D26CB /* PMConnectionType.m */; };
 		D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438B1186A3EEB001D26CB /* PMMailDetailController.m */; };
@@ -105,6 +106,7 @@
 
 /* Begin PBXFileReference section */
 		8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		CB029E4F18763CD8004B9F7D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CCFEC80EFA28469188412AF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D44382B31871048500A81635 /* PMSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSessionManager.h; sourceTree = "<group>"; };
 		D44382B41871048500A81635 /* PMSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSessionManager.m; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 		D4EEDEE11857C9D700653625 = {
 			isa = PBXGroup;
 			children = (
+				CB029E4F18763CD8004B9F7D /* README.md */,
 				D4EEDEF31857C9D700653625 /* promail */,
 				D4EEDF141857C9D800653625 /* promailTests */,
 				D4EEDEEC1857C9D700653625 /* Frameworks */,
@@ -461,6 +464,7 @@
 				D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */,
 				D4EEDF091857C9D700653625 /* Images.xcassets in Resources */,
 				D46438BC186A4027001D26CB /* PMFolderListView.xib in Resources */,
+				CB029E5018763CD8004B9F7D /* README.md in Resources */,
 				D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */,
 				D4EEDF041857C9D700653625 /* MainMenu.xib in Resources */,
 			);
