@@ -93,6 +93,10 @@
 }
 
 -(void) clearStatus{
+    /* TODO: 
+     currently the status is cleared everytime one of the accounts
+     is finished. We need a smarter way for this.
+    */
     [self setStatusText:@""];
     [self setBusyIndicatorVisible:NO];
 }
@@ -119,6 +123,13 @@
 
 -(void) fetchMailsForAccount: (NSManagedObject *) account{
     id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
+    
+    // If the account has no server: bail out
+    if ([account valueForKey: @"server"] == NULL ) {
+        [self clearStatus];
+        return;
+    }
+    
     [self setStatusText:str];
     
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
