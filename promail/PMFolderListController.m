@@ -81,6 +81,7 @@
         [msg setValue: [[obj header] date] forKey: @"date"];
         [msg setValue: uid forKey:@"uid"];
         [msg setValue: [NSNumber numberWithBool:seen] forKey:@"seen"];
+        [msg setValue: [NSNumber numberWithLong: obj.attachments.count] forKey:@"attachment_count"];
     });
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];

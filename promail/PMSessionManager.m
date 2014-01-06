@@ -30,10 +30,10 @@
     session.password = [self fetchPassword: [account valueForKey: @"email"]];
     int connectionType = [[account valueForKey:@"encryption"] intValue];
     switch (connectionType) {
-        case 1:
+        case 0:
             session.connectionType = MCOConnectionTypeStartTLS;
             break;
-        case 2:
+        case 1:
             session.connectionType = MCOConnectionTypeTLS;
             break;
         default:
@@ -74,7 +74,9 @@
     
     MCOIMAPFetchMessagesOperation *fetchOperation =
     [session fetchMessagesByUIDOperationWithFolder:folder
-                                       requestKind:MCOIMAPMessagesRequestKindHeaders | MCOIMAPMessagesRequestKindFlags
+                                       requestKind:MCOIMAPMessagesRequestKindFullHeaders |
+                                                    MCOIMAPMessagesRequestKindStructure |
+                                                    MCOIMAPMessagesRequestKindFlags
                                               uids:uidSet];
     
     [fetchOperation start: completionBlock];
