@@ -9,6 +9,7 @@
 #import "PMMainController.h"
 #import "PMFolderListController.h"
 #import "PMMailDetailController.h"
+#import "PMNewMailSheet.h"
 #import "PMConstants.h"
 
 @interface PMMainController ()
@@ -58,7 +59,13 @@
 }
 
 -(void) writeNew{
-    
+    PMNewMailSheet *newMail = [[PMNewMailSheet alloc] init];
+    [NSApp beginSheet:newMail.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+}
+
+- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
+{
+    [sheet orderOut:self];
 }
 
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
