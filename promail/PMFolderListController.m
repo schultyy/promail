@@ -23,11 +23,9 @@
 {
     self = [super initWithNibName:@"PMFolderListView" bundle:nil];
     if (self) {
-        [self setStatusText:@""];
         [self setManagedObjectContext: context];
         [self setSortDescriptors: [NSArray arrayWithObject:
                                    [NSSortDescriptor sortDescriptorWithKey:@"date" ascending: NO]]];
-        [self setBusyIndicatorVisible:NO];
     }
     return self;
 }
@@ -86,20 +84,26 @@
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];
     if(errors){
-        [self setStatusText: [errors localizedDescription]];
         NSLog(@"Errors: %@", [errors localizedDescription]);
         return;
     }
-    [self clearStatus];
+    [self notBusy];
 }
 
--(void) clearStatus{
-    /* TODO: 
-     currently the status is cleared everytime one of the accounts
-     is finished. We need a smarter way for this.
-    */
-    [self setStatusText:@""];
-    [self setBusyIndicatorVisible:NO];
+-(void) busy: (NSString *) busyText{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObjects:[NSArray arrayWithObjects: busyText, YES, nil] forKeys: [NSArray arrayWithObjects: @"busyText", @"busy", nil]];
+    
+    [nc postNotificationName:PMStatusFetchMailBusy object:nil userInfo:userInfo];
+}
+
+-(void) notBusy{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NO forKey:@"busy"];
+    
+    [nc postNotificationName:PMStatusFetchMailNotBusy object: userInfo];
 }
 
 -(NSManagedObject *) createNewMessage{
@@ -115,7 +119,7 @@
     NSError *error = nil;
     NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
     if(error){
-        [self setStatusText: [error localizedDescription]];
+        NSLog(@"%@", [error localizedDescription]);
     }
     BOOL result = [resultset count] > 0;
     return result;
@@ -127,11 +131,11 @@
     
     // If the account has no server: bail out
     if ([account valueForKey: @"server"] == NULL ) {
-        [self clearStatus];
+        [self notBusy];
         return;
     }
     
-    [self setStatusText:str];
+    [self busy:str];
     
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
 
@@ -175,8 +179,8 @@
         
         [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: [sessionManager lastUID] completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
             if(error) {
-                NSLog(@"Error downloading message headers:%@", error);
-                [self setStatusText:[error localizedDescription]];
+                NSLog(@"Error downloading message headers:%@", [error localizedDescription]);
+
             }
             [self processNewMails:fetchedMessages forAccount: account];
         }];
@@ -197,7 +201,8 @@
 }
 
 -(void)loadMails{
-    [self setBusyIndicatorVisible:YES];
+
+    [self busy:@""];
     
     Underscore.arrayEach([self accounts], ^(id obj){
         [self fetchMailsForAccount: obj];
@@ -220,7 +225,7 @@
     NSManagedObject *account = [message valueForKey:@"account"];
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
     
-    [self setBusyIndicatorVisible:YES];
+    [self busy:@""];
     
     [sessionManager markSeen:uid Seen:seen completionBlock:^(NSError *error) {
         if(error){
@@ -228,7 +233,7 @@
         }else{
             [message setValue: [NSNumber numberWithBool: seen] forKey:@"seen"];
         }
-        [self setBusyIndicatorVisible:NO];
+        [self notBusy];
     }];
 }
 

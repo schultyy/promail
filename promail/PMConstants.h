@@ -21,4 +21,10 @@ FOUNDATION_EXPORT NSString *const PMToolbarRefresh;
 
 FOUNDATION_EXPORT NSString *const PMToolbarWriteNew;
 
+FOUNDATION_EXPORT NSString *const PMStatusShowCustom;
+
+FOUNDATION_EXPORT NSString *const PMStatusFetchMailBusy;
+
+FOUNDATION_EXPORT NSString *const PMStatusFetchMailNotBusy;
+
 #endif

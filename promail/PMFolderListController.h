@@ -12,11 +12,7 @@
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
-@property (retain) NSString *statusText;
-
 @property (retain) NSArray *sortDescriptors;
-
-@property (assign) BOOL busyIndicatorVisible;
 
 @property IBOutlet NSTableView *tableView;
 

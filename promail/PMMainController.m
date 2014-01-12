@@ -24,6 +24,8 @@
     if(self){
         [self setFolderList: [[PMFolderListController alloc] initWithObjectContext:context]];
         [self setMailDetail: [[PMMailDetailController alloc] init]];
+        [self setBusyIndicatorVisible:NO];
+        [self setStatusText:@""];
     }
     return self;
 }
@@ -39,6 +41,39 @@
     [toolbarItem setLabel:@"Folder list"];
     [toolbarItem setAction:@selector(showFolderList)];
     [toolbarItem setTarget:self];
+    
+    [self registerAsObserver];
+}
+
+
+-(void) registerAsObserver{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(busyStatus:) name:PMStatusFetchMailBusy object:nil];
+    [nc addObserver:self selector:@selector(busyStatus:) name:PMStatusFetchMailNotBusy object:nil];
+}
+
+-(void) busyStatus: (NSNotification *) notification{
+    NSLog(@"boo, busy thingy");
+    
+    NSDictionary *userInfo = [notification valueForKey:@"userInfo"];
+    
+    BOOL isBusy = (BOOL)[userInfo valueForKey:@"busy"];
+    if(isBusy){
+        [self setStatusText: [userInfo valueForKey:@"busyText"]];
+        [self setBusyIndicatorVisible:YES];
+    }else{
+        [self setStatusText:@""];
+        [self setBusyIndicatorVisible:NO];
+    }
+}
+
+-(void) clearStatus{
+    /* TODO:
+     currently the status is cleared everytime one of the accounts
+     is finished. We need a smarter way for this.
+     */
+    [self setStatusText:@""];
+    [self setBusyIndicatorVisible:NO];
 }
 
 -(void) showFolderList{

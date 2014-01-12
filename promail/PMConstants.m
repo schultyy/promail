@@ -18,3 +18,9 @@ NSString *const PMToolbarFolderList = @"PMToolbarFolderList";
 NSString *const PMToolbarRefresh = @"PMToolbarRefresh";
 
 NSString *const PMToolbarWriteNew = @"PMToolbarWriteNew";
+
+NSString *const PMStatusFetchMailBusy = @"PMStatusFetchMailBusy";
+
+NSString *const PMStatusFetchMailNotBusy = @"PMStatusFetchMailNotBusy";
+
+NSString *const PMStatusShowCustom = @"PMStatusShowCustom";
