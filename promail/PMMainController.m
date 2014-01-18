@@ -33,14 +33,9 @@
 -(void) awakeFromNib{
     [[self window] setBackgroundColor: NSColor.whiteColor];
     
-    [[self currentView] setContentView: [[self folderList] view]];
+    [[self listView] setContentView: [[self folderList] view]];
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     [nc addObserver:self selector:@selector(showMessage:) name:PMShowMessageDetail object:nil];
-    
-    NSToolbarItem *toolbarItem = [[NSToolbarItem alloc] init];
-    [toolbarItem setLabel:@"Folder list"];
-    [toolbarItem setAction:@selector(showFolderList)];
-    [toolbarItem setTarget:self];
     
     [self registerAsObserver];
 }
@@ -75,14 +70,9 @@
     [self setStatusText:@""];
     [self setBusyIndicatorVisible:NO];
 }
-
--(void) showFolderList{
-    [[self mailDetail] resetView];
-    [[self currentView] setContentView: [[self folderList] view]];
-}
     
 -(void) showMessage: (NSNotification *) notification{
-    [[self currentView] setContentView: [[self mailDetail] view]];
+    [[self detailView] setContentView: [[self mailDetail] view]];
     
     NSManagedObject *mail = [[notification userInfo] valueForKey:@"message"];
     
@@ -104,11 +94,11 @@
 }
 
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
-    return [NSArray arrayWithObjects:PMToolbarFolderList, PMToolbarRefresh, PMToolbarWriteNew, nil];
+    return [NSArray arrayWithObjects: PMToolbarRefresh, PMToolbarWriteNew, nil];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return [NSArray arrayWithObjects:PMToolbarFolderList, PMToolbarRefresh, PMToolbarWriteNew, nil];
+    return [NSArray arrayWithObjects: PMToolbarRefresh, PMToolbarWriteNew, nil];
 }
 
 -(BOOL)validateToolbarItem:(NSToolbarItem *)toolbarItem{
@@ -123,16 +113,7 @@
 - (NSToolbarItem *)toolbar:(NSToolbar *)toolbar
                             itemForItemIdentifier:(NSString *)itemIdentifier
                             willBeInsertedIntoToolbar:(BOOL)flag {
-
-    if ([itemIdentifier isEqualToString:PMToolbarFolderList]) {
-        NSToolbarItem *showFolderList = [[NSToolbarItem alloc] initWithItemIdentifier:PMToolbarFolderList];
-        [showFolderList setTarget:self];
-        [showFolderList setAction:@selector(showFolderList)];
-        [showFolderList setLabel:@"Folder list"];
-        [showFolderList setImage: [NSImage imageNamed:@"NSListViewTemplate"]];
-        return showFolderList;
-    }
-    else if([itemIdentifier isEqualToString:PMToolbarRefresh]){
+    if([itemIdentifier isEqualToString:PMToolbarRefresh]){
         NSToolbarItem *refresh = [[NSToolbarItem alloc] initWithItemIdentifier:PMToolbarRefresh];
         [refresh setTarget:self];
         [refresh setAction:@selector(refresh)];

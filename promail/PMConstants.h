@@ -15,8 +15,6 @@ FOUNDATION_EXPORT NSString *const PMApplicationName;
 
 FOUNDATION_EXPORT NSString *const PMShowMessageDetail;
 
-FOUNDATION_EXPORT NSString *const PMToolbarFolderList;
-
 FOUNDATION_EXPORT NSString *const PMToolbarRefresh;
 
 FOUNDATION_EXPORT NSString *const PMToolbarWriteNew;

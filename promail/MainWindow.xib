@@ -6,7 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMMainController">
             <connections>
-                <outlet property="currentView" destination="nd9-sD-aqy" id="IQt-0V-5gb"/>
+                <outlet property="detailView" destination="NXK-zz-zgI" id="lsn-H7-4Uy"/>
+                <outlet property="listView" destination="nd9-sD-aqy" id="lf0-Km-aYI"/>
                 <outlet property="window" destination="1" id="zrl-M2-FJy"/>
             </connections>
         </customObject>
@@ -59,6 +60,16 @@
                             <binding destination="-2" name="animate" keyPath="self.busyIndicatorVisible" id="fPA-qF-5n9"/>
                         </connections>
                     </progressIndicator>
+                    <box autoresizesSubviews="NO" fixedFrame="YES" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="NXK-zz-zgI">
+                        <rect key="frame" x="350" y="-4" width="613" height="529"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="611" height="527"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
                 </subviews>
                 <constraints>
                     <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="PGM-1q-7L1" secondAttribute="trailing" constant="8" symbolic="YES" id="0gk-Nl-nu5"/>

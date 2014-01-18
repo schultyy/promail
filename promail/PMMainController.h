@@ -24,6 +24,8 @@
 
 @property (assign) BOOL busyIndicatorVisible;
 
-@property IBOutlet NSBox *currentView;
+@property IBOutlet NSBox *detailView;
+
+@property IBOutlet NSBox *listView;
 
 @end

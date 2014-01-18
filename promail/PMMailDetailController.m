@@ -32,7 +32,7 @@
     if([keyPath isEqualToString:@"currentMail"]){
         NSString *bodyText = [[self currentMail] valueForKey:@"body"];
         if(!bodyText){
-            [self fetchBodyText];
+//            [self fetchBodyText];
         }
         else{
             [self showBodyText: bodyText];
@@ -41,7 +41,7 @@
 }
 
 -(void) resetView{
-    [[[self webview] mainFrame] loadHTMLString:@"about:blank" baseURL:nil];
+//    [[[self webview] mainFrame] loadHTMLString:@"about:blank" baseURL:nil];
 }
 
 -(void) showBodyText: (NSString *) bodyText{
@@ -65,17 +65,17 @@
     }];
 }
 
-- (void)webView:(WebView *)webView
-decidePolicyForNavigationAction:(NSDictionary *)actionInformation
-        request:(NSURLRequest *)request frame:(WebFrame *)frame
-decisionListener:(id < WebPolicyDecisionListener >)listener
-{
-    NSString *host = [[request URL] host];
-    if (host) {
-        [[NSWorkspace sharedWorkspace] openURL:[request URL]];
-    } else {
-        [listener use];
-    }
-}
+//- (void)webView:(WebView *)webView
+//decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+//        request:(NSURLRequest *)request frame:(WebFrame *)frame
+//decisionListener:(id < WebPolicyDecisionListener >)listener
+//{
+//    NSString *host = [[request URL] host];
+//    if (host) {
+//        [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+//    } else {
+//        [listener use];
+//    }
+//}
 
 @end
