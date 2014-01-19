@@ -141,6 +141,12 @@
 
     [sessionManager fetchFlagsAndUIDsForFolder:@"INBOX" completionBlock:^(NSError *error, NSArray *messages, MCOIndexSet *vanishedMessages) {
         
+        if(error){
+            NSLog(@"***Error ocurred while fetching mails for account: %@", [account valueForKey:@"name"]);
+            NSLog(@"%@", [error localizedDescription]);
+            return;
+        }
+        
         NSArray *fetchedUids = Underscore.array(messages)
         .map(^(MCOIMAPMessage *obj){
             return [obj valueForKey:@"uid"];
