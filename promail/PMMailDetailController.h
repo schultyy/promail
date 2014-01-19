@@ -20,8 +20,4 @@
 
 @property (retain) PMMessageView *messageView;
 
-@property (weak) IBOutlet WebView *webview;
-
--(void) resetView;
-
 @end
