@@ -11,7 +11,7 @@
 #import "PMSessionManager.h"
 #import <MailCore/MailCore.h>
 
-@interface PMMailDetailController ()
+@interface PMMailDetailController () <PMMessageViewDelegate>
 
 @end
 
@@ -31,7 +31,7 @@
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if([keyPath isEqualToString: NSStringFromSelector(@selector(currentMail))]){
-        
+        [self fetchBodyText];
     }
 }
 
@@ -45,6 +45,11 @@
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount:account];
     [sessionManager fetchBodyForMessage: uid completionBlock:^(NSError *error, NSData *data) {
         [self setIsBusy:NO];
+        MCOMessageParser * msg = [MCOMessageParser messageParserWithData:data];
+        NSLog(@"Fetched message");
+        [_messageView setDelegate:self];
+        [_messageView setFolder:_folder];
+        [_messageView setMessage:msg];
     }];
 }
 

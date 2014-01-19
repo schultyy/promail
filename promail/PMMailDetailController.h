@@ -26,6 +26,6 @@
 
 @property (assign) BOOL isBusy;
 
-@property (retain) PMMessageView *messageView;
+@property IBOutlet PMMessageView *messageView;
 
 @end
