@@ -10,7 +10,15 @@
 #import <WebKit/WebKit.h>
 #import "PMMessageView.h"
 
-@interface PMMailDetailController : NSViewController
+@interface PMMailDetailController : NSViewController{
+    NSMutableDictionary * _storage;
+    NSMutableSet * _pending;
+    NSMutableArray * _ops;
+    MCOIMAPSession * _session;
+    MCOIMAPMessage * _message;
+    NSMutableDictionary * _callbacks;
+    NSString * _folder;
+}
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
