@@ -48,7 +48,6 @@
 }
 
 -(void) busyStatus: (NSNotification *) notification{
-    NSLog(@"boo, busy thingy");
     
     NSDictionary *userInfo = [notification valueForKey:@"userInfo"];
     
