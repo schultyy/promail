@@ -29,10 +29,12 @@
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if([keyPath isEqualToString:@"currentMail"]){
+    if([keyPath isEqualToString: NSStringFromSelector(@selector(currentMail))]){
         NSString *bodyText = [[self currentMail] valueForKey:@"body"];
+        
         if(!bodyText){
 //            [self fetchBodyText];
+            
         }
         else{
             [self showBodyText: bodyText];
