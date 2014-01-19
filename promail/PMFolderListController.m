@@ -101,7 +101,7 @@
 -(void) notBusy{
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
-    NSDictionary *userInfo = [NSDictionary dictionaryWithObject:NO forKey:@"busy"];
+    NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:NO, @"busy", nil];
     
     [nc postNotificationName:PMStatusFetchMailNotBusy object: userInfo];
 }
@@ -144,6 +144,7 @@
         if(error){
             NSLog(@"***Error ocurred while fetching mails for account: %@", [account valueForKey:@"name"]);
             NSLog(@"%@", [error localizedDescription]);
+            [self notBusy];
             return;
         }
         
