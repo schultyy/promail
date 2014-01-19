@@ -37,6 +37,8 @@
 		D4EEDF3F1857CB3C00653625 /* MailCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D4EEDF351857C9F300653625 /* MailCore.framework */; };
 		D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDF421857CFE300653625 /* MainWindow.xib */; };
 		D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDF451857CFFF00653625 /* PMMainController.m */; };
+		D4F17818188B49E000C3B0D0 /* PMMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F17817188B49E000C3B0D0 /* PMMessageView.m */; };
+		D4F1781F188BFA6800C3B0D0 /* PMCIDURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1781E188BFA6800C3B0D0 /* PMCIDURLProtocol.m */; };
 		D4F1D47318723DDE00397D9C /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4F1D47218723DDE00397D9C /* WebKit.framework */; };
 		D4F1D489187621A000397D9C /* PMSeenTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D4F1D488187621A000397D9C /* PMSeenTransformer.m */; };
 /* End PBXBuildFile section */
@@ -156,6 +158,10 @@
 		D4EEDF421857CFE300653625 /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainWindow.xib; sourceTree = "<group>"; };
 		D4EEDF441857CFFF00653625 /* PMMainController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMainController.h; sourceTree = "<group>"; };
 		D4EEDF451857CFFF00653625 /* PMMainController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMainController.m; sourceTree = "<group>"; };
+		D4F17816188B49E000C3B0D0 /* PMMessageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMessageView.h; sourceTree = "<group>"; };
+		D4F17817188B49E000C3B0D0 /* PMMessageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMessageView.m; sourceTree = "<group>"; };
+		D4F1781D188BFA6800C3B0D0 /* PMCIDURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMCIDURLProtocol.h; sourceTree = "<group>"; };
+		D4F1781E188BFA6800C3B0D0 /* PMCIDURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMCIDURLProtocol.m; sourceTree = "<group>"; };
 		D4F1D47218723DDE00397D9C /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		D4F1D487187621A000397D9C /* PMSeenTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSeenTransformer.h; sourceTree = "<group>"; };
 		D4F1D488187621A000397D9C /* PMSeenTransformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSeenTransformer.m; sourceTree = "<group>"; };
@@ -202,6 +208,10 @@
 				D46438AA18689058001D26CB /* PMConnectionType.m */,
 				D4F1D487187621A000397D9C /* PMSeenTransformer.h */,
 				D4F1D488187621A000397D9C /* PMSeenTransformer.m */,
+				D4F17816188B49E000C3B0D0 /* PMMessageView.h */,
+				D4F17817188B49E000C3B0D0 /* PMMessageView.m */,
+				D4F1781D188BFA6800C3B0D0 /* PMCIDURLProtocol.h */,
+				D4F1781E188BFA6800C3B0D0 /* PMCIDURLProtocol.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -533,10 +543,12 @@
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
 				D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */,
 				D46438AB18689058001D26CB /* PMConnectionType.m in Sources */,
+				D4F17818188B49E000C3B0D0 /* PMMessageView.m in Sources */,
 				D403C780187C94070003E4BE /* PMNewMailSheet.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
 				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,
 				D44382B51871048500A81635 /* PMSessionManager.m in Sources */,
+				D4F1781F188BFA6800C3B0D0 /* PMCIDURLProtocol.m in Sources */,
 				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
 				D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */,
 			);

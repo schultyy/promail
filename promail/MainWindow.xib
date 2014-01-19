@@ -6,7 +6,8 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMMainController">
             <connections>
-                <outlet property="currentView" destination="nd9-sD-aqy" id="IQt-0V-5gb"/>
+                <outlet property="detailView" destination="NXK-zz-zgI" id="lsn-H7-4Uy"/>
+                <outlet property="listView" destination="nd9-sD-aqy" id="lf0-Km-aYI"/>
                 <outlet property="window" destination="1" id="zrl-M2-FJy"/>
             </connections>
         </customObject>
@@ -22,22 +23,62 @@
                 <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
-                        <rect key="frame" x="-3" y="-4" width="966" height="529"/>
+                    <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
+                        <rect key="frame" x="-3" y="30" width="351" height="495"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="966" height="529"/>
+                            <rect key="frame" x="0.0" y="0.0" width="351" height="495"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-iT-7NB">
+                        <rect key="frame" x="42" y="9" width="305" height="17"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="301" id="fY1-18-3qP"/>
+                        </constraints>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This could be your commercial" id="wUf-Ml-ctQ">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                            <connections>
+                                <binding destination="-2" name="value" keyPath="statusText" id="IiA-aO-gSY"/>
+                            </connections>
+                        </textFieldCell>
+                    </textField>
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="PGM-1q-7L1">
+                        <rect key="frame" x="20" y="9" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <connections>
+                            <binding destination="-2" name="hidden" keyPath="self.busyIndicatorVisible" id="VCf-fg-nav">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                </dictionary>
+                            </binding>
+                            <binding destination="-2" name="animate" keyPath="self.busyIndicatorVisible" id="fPA-qF-5n9"/>
+                        </connections>
+                    </progressIndicator>
+                    <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="NXK-zz-zgI">
+                        <rect key="frame" x="350" y="-4" width="613" height="529"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView">
+                            <rect key="frame" x="1" y="1" width="611" height="527"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </view>
+                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </box>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="nd9-sD-aqy" secondAttribute="trailing" id="Ika-nZ-fAH"/>
-                    <constraint firstAttribute="bottom" secondItem="nd9-sD-aqy" secondAttribute="bottom" id="ZtR-gX-23j"/>
-                    <constraint firstItem="nd9-sD-aqy" firstAttribute="top" secondItem="2" secondAttribute="top" id="cul-XY-4A0"/>
-                    <constraint firstItem="nd9-sD-aqy" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="vpI-Dt-X3y"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="Duq-yq-XBg"/>
+                    <constraint firstItem="NXK-zz-zgI" firstAttribute="top" secondItem="2" secondAttribute="top" id="F4O-pN-Bod"/>
+                    <constraint firstAttribute="bottom" secondItem="NXK-zz-zgI" secondAttribute="bottom" id="PNH-KN-JK8"/>
+                    <constraint firstAttribute="trailing" secondItem="NXK-zz-zgI" secondAttribute="trailing" id="UNx-dB-pUQ"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" id="f3b-yC-d80"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="top" secondItem="2" secondAttribute="top" id="hM9-3J-qDc"/>
+                    <constraint firstItem="NXK-zz-zgI" firstAttribute="leading" secondItem="B3j-iT-7NB" secondAttribute="trailing" constant="8" id="pke-fV-MJE"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ekX-xO-GH4">

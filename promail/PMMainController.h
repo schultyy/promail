@@ -20,6 +20,12 @@
 
 @property (retain) PMMailDetailController *mailDetail;
 
-@property IBOutlet NSBox *currentView;
+@property (retain) NSString *statusText;
+
+@property (assign) BOOL busyIndicatorVisible;
+
+@property IBOutlet NSBox *detailView;
+
+@property IBOutlet NSBox *listView;
 
 @end
