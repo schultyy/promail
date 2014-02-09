@@ -92,28 +92,31 @@ white-space: pre-wrap;\
     }
 }
 
-- (void) _refresh
-{
-    NSString * content;
+-(NSString *) messageContent{
     
-    if (_message == nil) {
-        content = nil;
+    if (!_message) {
+        return nil;
+    }
+
+    if ([_message isKindOfClass:[MCOIMAPMessage class]]) {
+        return [(MCOIMAPMessage *) _message htmlRenderingWithFolder:_folder delegate:self];
+    }
+    else if ([_message isKindOfClass:[MCOMessageBuilder class]]) {
+        return [(MCOMessageBuilder *) _message htmlRenderingWithDelegate:self];
+    }
+    else if ([_message isKindOfClass:[MCOMessageParser class]]) {
+        return [(MCOMessageParser *) _message htmlRenderingWithDelegate:self];
     }
     else {
-        if ([_message isKindOfClass:[MCOIMAPMessage class]]) {
-            content = [(MCOIMAPMessage *) _message htmlRenderingWithFolder:_folder delegate:self];
-        }
-        else if ([_message isKindOfClass:[MCOMessageBuilder class]]) {
-            content = [(MCOMessageBuilder *) _message htmlRenderingWithDelegate:self];
-        }
-        else if ([_message isKindOfClass:[MCOMessageParser class]]) {
-            content = [(MCOMessageParser *) _message htmlRenderingWithDelegate:self];
-        }
-        else {
-            content = nil;
-            MCAssert(0);
-        }
+        return nil;
+        MCAssert(0);
     }
+}
+
+- (void) _refresh
+{
+    NSString * content = [self messageContent];
+
     [[_webView mainFrame] loadHTMLString:content baseURL:nil];
 }
 
