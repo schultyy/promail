@@ -10,6 +10,7 @@
 #include <MailCore/MailCore.h>
 #import <WebKit/WebKit.h>
 #import "PMCIDURLProtocol.h"
+#import "PMMessageContentAdapter.h"
 
 static NSString * mainJavascript = @"\
 var imageElements = function() {\
@@ -92,30 +93,11 @@ white-space: pre-wrap;\
     }
 }
 
--(NSString *) messageContent{
-    
-    if (!_message) {
-        return nil;
-    }
 
-    if ([_message isKindOfClass:[MCOIMAPMessage class]]) {
-        return [(MCOIMAPMessage *) _message htmlRenderingWithFolder:_folder delegate:self];
-    }
-    else if ([_message isKindOfClass:[MCOMessageBuilder class]]) {
-        return [(MCOMessageBuilder *) _message htmlRenderingWithDelegate:self];
-    }
-    else if ([_message isKindOfClass:[MCOMessageParser class]]) {
-        return [(MCOMessageParser *) _message htmlRenderingWithDelegate:self];
-    }
-    else {
-        return nil;
-        MCAssert(0);
-    }
-}
 
 - (void) _refresh
 {
-    NSString * content = [self messageContent];
+    NSString * content = [PMMessageContentAdapter convertMessage:_message withDelegate:self andFolder:_folder];
 
     [[_webView mainFrame] loadHTMLString:content baseURL:nil];
 }
