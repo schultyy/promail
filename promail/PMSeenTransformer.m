@@ -22,9 +22,9 @@
 - (id)transformedValue:(id)value {
     
     if([[value stringValue] isEqualToString:@"0"]){
-        return @"unseen";
+        return @"unread";
     }
-    return @"seen";
+    return @"read";
 }
 
 @end

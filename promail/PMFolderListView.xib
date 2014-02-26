@@ -85,6 +85,22 @@
                                                             <binding destination="sdf-Mm-FDU" name="value" keyPath="objectValue.date" id="Nc8-qh-M6c"/>
                                                         </connections>
                                                     </textField>
+                                                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nC2-76-fqu" userLabel="Text Field - Seen">
+                                                        <rect key="frame" x="1" y="3" width="373" height="20"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Seen" id="SYd-eH-yzg">
+                                                            <font key="font" metaFont="smallSystem"/>
+                                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                        <connections>
+                                                            <binding destination="sdf-Mm-FDU" name="value" keyPath="objectValue.seen" id="hk1-GO-BwP">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">PMSeenTransformer</string>
+                                                                </dictionary>
+                                                            </binding>
+                                                        </connections>
+                                                    </textField>
                                                 </subviews>
                                                 <connections>
                                                     <outlet property="textField" destination="hzg-gt-4zB" id="tCC-8h-gOm"/>
