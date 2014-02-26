@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
@@ -18,12 +18,12 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="960" height="523"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
+                    <box autoresizesSubviews="NO" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
                         <rect key="frame" x="-3" y="30" width="351" height="495"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
@@ -33,11 +33,11 @@
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </box>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-iT-7NB">
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-iT-7NB">
                         <rect key="frame" x="42" y="9" width="305" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="301" id="fY1-18-3qP"/>
+                            <constraint firstAttribute="width" constant="301" id="yXV-rX-K3m"/>
                         </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This could be your commercial" id="wUf-Ml-ctQ">
                             <font key="font" metaFont="system"/>
@@ -48,7 +48,7 @@
                             </connections>
                         </textFieldCell>
                     </textField>
-                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="PGM-1q-7L1">
+                    <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" maxValue="100" bezeled="NO" indeterminate="YES" controlSize="small" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="PGM-1q-7L1">
                         <rect key="frame" x="20" y="9" width="16" height="16"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <connections>
@@ -60,11 +60,11 @@
                             <binding destination="-2" name="animate" keyPath="self.busyIndicatorVisible" id="fPA-qF-5n9"/>
                         </connections>
                     </progressIndicator>
-                    <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="NXK-zz-zgI">
-                        <rect key="frame" x="350" y="-4" width="613" height="529"/>
+                    <box autoresizesSubviews="NO" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="NXK-zz-zgI">
+                        <rect key="frame" x="350" y="30" width="593" height="495"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="611" height="527"/>
+                            <rect key="frame" x="1" y="1" width="591" height="493"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -72,13 +72,18 @@
                     </box>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="nd9-sD-aqy" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="Duq-yq-XBg"/>
-                    <constraint firstItem="NXK-zz-zgI" firstAttribute="top" secondItem="2" secondAttribute="top" id="F4O-pN-Bod"/>
-                    <constraint firstAttribute="bottom" secondItem="NXK-zz-zgI" secondAttribute="bottom" id="PNH-KN-JK8"/>
-                    <constraint firstAttribute="trailing" secondItem="NXK-zz-zgI" secondAttribute="trailing" id="UNx-dB-pUQ"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" id="f3b-yC-d80"/>
-                    <constraint firstItem="nd9-sD-aqy" firstAttribute="top" secondItem="2" secondAttribute="top" id="hM9-3J-qDc"/>
-                    <constraint firstItem="NXK-zz-zgI" firstAttribute="leading" secondItem="B3j-iT-7NB" secondAttribute="trailing" constant="8" id="pke-fV-MJE"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" id="AVd-Kv-ilr"/>
+                    <constraint firstAttribute="bottom" secondItem="NXK-zz-zgI" secondAttribute="bottom" constant="34" id="Lkh-O7-TGv"/>
+                    <constraint firstItem="NXK-zz-zgI" firstAttribute="leading" secondItem="nd9-sD-aqy" secondAttribute="trailing" constant="8" id="Lll-1B-yfU"/>
+                    <constraint firstAttribute="bottom" secondItem="B3j-iT-7NB" secondAttribute="bottom" constant="9" id="NTu-H9-VoT"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="PV2-CB-xfh"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="44" id="VGL-sN-4MO"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="PGM-1q-7L1" secondAttribute="trailing" constant="8" symbolic="YES" id="Xv9-Jl-kjc"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="trailing" secondItem="nd9-sD-aqy" secondAttribute="trailing" id="jkL-Pf-haZ"/>
+                    <constraint firstItem="NXK-zz-zgI" firstAttribute="top" secondItem="2" secondAttribute="top" id="l1M-Th-cgj"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="bottom" secondItem="PGM-1q-7L1" secondAttribute="bottom" id="n7E-yg-f8m"/>
+                    <constraint firstAttribute="trailing" secondItem="NXK-zz-zgI" secondAttribute="trailing" constant="20" id="pDJ-gF-Itg"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="top" secondItem="2" secondAttribute="top" id="qJi-Ou-clU"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ekX-xO-GH4">

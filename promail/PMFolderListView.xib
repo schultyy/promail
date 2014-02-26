@@ -17,10 +17,10 @@
             <rect key="frame" x="0.0" y="0.0" width="376" height="463"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView ambiguous="YES" misplaced="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-LC-yuB">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-LC-yuB">
                     <rect key="frame" x="0.0" y="0.0" width="376" height="463"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <clipView key="contentView" ambiguous="YES" misplaced="YES" id="iDE-w2-du6">
+                    <clipView key="contentView" id="iDE-w2-du6">
                         <rect key="frame" x="0.0" y="0.0" width="376" height="463"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -101,7 +101,7 @@
                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="RFE-IC-sCX">
-                        <rect key="frame" x="0.0" y="420" width="802" height="16"/>
+                        <rect key="frame" x="0.0" y="-16" width="0.0" height="16"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="NO" id="9OT-zl-nqf">
@@ -114,9 +114,10 @@
                 </scrollView>
             </subviews>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="GBR-LC-yuB" secondAttribute="bottom" constant="1" id="38j-bs-70n"/>
-                <constraint firstAttribute="trailing" secondItem="GBR-LC-yuB" secondAttribute="trailing" id="JML-Rm-Md6"/>
-                <constraint firstItem="GBR-LC-yuB" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="iXt-sr-t2T"/>
+                <constraint firstAttribute="bottom" secondItem="GBR-LC-yuB" secondAttribute="bottom" id="RJd-Vw-UGl"/>
+                <constraint firstAttribute="trailing" secondItem="GBR-LC-yuB" secondAttribute="trailing" id="Rx8-sn-1JM"/>
+                <constraint firstItem="GBR-LC-yuB" firstAttribute="leading" secondItem="1" secondAttribute="leading" id="eCf-RX-avB"/>
+                <constraint firstItem="GBR-LC-yuB" firstAttribute="top" secondItem="1" secondAttribute="top" id="toR-fS-Shm"/>
             </constraints>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="qGs-Bx-Y4v"/>
