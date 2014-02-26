@@ -71,13 +71,32 @@ white-space: pre-wrap;\
 - (id)initWithFrame:(NSRect)frame
 {
     self = [super initWithFrame:frame];
-    
+
     _webView = [[WebView alloc] initWithFrame:[self bounds]];
+    [self configureWebview];
     [_webView setAutoresizingMask:NSViewHeightSizable | NSViewWidthSizable];
     [_webView setResourceLoadDelegate:self];
     [self addSubview:_webView];
-    
+
     return self;
+}
+
+-(void) configureWebview{
+    [_webView setPolicyDelegate:self];
+}
+
+- (void)webView:(WebView *)webView
+        decidePolicyForNavigationAction:(NSDictionary *)actionInformation
+        request:(NSURLRequest *)request
+        frame:(WebFrame *)frame
+        decisionListener:(id <WebPolicyDecisionListener>)listener
+{
+    NSString *host = [[request URL] host];
+    if (host) {
+        [[NSWorkspace sharedWorkspace] openURL:[request URL]];
+    } else {
+        [listener use];
+    }
 }
 
 -(void) awakeFromNib{
