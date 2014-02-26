@@ -31,8 +31,21 @@
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if([keyPath isEqualToString: NSStringFromSelector(@selector(currentMail))]){
-        [self fetchBodyText];
+        NSData *data = [[self currentMail] valueForKey:@"body"];
+        if(!data){
+            [self fetchBodyText];
+        }
+        else{
+            [self showMessage:data];
+        }
     }
+}
+
+-(void) showMessage: (NSData *) data{
+    MCOMessageParser * msg = [MCOMessageParser messageParserWithData:data];
+    [_messageView setDelegate:self];
+    [_messageView setFolder:_folder];
+    [_messageView setMessage:msg];
 }
 
 
@@ -45,11 +58,8 @@
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount:account];
     [sessionManager fetchBodyForMessage: uid completionBlock:^(NSError *error, NSData *data) {
         [self setIsBusy:NO];
-        MCOMessageParser * msg = [MCOMessageParser messageParserWithData:data];
-        NSLog(@"Fetched message");
-        [_messageView setDelegate:self];
-        [_messageView setFolder:_folder];
-        [_messageView setMessage:msg];
+        [[self currentMail] setValue:data forKey:@"body"];
+        [self showMessage:data];
     }];
 }
 
