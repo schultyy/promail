@@ -60,7 +60,12 @@
     [sessionManager fetchBodyForMessage: uid completionBlock:^(NSError *error, NSData *data) {
         [self setIsBusy:NO];
         [mail setValue:data forKey:@"body"];
-        [self showMessage:data];
+
+        NSString *currentUid = [[[self currentMail] valueForKey: @"uid"] stringValue];
+
+        if([[[mail valueForKey:@"uid"] stringValue] isEqualToString: currentUid]){
+            [self showMessage:data];
+        }
     }];
 }
 
