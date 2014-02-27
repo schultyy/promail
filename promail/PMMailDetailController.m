@@ -53,12 +53,13 @@
     [self setIsBusy:YES];
     
     NSManagedObject *account = [[self currentMail] valueForKey:@"account"];
-    NSNumber *uid = [[self currentMail] valueForKey:@"uid"];
+    NSManagedObject *mail = [self currentMail];
+    NSNumber *uid = [mail valueForKey:@"uid"];
     
     PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount:account];
     [sessionManager fetchBodyForMessage: uid completionBlock:^(NSError *error, NSData *data) {
         [self setIsBusy:NO];
-        [[self currentMail] setValue:data forKey:@"body"];
+        [mail setValue:data forKey:@"body"];
         [self showMessage:data];
     }];
 }
