@@ -6,6 +6,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMAccountWizardController">
             <connections>
+                <outlet property="currentView" destination="LEU-M4-q90" id="PUK-dw-R8i"/>
                 <outlet property="window" destination="1" id="3"/>
             </connections>
         </customObject>
@@ -20,11 +21,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="780" height="453"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="LEU-M4-q90">
+                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Box" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="LEU-M4-q90">
                         <rect key="frame" x="-3" y="46" width="786" height="356"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="784" height="354"/>
+                            <rect key="frame" x="0.0" y="0.0" width="786" height="356"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>

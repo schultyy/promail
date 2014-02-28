@@ -249,8 +249,8 @@
 		D4BE339618C0F92200DE3A32 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				D4BE33A018C10B0100DE3A32 /* Steps */,
 				D4BE339918C0F9B600DE3A32 /* PMAccountWizardWindow.xib */,
-				D4BE339318C0F91300DE3A32 /* PMAccountWelcomeView.xib */,
 				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
 			);
 			name = Account;
@@ -263,6 +263,14 @@
 				D4BE339218C0F91300DE3A32 /* PMAccountWelcomeController.m */,
 				D4BE339D18C0FC0000DE3A32 /* PMStepController.h */,
 				D4BE339E18C0FC0000DE3A32 /* PMStepController.m */,
+			);
+			name = Steps;
+			sourceTree = "<group>";
+		};
+		D4BE33A018C10B0100DE3A32 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				D4BE339318C0F91300DE3A32 /* PMAccountWelcomeView.xib */,
 			);
 			name = Steps;
 			sourceTree = "<group>";
