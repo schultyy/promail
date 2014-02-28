@@ -23,4 +23,12 @@
     return self;
 }
 
+-(NSNumber *) order{
+    return [NSNumber numberWithInt:1];
+}
+
+-(NSString *) title{
+    return @"Welcome";
+}
+
 @end

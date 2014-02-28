@@ -7,7 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PMStepController.h"
 
-@interface PMAccountWelcomeController : NSViewController
+@interface PMAccountWelcomeController : PMStepController
 
 @end

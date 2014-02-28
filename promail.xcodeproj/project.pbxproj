@@ -25,6 +25,7 @@
 		D4BE339518C0F91300DE3A32 /* PMAccountWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BE339318C0F91300DE3A32 /* PMAccountWelcomeView.xib */; };
 		D4BE339A18C0F9B600DE3A32 /* PMAccountWizardController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE339818C0F9B600DE3A32 /* PMAccountWizardController.m */; };
 		D4BE339B18C0F9B600DE3A32 /* PMAccountWizardWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BE339918C0F9B600DE3A32 /* PMAccountWizardWindow.xib */; };
+		D4BE339F18C0FC0000DE3A32 /* PMStepController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE339E18C0FC0000DE3A32 /* PMStepController.m */; };
 		D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
 		D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEF61857C9D700653625 /* InfoPlist.strings */; };
 		D4EEDEFA1857C9D700653625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDEF91857C9D700653625 /* main.m */; };
@@ -146,6 +147,8 @@
 		D4BE339718C0F9B600DE3A32 /* PMAccountWizardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountWizardController.h; sourceTree = "<group>"; };
 		D4BE339818C0F9B600DE3A32 /* PMAccountWizardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountWizardController.m; sourceTree = "<group>"; };
 		D4BE339918C0F9B600DE3A32 /* PMAccountWizardWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMAccountWizardWindow.xib; sourceTree = "<group>"; };
+		D4BE339D18C0FC0000DE3A32 /* PMStepController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMStepController.h; sourceTree = "<group>"; };
+		D4BE339E18C0FC0000DE3A32 /* PMStepController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMStepController.m; sourceTree = "<group>"; };
 		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -234,10 +237,9 @@
 		D4BE338C18C0F8EF00DE3A32 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				D4BE339C18C0FBDF00DE3A32 /* Steps */,
 				D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */,
 				D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */,
-				D4BE339118C0F91300DE3A32 /* PMAccountWelcomeController.h */,
-				D4BE339218C0F91300DE3A32 /* PMAccountWelcomeController.m */,
 				D4BE339718C0F9B600DE3A32 /* PMAccountWizardController.h */,
 				D4BE339818C0F9B600DE3A32 /* PMAccountWizardController.m */,
 			);
@@ -252,6 +254,17 @@
 				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
 			);
 			name = Account;
+			sourceTree = "<group>";
+		};
+		D4BE339C18C0FBDF00DE3A32 /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				D4BE339118C0F91300DE3A32 /* PMAccountWelcomeController.h */,
+				D4BE339218C0F91300DE3A32 /* PMAccountWelcomeController.m */,
+				D4BE339D18C0FC0000DE3A32 /* PMStepController.h */,
+				D4BE339E18C0FC0000DE3A32 /* PMStepController.m */,
+			);
+			name = Steps;
 			sourceTree = "<group>";
 		};
 		D4EEDEE11857C9D700653625 = {
@@ -584,6 +597,7 @@
 				D49AB35918A7E4BE00532246 /* PMMessageContentAdapter.m in Sources */,
 				D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */,
 				D46438AB18689058001D26CB /* PMConnectionType.m in Sources */,
+				D4BE339F18C0FC0000DE3A32 /* PMStepController.m in Sources */,
 				D4F17818188B49E000C3B0D0 /* PMMessageView.m in Sources */,
 				D403C780187C94070003E4BE /* PMNewMailSheet.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
