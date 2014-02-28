@@ -10,7 +10,8 @@
 #import "PMStepController.h"
 
 @interface PMAccountWizardController : NSWindowController{
-    NSArray *stepControllers;
+    NSArray *steps;
+    NSUInteger nextStep;
 }
 
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;

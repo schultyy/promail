@@ -7,6 +7,8 @@
 //
 
 #import "PMAccountWizardController.h"
+#import "PMStepController.h"
+#import "PMAccountWelcomeController.h"
 
 @interface PMAccountWizardController ()
 
@@ -18,13 +20,29 @@
 {
     self = [super initWithWindowNibName:@"PMAccountWizardWindow"];
     if (self) {
-        // Initialization code here.
+        nextStep = 0;
     }
     return self;
 }
 
+-(void) windowDidLoad{
+    [super windowDidLoad];
+    [self initSteps];
+    [self nextStep];
+}
+
+-(void) nextStep{
+    PMStepController *currentStep = [steps objectAtIndex:nextStep];
+    nextStep++;
+    [[self currentView] setContentView: currentStep.view];
+}
+
 -(void) initSteps{
+    NSMutableArray *controllers = [NSMutableArray array];
     
+    [controllers addObject: [[PMAccountWelcomeController alloc] init]];
+    
+    steps = [NSArray arrayWithArray:controllers];
 }
 
 @end
