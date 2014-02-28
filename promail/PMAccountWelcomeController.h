@@ -11,4 +11,10 @@
 
 @interface PMAccountWelcomeController : PMStepController
 
+@property (retain) NSString *fullName;
+
+@property (retain) NSString *emailAddress;
+
+@property (retain) NSString *password;
+
 @end

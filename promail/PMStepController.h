@@ -18,4 +18,6 @@
 
 -(NSNumber *) order;
 
+-(BOOL) isValid;
+
 @end

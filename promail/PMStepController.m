@@ -22,4 +22,8 @@
     return [NSNumber numberWithInt:-1];
 }
 
+-(BOOL)isValid{
+    return NO;
+}
+
 @end
