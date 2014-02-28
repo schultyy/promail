@@ -20,27 +20,34 @@
                 <rect key="frame" x="0.0" y="0.0" width="780" height="453"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="LEU-M4-q90">
-                        <rect key="frame" x="-3" y="-4" width="786" height="459"/>
+                    <box autoresizesSubviews="NO" fixedFrame="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="LEU-M4-q90">
+                        <rect key="frame" x="-3" y="46" width="786" height="356"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="784" height="457"/>
+                            <rect key="frame" x="1" y="1" width="784" height="354"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </box>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1sK-Dr-xOv">
+                        <rect key="frame" x="18" y="408" width="489" height="25"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Title" id="Jcq-Fh-Kjf">
+                            <font key="font" metaFont="system" size="17"/>
+                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="currentStep.title" id="bMY-7a-l3O"/>
+                        </connections>
+                    </textField>
                 </subviews>
-                <constraints>
-                    <constraint firstItem="LEU-M4-q90" firstAttribute="top" secondItem="2" secondAttribute="top" id="0sE-P5-ivW"/>
-                    <constraint firstAttribute="trailing" secondItem="LEU-M4-q90" secondAttribute="trailing" id="6ua-zn-291"/>
-                    <constraint firstItem="LEU-M4-q90" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="OGx-tP-fyv"/>
-                    <constraint firstAttribute="bottom" secondItem="LEU-M4-q90" secondAttribute="bottom" id="lm1-5P-N1D"/>
-                </constraints>
             </view>
             <connections>
                 <outlet property="delegate" destination="-2" id="4"/>
             </connections>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="ffe-GX-HME"/>
     </objects>
 </document>
