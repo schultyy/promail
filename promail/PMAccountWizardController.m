@@ -23,5 +23,8 @@
     return self;
 }
 
+-(void) initSteps{
+    
+}
 
 @end

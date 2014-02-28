@@ -7,6 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PMStepController.h"
 
 @interface PMAccountWizardController : NSWindowController{
     NSArray *stepControllers;
@@ -15,6 +16,8 @@
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
 
 @property IBOutlet NSBox *currentView;
+
+@property (assign) PMStepController *currentStep;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
