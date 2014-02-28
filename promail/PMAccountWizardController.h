@@ -18,8 +18,10 @@
 
 @property IBOutlet NSBox *currentView;
 
-@property (assign) PMStepController *currentStep;
+//@property (assign) PMStepController *currentStep;
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
+-(BOOL) canProceed;
 
 @end

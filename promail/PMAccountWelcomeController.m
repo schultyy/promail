@@ -31,4 +31,12 @@
     return @"Welcome";
 }
 
+-(BOOL) isValid{
+    BOOL nameValid = [[self fullName] length] > 0;
+    BOOL emailValid = [[self emailAddress] length] > 0;
+    BOOL passwordValid = [[self password] length] > 0;
+    
+    return nameValid && emailValid && passwordValid;
+}
+
 @end

@@ -31,9 +31,13 @@
     [self nextStep];
 }
 
+-(PMStepController *) currentStep{
+    return [steps objectAtIndex:nextStep];
+}
+
 -(void) nextStep{
-    PMStepController *currentStep = [steps objectAtIndex:nextStep];
     nextStep++;
+    PMStepController *currentStep = [self currentStep];
     [[self currentView] setContentView: currentStep.view];
 }
 
@@ -43,6 +47,10 @@
     [controllers addObject: [[PMAccountWelcomeController alloc] init]];
     
     steps = [NSArray arrayWithArray:controllers];
+}
+
+-(BOOL) canProceed{
+    return [[self currentStep] isValid];
 }
 
 @end
