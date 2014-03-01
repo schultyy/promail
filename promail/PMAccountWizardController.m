@@ -10,6 +10,7 @@
 #import "PMStepController.h"
 #import "PMAccountWelcomeController.h"
 #import "PMAccountIMAPViewController.h"
+#import "PMAccountWizardContext.h"
 
 @interface PMAccountWizardController ()
 
@@ -22,6 +23,7 @@
     self = [super initWithWindowNibName:@"PMAccountWizardWindow"];
     if (self) {
         nextStepIndex = 0;
+        wizardContext = [[PMAccountWizardContext alloc] init];
     }
     return self;
 }
@@ -49,6 +51,9 @@
 
 -(IBAction)nextStep:(id)sender{
     if([self canGoNext]){
+        
+        [[self currentStep] beforeNext];
+        
         nextStepIndex++;
         PMStepController *currentStep = [self currentStep];
         [[self currentView] setContentView: currentStep.view];
@@ -66,10 +71,11 @@
 -(void) initSteps{
     NSMutableArray *controllers = [NSMutableArray array];
     
-    [controllers addObject: [[PMAccountWelcomeController alloc] init]];
+    [controllers addObject: [[PMAccountWelcomeController alloc] initWithWizardContext:wizardContext]];
     
-    [controllers addObject: [[PMAccountIMAPViewController alloc] init]];
+    [controllers addObject: [[PMAccountIMAPViewController alloc] initWithWizardContext:wizardContext]];
     
+    //Sort steps after the result of their order method
     steps = [controllers sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [[obj1 order] compare: [obj2 order]];
     }];

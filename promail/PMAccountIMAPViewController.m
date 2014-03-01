@@ -14,9 +14,8 @@
 
 @implementation PMAccountIMAPViewController
 
-- (id)init
-{
-    self = [super initWithNibName:@"PMAccountIMAPView" bundle:nil];
+- (id)initWithWizardContext:(PMAccountWizardContext *)wizardContext {
+    self = [super initWithWizardContext:wizardContext andNibName:@"PMAccountIMAPView"];
     if (self) {
     }
     return self;

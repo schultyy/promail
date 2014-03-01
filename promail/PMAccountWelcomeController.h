@@ -17,4 +17,6 @@
 
 @property (retain) NSString *password;
 
+-(id) initWithWizardContext:(PMAccountWizardContext *) wizardContext;
+
 @end

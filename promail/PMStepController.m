@@ -14,6 +14,14 @@
 
 @implementation PMStepController
 
+-(id) initWithWizardContext:(PMAccountWizardContext *)wizardContext andNibName:(NSString *)nibName {
+    self = [super initWithNibName:nibName bundle:nil];
+    if(self){
+        [self setWizardContext:wizardContext];
+    }
+    return self;
+}
+
 -(NSString *) title{
     return @"";
 }
@@ -24,6 +32,9 @@
 
 -(BOOL)isValid{
     return NO;
+}
+
+-(void) beforeNext{
 }
 
 @end

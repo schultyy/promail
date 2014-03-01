@@ -11,4 +11,6 @@
 
 @interface PMAccountIMAPViewController : PMStepController
 
+-(id) initWithWizardContext:(PMAccountWizardContext *)wizardContext;
+
 @end

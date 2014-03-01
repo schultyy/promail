@@ -14,11 +14,10 @@
 
 @implementation PMAccountWelcomeController
 
-- (id)init
+-(id) initWithWizardContext:(PMAccountWizardContext *)wizardContext
 {
-    self = [super initWithNibName:@"PMAccountWelcomeView" bundle:nil];
+    self = [super initWithWizardContext:wizardContext andNibName:@"PMAccountWelcomeView"];
     if (self) {
-        // Initialization code here.
     }
     return self;
 }
@@ -37,6 +36,12 @@
     BOOL passwordValid = [[self password] length] > 0;
     
     return nameValid && emailValid && passwordValid;
+}
+
+-(void) beforeNext{
+    [[self wizardContext] setEmailAddress: self.emailAddress];
+    [[self wizardContext] setFullName: self.fullName];
+    [[self wizardContext] setImapPassword: self.password];
 }
 
 @end

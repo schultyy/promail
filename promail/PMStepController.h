@@ -7,17 +7,27 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "PMAccountWizardContext.h"
 /*
  This class is meant to be abstract
  */
 
 @interface PMStepController : NSViewController
 
+@property (assign) PMAccountWizardContext *wizardContext;
+
+-(id) initWithWizardContext: (PMAccountWizardContext *) wizardContext andNibName: (NSString *) nibName;
+
 -(NSString *) title;
 
 -(NSNumber *) order;
 
 -(BOOL) isValid;
+
+/*
+ Do not call this method directly. This is called by the wizard itself before the next step will be shown.
+ Do clean up and save necessary information to the wizard context here.
+ */
+-(void) beforeNext;
 
 @end

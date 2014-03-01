@@ -28,6 +28,7 @@
 		D4BE339F18C0FC0000DE3A32 /* PMStepController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE339E18C0FC0000DE3A32 /* PMStepController.m */; };
 		D4BE33A418C1356400DE3A32 /* PMAccountIMAPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE33A218C1356400DE3A32 /* PMAccountIMAPViewController.m */; };
 		D4BE33A518C1356400DE3A32 /* PMAccountIMAPView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BE33A318C1356400DE3A32 /* PMAccountIMAPView.xib */; };
+		D4BE33A918C25E5E00DE3A32 /* PMAccountWizardContext.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE33A818C25E5E00DE3A32 /* PMAccountWizardContext.m */; };
 		D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
 		D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEF61857C9D700653625 /* InfoPlist.strings */; };
 		D4EEDEFA1857C9D700653625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDEF91857C9D700653625 /* main.m */; };
@@ -154,6 +155,8 @@
 		D4BE33A118C1356400DE3A32 /* PMAccountIMAPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountIMAPViewController.h; sourceTree = "<group>"; };
 		D4BE33A218C1356400DE3A32 /* PMAccountIMAPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountIMAPViewController.m; sourceTree = "<group>"; };
 		D4BE33A318C1356400DE3A32 /* PMAccountIMAPView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMAccountIMAPView.xib; sourceTree = "<group>"; };
+		D4BE33A718C25E5E00DE3A32 /* PMAccountWizardContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountWizardContext.h; sourceTree = "<group>"; };
+		D4BE33A818C25E5E00DE3A32 /* PMAccountWizardContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountWizardContext.m; sourceTree = "<group>"; };
 		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -283,6 +286,16 @@
 			name = Steps;
 			sourceTree = "<group>";
 		};
+		D4BE33A618C25E4C00DE3A32 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D4EEDF051857C9D700653625 /* promail.xcdatamodeld */,
+				D4BE33A718C25E5E00DE3A32 /* PMAccountWizardContext.h */,
+				D4BE33A818C25E5E00DE3A32 /* PMAccountWizardContext.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		D4EEDEE11857C9D700653625 = {
 			isa = PBXGroup;
 			children = (
@@ -331,6 +344,7 @@
 		D4EEDEF31857C9D700653625 /* promail */ = {
 			isa = PBXGroup;
 			children = (
+				D4BE33A618C25E4C00DE3A32 /* Models */,
 				D44382B21871047500A81635 /* Managers */,
 				D46438A41868904C001D26CB /* Utils */,
 				D4EEDF411857CFC400653625 /* Controllers */,
@@ -338,7 +352,6 @@
 				D4EEDEFF1857C9D700653625 /* PMAppDelegate.h */,
 				D4EEDF001857C9D700653625 /* PMAppDelegate.m */,
 				D4EEDF081857C9D700653625 /* Images.xcassets */,
-				D4EEDF051857C9D700653625 /* promail.xcdatamodeld */,
 				D4EEDEF41857C9D700653625 /* Supporting Files */,
 				D4AAB5A318623C3700D38E9D /* PMConstants.h */,
 				D4AAB5A818623CBB00D38E9D /* PMConstants.m */,
@@ -613,6 +626,7 @@
 				D4BE33A418C1356400DE3A32 /* PMAccountIMAPViewController.m in Sources */,
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,
 				D49AB35918A7E4BE00532246 /* PMMessageContentAdapter.m in Sources */,
+				D4BE33A918C25E5E00DE3A32 /* PMAccountWizardContext.m in Sources */,
 				D46438B3186A3EEB001D26CB /* PMMailDetailController.m in Sources */,
 				D46438AB18689058001D26CB /* PMConnectionType.m in Sources */,
 				D4BE339F18C0FC0000DE3A32 /* PMStepController.m in Sources */,
