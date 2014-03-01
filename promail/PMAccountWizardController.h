@@ -11,7 +11,7 @@
 
 @interface PMAccountWizardController : NSWindowController{
     NSArray *steps;
-    NSUInteger nextStep;
+    NSUInteger nextStepIndex;
 }
 
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
@@ -23,5 +23,8 @@
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 -(BOOL) canProceed;
+
+-(IBAction)nextStep:(id)sender;
+-(IBAction)previousStep:(id)sender;
 
 @end

@@ -9,6 +9,7 @@
 #import "PMAccountWizardController.h"
 #import "PMStepController.h"
 #import "PMAccountWelcomeController.h"
+#import "PMAccountIMAPViewController.h"
 
 @interface PMAccountWizardController ()
 
@@ -20,23 +21,28 @@
 {
     self = [super initWithWindowNibName:@"PMAccountWizardWindow"];
     if (self) {
-        nextStep = 0;
+        nextStepIndex = 0;
     }
     return self;
 }
 
--(void) windowDidLoad{
-    [super windowDidLoad];
+-(void) awakeFromNib{
+    [super awakeFromNib];
     [self initSteps];
-    [self nextStep];
 }
 
 -(PMStepController *) currentStep{
-    return [steps objectAtIndex:nextStep];
+    return [steps objectAtIndex:nextStepIndex];
 }
 
--(void) nextStep{
-    nextStep++;
+-(IBAction)nextStep:(id)sender{
+    nextStepIndex++;
+    PMStepController *currentStep = [self currentStep];
+    [[self currentView] setContentView: currentStep.view];
+}
+
+-(IBAction)previousStep:(id)sender{
+    nextStepIndex--;
     PMStepController *currentStep = [self currentStep];
     [[self currentView] setContentView: currentStep.view];
 }
@@ -46,7 +52,13 @@
     
     [controllers addObject: [[PMAccountWelcomeController alloc] init]];
     
-    steps = [NSArray arrayWithArray:controllers];
+    [controllers addObject: [[PMAccountIMAPViewController alloc] init]];
+    
+    steps = [controllers sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+        return [[obj1 order] compare: [obj2 order]];
+    }];
+    
+    [[self currentView] setContentView: [self currentStep].view];
 }
 
 -(BOOL) canProceed{
