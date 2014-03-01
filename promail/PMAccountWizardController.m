@@ -31,20 +31,36 @@
     [self initSteps];
 }
 
+#pragma mark Guards
+
+-(BOOL) canGoNext{
+    return nextStepIndex + 1 <= ([steps count] -1);
+}
+
+-(BOOL) canGoPrevious{
+    return nextStepIndex > 0;
+}
+
+# pragma mark Step handling
+
 -(PMStepController *) currentStep{
     return [steps objectAtIndex:nextStepIndex];
 }
 
 -(IBAction)nextStep:(id)sender{
-    nextStepIndex++;
-    PMStepController *currentStep = [self currentStep];
-    [[self currentView] setContentView: currentStep.view];
+    if([self canGoNext]){
+        nextStepIndex++;
+        PMStepController *currentStep = [self currentStep];
+        [[self currentView] setContentView: currentStep.view];
+    }
 }
 
 -(IBAction)previousStep:(id)sender{
-    nextStepIndex--;
-    PMStepController *currentStep = [self currentStep];
-    [[self currentView] setContentView: currentStep.view];
+    if([self canGoPrevious]){
+        nextStepIndex--;
+        PMStepController *currentStep = [self currentStep];
+        [[self currentView] setContentView: currentStep.view];
+    }
 }
 
 -(void) initSteps{
