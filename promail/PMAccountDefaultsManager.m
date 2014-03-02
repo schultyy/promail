@@ -8,21 +8,22 @@
 
 #import "PMAccountDefaultsManager.h"
 #import "PMAccountDefault.h"
+#import "PMConstants.h"
 
 @implementation PMAccountDefaultsManager
 
 +(PMAccountDefault *) SettingsForKey:(NSString *)key{
     
-    if([key isEqualToString:@"gmail"]){
+    if([key isEqualToString: PMAccountDefaultGmail]){
         return [PMAccountDefaultsManager gmail];
     }
-    if([key isEqualToString:@"yahoo"]){
+    if([key isEqualToString:PMAccountDefaultYahoo]){
         [PMAccountDefaultsManager yahoo];
     }
-    if([key isEqualToString:@"outlook"]){
+    if([key isEqualToString: PMAccountDefaultOutlook]){
         [PMAccountDefaultsManager outlook];
     }
-    if([key isEqualToString:@"custom"]){
+    if([key isEqualToString: PMAccountDefaultCustom]){
         [PMAccountDefaultsManager custom];
     }
     
@@ -31,7 +32,7 @@
 
 +(PMAccountDefault *) gmail{
     PMAccountDefault *accountDefault = [[PMAccountDefault alloc] init];
-    [accountDefault setAccountKey:@"gmail"];
+    [accountDefault setAccountKey: PMAccountDefaultGmail];
     
     [accountDefault setImapEncryptionType:@"TLS"];
     [accountDefault setImapPort: [NSNumber numberWithInt:993]];
@@ -46,7 +47,7 @@
 
 +(PMAccountDefault *) outlook{
     PMAccountDefault *accountDefault = [[PMAccountDefault alloc] init];
-    [accountDefault setAccountKey:@"outlook"];
+    [accountDefault setAccountKey: PMAccountDefaultOutlook];
     
     [accountDefault setImapEncryptionType:@"TLS"];
     [accountDefault setImapPort: [NSNumber numberWithInt:993]];
@@ -61,7 +62,7 @@
 
 +(PMAccountDefault *) yahoo{
     PMAccountDefault *accountDefault = [[PMAccountDefault alloc] init];
-    [accountDefault setAccountKey:@"yahoo"];
+    [accountDefault setAccountKey: PMAccountDefaultYahoo];
     
     [accountDefault setImapEncryptionType:@"TLS"];
     [accountDefault setImapPort: [NSNumber numberWithInt:993]];
@@ -76,7 +77,7 @@
 
 +(PMAccountDefault *) custom{
     PMAccountDefault *accountDefault = [[PMAccountDefault alloc] init];
-    [accountDefault setAccountKey:@"custom"];
+    [accountDefault setAccountKey: PMAccountDefaultCustom];
     return accountDefault;
 }
 

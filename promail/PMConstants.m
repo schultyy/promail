@@ -22,3 +22,11 @@ NSString *const PMStatusFetchMailBusy = @"PMStatusFetchMailBusy";
 NSString *const PMStatusFetchMailNotBusy = @"PMStatusFetchMailNotBusy";
 
 NSString *const PMStatusShowCustom = @"PMStatusShowCustom";
+
+NSString *const PMAccountDefaultGmail = @"PMAccountDefaultGmail";
+
+NSString *const PMAccountDefaultYahoo = @"PMAccountDefaultYahoo";
+
+NSString *const PMAccountDefaultOutlook = @"PMAccountDefaultOutlook";
+
+NSString *const PMAccountDefaultCustom = @"PMAccountDefaultCustom";
