@@ -56,7 +56,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="sUr-dw-68R" name="value" keyPath="objectValue.value" id="ALY-7k-icg"/>
+                                                            <binding destination="sUr-dw-68R" name="value" keyPath="objectValue.displayName" id="4Gd-Qo-YAz"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -68,7 +68,8 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <binding destination="2f7-nt-jv4" name="content" keyPath="arrangedObjects" id="zM1-ec-Da5"/>
+                                    <binding destination="ecp-7y-k4C" name="content" keyPath="arrangedObjects" id="xaa-vX-z53"/>
+                                    <binding destination="ecp-7y-k4C" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="xaa-vX-z53" id="ZcL-YB-fQT"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -86,10 +87,15 @@
             </subviews>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="SgN-7D-ZUM"/>
-        <dictionaryController objectClassName="_NSControllerKeyValuePair" id="2f7-nt-jv4" userLabel="ProviderController">
+        <arrayController objectClassName="PMAccountProvider" automaticallyPreparesContent="YES" id="ecp-7y-k4C" userLabel="ProviderController">
+            <declaredKeys>
+                <string>ProviderKey</string>
+                <string>DisplayName</string>
+            </declaredKeys>
             <connections>
-                <binding destination="-2" name="contentDictionary" keyPath="providers" id="kJu-va-kaI"/>
+                <binding destination="-2" name="contentArray" keyPath="self.providers" id="xGE-LQ-deU"/>
+                <binding destination="-2" name="selectionIndexes" keyPath="self.selections" id="ru6-BK-R08"/>
             </connections>
-        </dictionaryController>
+        </arrayController>
     </objects>
 </document>

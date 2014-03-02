@@ -35,6 +35,7 @@
 		D4BE33B418C3937900DE3A32 /* PMAccountProviderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4BE33B218C3937900DE3A32 /* PMAccountProviderView.xib */; };
 		D4D39A7A18C397FE00E7F226 /* PMAccountDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39A7918C397FE00E7F226 /* PMAccountDefault.m */; };
 		D4D39A7D18C3999400E7F226 /* PMAccountDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39A7C18C3999400E7F226 /* PMAccountDefaultsManager.m */; };
+		D4D39A8018C3D29700E7F226 /* PMAccountProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39A7F18C3D29700E7F226 /* PMAccountProvider.m */; };
 		D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
 		D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEF61857C9D700653625 /* InfoPlist.strings */; };
 		D4EEDEFA1857C9D700653625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDEF91857C9D700653625 /* main.m */; };
@@ -174,6 +175,8 @@
 		D4D39A7918C397FE00E7F226 /* PMAccountDefault.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountDefault.m; sourceTree = "<group>"; };
 		D4D39A7B18C3999400E7F226 /* PMAccountDefaultsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountDefaultsManager.h; sourceTree = "<group>"; };
 		D4D39A7C18C3999400E7F226 /* PMAccountDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountDefaultsManager.m; sourceTree = "<group>"; };
+		D4D39A7E18C3D29700E7F226 /* PMAccountProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountProvider.h; sourceTree = "<group>"; };
+		D4D39A7F18C3D29700E7F226 /* PMAccountProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountProvider.m; sourceTree = "<group>"; };
 		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -320,6 +323,8 @@
 				D4BE33A818C25E5E00DE3A32 /* PMAccountWizardContext.m */,
 				D4D39A7818C397FE00E7F226 /* PMAccountDefault.h */,
 				D4D39A7918C397FE00E7F226 /* PMAccountDefault.m */,
+				D4D39A7E18C3D29700E7F226 /* PMAccountProvider.h */,
+				D4D39A7F18C3D29700E7F226 /* PMAccountProvider.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -651,6 +656,7 @@
 				D46438C0186A403A001D26CB /* PMFolderListController.m in Sources */,
 				D4BE339418C0F91300DE3A32 /* PMAccountWelcomeController.m in Sources */,
 				D4EEDEFA1857C9D700653625 /* main.m in Sources */,
+				D4D39A8018C3D29700E7F226 /* PMAccountProvider.m in Sources */,
 				D4F1D489187621A000397D9C /* PMSeenTransformer.m in Sources */,
 				D4BE33A418C1356400DE3A32 /* PMAccountIServerViewController.m in Sources */,
 				D4EEDF011857C9D700653625 /* PMAppDelegate.m in Sources */,

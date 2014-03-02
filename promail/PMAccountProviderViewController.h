@@ -13,6 +13,8 @@
 
 -(id) initWithWizardContext: (PMAccountWizardContext *) wizardContext;
 
-@property (retain) NSDictionary *providers;
+@property (retain) NSArray *providers;
+
+@property (retain) NSMutableIndexSet *selections;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PMAccountProviderViewController.h"
+#import "PMAccountProvider.h"
 #import "PMConstants.h"
 
 @interface PMAccountProviderViewController ()
@@ -19,19 +20,23 @@
 {
     self = [super initWithWizardContext:wizardContext andNibName:@"PMAccountProviderView"];
     if (self) {
-        NSDictionary *providers = [NSDictionary dictionaryWithObjectsAndKeys:
-                                   @"Google Mail", PMAccountDefaultGmail,
-                                   @"Yahoo", PMAccountDefaultYahoo,
-                                   @"Outlook.com", PMAccountDefaultOutlook,
-                                   @"Custom", PMAccountDefaultCustom, nil];
+        [self setProviders:[NSArray arrayWithObjects:
+         [[PMAccountProvider alloc] initWithKey: PMAccountDefaultGmail andDisplayName: @"Google Mail"],
+         [[PMAccountProvider alloc] initWithKey: PMAccountDefaultYahoo andDisplayName: @"Yahoo"],
+         [[PMAccountProvider alloc] initWithKey: PMAccountDefaultOutlook andDisplayName: @"Outlook"],
+         [[PMAccountProvider alloc] initWithKey: PMAccountDefaultCustom andDisplayName: @"Custom"], nil]];
         
-        [self setProviders: providers];
     }
     return self;
 }
 
 -(NSString *) title{
     return @"Select Account type";
+}
+
+-(void) beforeNext{
+    PMAccountProvider *selectedProvider = [[self providers] objectAtIndex: self.selections.firstIndex];
+    NSLog(@"%@", selectedProvider.displayName);
 }
 
 @end
