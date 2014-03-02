@@ -58,6 +58,7 @@
         nextStepIndex++;
         PMStepController *currentStep = [self currentStep];
         [[self currentView] setContentView: currentStep.view];
+        [self setStepTitle: currentStep.title];
     }
 }
 
@@ -66,6 +67,7 @@
         nextStepIndex--;
         PMStepController *currentStep = [self currentStep];
         [[self currentView] setContentView: currentStep.view];
+        [self setStepTitle: currentStep.title];
     }
 }
 
@@ -80,6 +82,8 @@
     steps = [controllers sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
         return [[obj1 order] compare: [obj2 order]];
     }];
+    
+    [self setStepTitle: self.currentStep.title];
     
     [[self currentView] setContentView: [self currentStep].view];
 }

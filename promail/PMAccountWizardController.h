@@ -16,14 +16,13 @@
     PMAccountWizardContext *wizardContext;
 }
 
--(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
-
 @property IBOutlet NSBox *currentView;
-
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (assign) NSString *stepTitle;
 
+-(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
+-(PMStepController *) currentStep;
 -(BOOL) canProceed;
-
 -(IBAction)nextStep:(id)sender;
 -(IBAction)previousStep:(id)sender;
 
