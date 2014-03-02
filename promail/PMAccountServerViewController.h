@@ -20,6 +20,8 @@
 
 @property (retain) NSString *imapPassword;
 
+@property (retain) NSArray *connectionTypes;
+
 -(id) initWithWizardContext:(PMAccountWizardContext *)wizardContext;
 
 @end
