@@ -27,10 +27,6 @@
     return @"IMAP Settings";
 }
 
--(NSNumber *) order{
-    return [NSNumber numberWithInt: 2];
-}
-
 -(void) beforeNext{
     
 }

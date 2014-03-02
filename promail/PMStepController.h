@@ -20,8 +20,6 @@
 
 -(NSString *) title;
 
--(NSNumber *) order;
-
 -(BOOL) isValid;
 
 /*

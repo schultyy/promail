@@ -27,8 +27,4 @@
     return @"SMTP Settings";
 }
 
--(NSNumber *) order{
-    return [NSNumber numberWithInt: 3];
-}
-
 @end
