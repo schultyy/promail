@@ -8,7 +8,7 @@
 
 #import "PMAccountWizardController.h"
 #import "PMStepController.h"
-#import "PMAccountVendorViewController.h"
+#import "PMAccountProviderViewController.h"
 #import "PMAccountWelcomeController.h"
 #import "PMAccountIMAPViewController.h"
 #import "PMAccountSMTPViewController.h"
@@ -75,7 +75,7 @@
 -(void) initSteps{
     NSMutableArray *controllers = [NSMutableArray array];
     
-    [controllers addObject: [[PMAccountVendorViewController alloc] initWithWizardContext: wizardContext]];
+    [controllers addObject: [[PMAccountProviderViewController alloc] initWithWizardContext: wizardContext]];
     [controllers addObject: [[PMAccountWelcomeController alloc] initWithWizardContext:wizardContext]];
     [controllers addObject: [[PMAccountIMAPViewController alloc] initWithWizardContext:wizardContext]];
     [controllers addObject: [[PMAccountSMTPViewController alloc] initWithWizardContext:wizardContext]];

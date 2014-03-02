@@ -1,5 +1,5 @@
 //
-//  PMAccountVendorViewController.h
+//  PMAccountProviderViewController.h
 //  promail
 //
 //  Created by Jan Schulte on 02/03/14.
@@ -9,10 +9,10 @@
 #import "PMStepController.h"
 #import "PMAccountWizardContext.h"
 
-@interface PMAccountVendorViewController : PMStepController
+@interface PMAccountProviderViewController : PMStepController
 
 -(id) initWithWizardContext: (PMAccountWizardContext *) wizardContext;
 
-@property (retain) NSArray *vendors;
+@property (retain) NSDictionary *providers;
 
 @end

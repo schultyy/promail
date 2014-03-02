@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PMAccountVendorViewController">
+        <customObject id="-2" userLabel="File's Owner" customClass="PMAccountProviderViewController">
             <connections>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
@@ -56,7 +56,7 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="sUr-dw-68R" name="value" keyPath="objectValue" id="Qs8-Tg-bGX"/>
+                                                            <binding destination="sUr-dw-68R" name="value" keyPath="objectValue.value" id="ALY-7k-icg"/>
                                                         </connections>
                                                     </textField>
                                                 </subviews>
@@ -68,7 +68,7 @@
                                     </tableColumn>
                                 </tableColumns>
                                 <connections>
-                                    <binding destination="jkC-Cy-VMg" name="content" keyPath="arrangedObjects" id="zNJ-Ps-qn9"/>
+                                    <binding destination="2f7-nt-jv4" name="content" keyPath="arrangedObjects" id="zM1-ec-Da5"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -85,10 +85,11 @@
                 </scrollView>
             </subviews>
         </customView>
-        <arrayController objectClassName="NSArray" automaticallyPreparesContent="YES" id="jkC-Cy-VMg" userLabel="VendorController">
+        <userDefaultsController representsSharedInstance="YES" id="SgN-7D-ZUM"/>
+        <dictionaryController objectClassName="_NSControllerKeyValuePair" id="2f7-nt-jv4" userLabel="ProviderController">
             <connections>
-                <binding destination="-2" name="contentArray" keyPath="self.vendors" id="Xne-U4-ZG7"/>
+                <binding destination="-2" name="contentDictionary" keyPath="providers" id="kJu-va-kaI"/>
             </connections>
-        </arrayController>
+        </dictionaryController>
     </objects>
 </document>
