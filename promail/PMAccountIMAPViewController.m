@@ -1,12 +1,13 @@
 //
-//  PMAccountServerViewController.m
+//  PMAccountIMAPViewController.m
 //  promail
 //
-//  Created by Jan Schulte on 28/02/14.
+//  Created by Jan Schulte on 02/03/14.
 //  Copyright (c) 2014 schultyy. All rights reserved.
 //
 
 #import "PMAccountIMAPViewController.h"
+#import "PMAccountWizardContext.h"
 
 @interface PMAccountIMAPViewController ()
 
@@ -14,19 +15,24 @@
 
 @implementation PMAccountIMAPViewController
 
-- (id)initWithWizardContext:(PMAccountWizardContext *)wizardContext {
-    self = [super initWithWizardContext:wizardContext andNibName:@"PMAccountIMAPView"];
-    if (self) {
+-(id) initWithWizardContext:(PMAccountWizardContext *) wizardContext{
+    self = [super initWithWizardContext: wizardContext];
+    if(self){
+        
     }
     return self;
 }
 
 -(NSString *) title{
-    return @"Server settings";
+    return @"IMAP Settings";
 }
 
 -(NSNumber *) order{
-    return [NSNumber numberWithInt:2];
+    return [NSNumber numberWithInt: 2];
+}
+
+-(void) beforeNext{
+    
 }
 
 @end

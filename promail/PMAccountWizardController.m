@@ -10,6 +10,7 @@
 #import "PMStepController.h"
 #import "PMAccountWelcomeController.h"
 #import "PMAccountIMAPViewController.h"
+#import "PMAccountSMTPViewController.h"
 #import "PMAccountWizardContext.h"
 
 @interface PMAccountWizardController ()
@@ -72,8 +73,8 @@
     NSMutableArray *controllers = [NSMutableArray array];
     
     [controllers addObject: [[PMAccountWelcomeController alloc] initWithWizardContext:wizardContext]];
-    
     [controllers addObject: [[PMAccountIMAPViewController alloc] initWithWizardContext:wizardContext]];
+    [controllers addObject: [[PMAccountSMTPViewController alloc] initWithWizardContext:wizardContext]];
     
     //Sort steps after the result of their order method
     steps = [controllers sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {

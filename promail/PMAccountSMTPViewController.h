@@ -1,5 +1,5 @@
 //
-//  PMAccountIMAPViewController.h
+//  PMAccountSMTPViewController.h
 //  promail
 //
 //  Created by Jan Schulte on 02/03/14.
@@ -8,6 +8,6 @@
 
 #import "PMAccountServerViewController.h"
 
-@interface PMAccountIMAPViewController : PMAccountServerViewController
+@interface PMAccountSMTPViewController : PMAccountServerViewController
 
 @end
