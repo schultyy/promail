@@ -12,13 +12,15 @@
 
 @interface PMAccountServerViewController : PMStepController
 
-@property (retain) NSString *imapServer;
+@property (retain) NSString *server;
 
-@property (retain) NSNumber *imapPort;
+@property (retain) NSNumber *port;
 
 @property (assign) PMEncryptionType *encryptionType;
 
 @property (retain) NSString *imapPassword;
+
+@property (retain) NSString *username;
 
 @property (retain) NSArray *connectionTypes;
 

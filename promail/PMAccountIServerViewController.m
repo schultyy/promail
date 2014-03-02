@@ -28,9 +28,4 @@
     return self;
 }
 
--(NSString *) title{
-    return @"Server settings";
-}
-
-
 @end

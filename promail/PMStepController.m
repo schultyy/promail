@@ -37,4 +37,7 @@
 -(void) beforeNext{
 }
 
+-(void) activate{
+}
+
 @end

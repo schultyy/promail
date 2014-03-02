@@ -8,6 +8,8 @@
 
 #import "PMAccountServerViewController.h"
 
-@interface PMAccountIMAPViewController : PMAccountServerViewController
+@interface PMAccountIMAPViewController : PMAccountServerViewController{
+    BOOL firstTimeActivation;
+}
 
 @end

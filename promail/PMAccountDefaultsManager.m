@@ -18,13 +18,13 @@
         return [PMAccountDefaultsManager gmail];
     }
     if([key isEqualToString:PMAccountDefaultYahoo]){
-        [PMAccountDefaultsManager yahoo];
+        return [PMAccountDefaultsManager yahoo];
     }
     if([key isEqualToString: PMAccountDefaultOutlook]){
-        [PMAccountDefaultsManager outlook];
+        return [PMAccountDefaultsManager outlook];
     }
     if([key isEqualToString: PMAccountDefaultCustom]){
-        [PMAccountDefaultsManager custom];
+        return [PMAccountDefaultsManager custom];
     }
     
     return nil;

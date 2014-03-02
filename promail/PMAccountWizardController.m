@@ -60,6 +60,7 @@
         PMStepController *currentStep = [self currentStep];
         [[self currentView] setContentView: currentStep.view];
         [self setStepTitle: currentStep.title];
+        [currentStep activate];
     }
 }
 
@@ -69,6 +70,7 @@
         PMStepController *currentStep = [self currentStep];
         [[self currentView] setContentView: currentStep.view];
         [self setStepTitle: currentStep.title];
+        [currentStep activate];
     }
 }
 
@@ -84,6 +86,7 @@
     steps = controllers;
     
     [self setStepTitle: self.currentStep.title];
+    [[self currentStep] activate];
     
     [[self currentView] setContentView: [self currentStep].view];
 }

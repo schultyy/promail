@@ -18,13 +18,21 @@
 -(id) initWithWizardContext:(PMAccountWizardContext *) wizardContext{
     self = [super initWithWizardContext: wizardContext];
     if(self){
-        
+        firstTimeActivation = YES;
     }
     return self;
 }
 
 -(NSString *) title{
     return @"IMAP Settings";
+}
+
+-(void) activate{
+    if(firstTimeActivation) {
+        PMAccountWizardContext *context = [self wizardContext];
+        [self setServer: context.imapServer];
+        [self setPort: context.imapPort];
+    }
 }
 
 -(void) beforeNext{

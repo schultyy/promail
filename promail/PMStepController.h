@@ -23,6 +23,11 @@
 -(BOOL) isValid;
 
 /*
+ Do not call this method directly. This is called by the wizard itself when the step becomes the active step.
+ */
+-(void) activate;
+
+/*
  Do not call this method directly. This is called by the wizard itself before the next step will be shown.
  Do clean up and save necessary information to the wizard context here.
  */

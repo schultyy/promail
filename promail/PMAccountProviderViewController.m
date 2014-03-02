@@ -8,6 +8,8 @@
 
 #import "PMAccountProviderViewController.h"
 #import "PMAccountProvider.h"
+#import "PMAccountDefault.h"
+#import "PMAccountDefaultsManager.h"
 #import "PMConstants.h"
 
 @interface PMAccountProviderViewController ()
@@ -36,7 +38,8 @@
 
 -(void) beforeNext{
     PMAccountProvider *selectedProvider = [[self providers] objectAtIndex: self.selections.firstIndex];
-    NSLog(@"%@", selectedProvider.displayName);
+    PMAccountDefault *accountDefault = [PMAccountDefaultsManager SettingsForKey:[selectedProvider providerKey]];
+    [[self wizardContext] copyFromDefaults: accountDefault];
 }
 
 @end
