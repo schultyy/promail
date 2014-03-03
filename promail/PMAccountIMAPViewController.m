@@ -36,11 +36,15 @@
         if([context useEmailAddressAsUsername]){
             [self setUsername: context.emailAddress];
         }
-        firstTimeActivation = NO;
         
         if([context imapEncryption] == EncryptionTypeTLS){
-            self set
+            [self setSelections: [NSIndexSet indexSetWithIndex:1]];
         }
+        else if([context imapEncryption] == EncryptionTypeSTARTTLS){
+            [self setSelections: [NSIndexSet indexSetWithIndex:0]];
+        }
+        
+        firstTimeActivation = NO;
     }
 }
 

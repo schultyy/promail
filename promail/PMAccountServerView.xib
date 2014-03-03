@@ -76,6 +76,7 @@
                         <binding destination="lhI-19-gjj" name="content" keyPath="arrangedObjects" id="Pg0-fw-y7y"/>
                         <binding destination="lhI-19-gjj" name="contentObjects" keyPath="arrangedObjects.key" previousBinding="Pg0-fw-y7y" id="weR-hB-BTV"/>
                         <binding destination="lhI-19-gjj" name="contentValues" keyPath="arrangedObjects.name" previousBinding="weR-hB-BTV" id="VHK-vf-Gvc"/>
+                        <binding destination="lhI-19-gjj" name="selectedIndex" keyPath="selectionIndex" previousBinding="VHK-vf-Gvc" id="eoB-Lw-kNz"/>
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ico-Tf-B9D">
@@ -138,6 +139,7 @@
             </declaredKeys>
             <connections>
                 <binding destination="-2" name="contentArray" keyPath="connectionTypes" id="B25-ft-OrF"/>
+                <binding destination="-2" name="selectionIndexes" keyPath="self.selections" id="jL2-VE-ihO"/>
             </connections>
         </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="5Rb-Hx-dmL"/>

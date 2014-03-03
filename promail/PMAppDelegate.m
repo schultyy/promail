@@ -26,9 +26,8 @@
 }
 
 -(IBAction)preferences:(id)sender{
-    if(![self accountsController]){
-        [self setAccountsController: [[PMAccountWizardController alloc] initWithManagedObjectContext: [self managedObjectContext]]];
-    }
+    [self setAccountsController: nil];
+    [self setAccountsController: [[PMAccountWizardController alloc] initWithManagedObjectContext: [self managedObjectContext]]];
     [[self accountsController] showWindow: self];
 }
 

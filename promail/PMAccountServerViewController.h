@@ -24,6 +24,8 @@
 
 @property (retain) NSArray *connectionTypes;
 
+@property (retain) NSIndexSet *selections;
+
 -(id) initWithWizardContext:(PMAccountWizardContext *)wizardContext;
 
 @end
