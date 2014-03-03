@@ -42,6 +42,8 @@
     [accountDefault setSmtpPort: [NSNumber numberWithInt:465]];
     [accountDefault setSmtpServer:@"smtp.gmail.com"];
     
+    [accountDefault setUseEmailAsUsername: YES];
+    
     return accountDefault;
 }
 
@@ -56,6 +58,8 @@
     [accountDefault setSmtpEncryptionType:@"TLS"];
     [accountDefault setSmtpPort: [NSNumber numberWithInt:587]];
     [accountDefault setSmtpServer:@"smtp-mail.outlook.com"];
+    
+    [accountDefault setUseEmailAsUsername: YES];
     
     return accountDefault;
 }
@@ -72,12 +76,15 @@
     [accountDefault setSmtpPort: [NSNumber numberWithInt:465]];
     [accountDefault setSmtpServer:@"smtp.mail.yahoo.com"];
     
+    [accountDefault setUseEmailAsUsername: YES];
+    
     return accountDefault;
 }
 
 +(PMAccountDefault *) custom{
     PMAccountDefault *accountDefault = [[PMAccountDefault alloc] init];
     [accountDefault setAccountKey: PMAccountDefaultCustom];
+    [accountDefault setUseEmailAsUsername: NO];
     return accountDefault;
 }
 

@@ -10,14 +10,16 @@
 #import "PMAccountDefault.h"
 
 typedef enum{
-    EncryptionTypeTLS = 1,
-    EncryptionTypeSTARTTLS
+    EncryptionTypeSTARTTLS = 0,
+    EncryptionTypeTLS = 1
 }PMEncryptionType;
 
 @interface PMAccountWizardContext : NSObject
 
 @property (retain) NSString *emailAddress;
 @property (retain) NSString *fullName;
+
+@property (assign) BOOL useEmailAddressAsUsername;
 
 #pragma mark IMAP
 
@@ -34,6 +36,8 @@ typedef enum{
 @property (retain) NSString *smtpServer;
 @property (retain) NSString *smtpUsername;
 @property (assign) PMEncryptionType smtpEncryption;
+
+#pragma mark methods
 
 -(void) copyFromDefaults: (PMAccountDefault *) defaults;
 

@@ -18,13 +18,26 @@
 {
     self = [super initWithWizardContext:wizardContext];
     if (self) {
-        // Initialization code here.
+        firstTimeActivation = YES;
     }
     return self;
 }
 
 -(NSString *) title{
     return @"SMTP Settings";
+}
+
+-(void) activate{
+    if(firstTimeActivation) {
+        PMAccountWizardContext *context = [self wizardContext];
+        [self setServer: context.smtpServer];
+        [self setPort: context.smtpPort];
+        
+        if([context useEmailAddressAsUsername]){
+            [self setUsername: context.emailAddress];
+        }
+        firstTimeActivation = NO;
+    }
 }
 
 @end

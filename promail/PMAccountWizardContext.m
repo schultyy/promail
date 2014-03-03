@@ -13,6 +13,7 @@
 -(void) copyFromDefaults: (PMAccountDefault *) defaults{
     [self setImapPort: defaults.imapPort];
     [self setImapServer:defaults.imapServer];
+    [self setUseEmailAddressAsUsername: defaults.useEmailAsUsername];
     
     if ([[[defaults imapEncryptionType] uppercaseString] isEqualToString:@"TLS"]){
         [self setImapEncryption: EncryptionTypeTLS];

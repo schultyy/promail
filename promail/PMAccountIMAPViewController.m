@@ -32,6 +32,15 @@
         PMAccountWizardContext *context = [self wizardContext];
         [self setServer: context.imapServer];
         [self setPort: context.imapPort];
+
+        if([context useEmailAddressAsUsername]){
+            [self setUsername: context.emailAddress];
+        }
+        firstTimeActivation = NO;
+        
+        if([context imapEncryption] == EncryptionTypeTLS){
+            self set
+        }
     }
 }
 
