@@ -28,4 +28,8 @@
     return self;
 }
 
+-(BOOL) canActivate{
+    return [[self wizardContext] customConfigurationEnabled];
+}
+
 @end

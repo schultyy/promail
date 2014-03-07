@@ -36,6 +36,10 @@
     return @"Select Account type";
 }
 
+-(BOOL) canActivate{
+    return YES;
+}
+
 -(void) beforeNext{
     PMAccountProvider *selectedProvider = [[self providers] objectAtIndex: self.selections.firstIndex];
     PMAccountDefault *accountDefault = [PMAccountDefaultsManager SettingsForKey:[selectedProvider providerKey]];

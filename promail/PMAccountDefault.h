@@ -24,4 +24,11 @@
 
 @property (retain) NSString *smtpEncryptionType;
 
+/*
+ Describes, if the user can configure IMAP/SMTP settings or if they're
+ predefined.
+ This is NO by default
+ */
+@property (assign) BOOL customConfigurationEnabled;
+
 @end

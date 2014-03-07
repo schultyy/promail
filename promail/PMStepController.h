@@ -23,6 +23,12 @@
 -(BOOL) isValid;
 
 /*
+ This method is called *before* activate is called. The purpose of this method is to check if the current step can used
+ for the set of defined settings (user input and defaults)
+ */
+-(BOOL) canActivate;
+
+/*
  Do not call this method directly. This is called by the wizard itself when the step becomes the active step.
  */
 -(void) activate;

@@ -78,6 +78,9 @@
 +(PMAccountDefault *) custom{
     PMAccountDefault *accountDefault = [[PMAccountDefault alloc] init];
     [accountDefault setAccountKey: PMAccountDefaultCustom];
+    //Custom configuration regquires the user to configure all things by himself.
+    //Nothing predefined here
+    [accountDefault setCustomConfigurationEnabled:YES];
     return accountDefault;
 }
 

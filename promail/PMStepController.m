@@ -34,6 +34,10 @@
     return NO;
 }
 
+-(BOOL) canActivate{
+    return YES;
+}
+
 -(void) beforeNext{
 }
 

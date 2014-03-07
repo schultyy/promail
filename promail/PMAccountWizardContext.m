@@ -13,7 +13,9 @@
 -(void) copyFromDefaults: (PMAccountDefault *) defaults{
     [self setImapPort: defaults.imapPort];
     [self setImapServer:defaults.imapServer];
-    
+
+    [self setCustomConfigurationEnabled: defaults.customConfigurationEnabled];
+
     if ([[[defaults imapEncryptionType] uppercaseString] isEqualToString:@"TLS"]){
         [self setImapEncryption: EncryptionTypeTLS];
     }

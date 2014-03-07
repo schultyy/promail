@@ -10,4 +10,12 @@
 
 @implementation PMAccountDefault
 
+-(id) init{
+    self = [super init];
+    if(self) {
+        [self setCustomConfigurationEnabled:NO];
+    }
+    return self;
+}
+
 @end

@@ -38,6 +38,10 @@
     return nameValid && emailValid && passwordValid;
 }
 
+-(BOOL) canActivate{
+    return YES;
+}
+
 -(void) beforeNext{
     [[self wizardContext] setEmailAddress: self.emailAddress];
     [[self wizardContext] setFullName: self.fullName];

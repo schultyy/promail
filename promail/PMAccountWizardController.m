@@ -52,25 +52,43 @@
 }
 
 -(IBAction)nextStep:(id)sender{
+    [self nextStepHandler];
+}
+
+-(IBAction)previousStep:(id)sender{
+    [self previousStepHandler];
+}
+
+-(void) nextStepHandler{
     if([self canGoNext]){
         
         [[self currentStep] beforeNext];
         
         nextStepIndex++;
         PMStepController *currentStep = [self currentStep];
-        [[self currentView] setContentView: currentStep.view];
-        [self setStepTitle: currentStep.title];
-        [currentStep activate];
+        if([currentStep canActivate]){
+            [[self currentView] setContentView: currentStep.view];
+            [self setStepTitle: currentStep.title];
+            [currentStep activate];
+        }
+        else{
+            [self nextStepHandler];
+        }
     }
 }
 
--(IBAction)previousStep:(id)sender{
+-(void) previousStepHandler{
     if([self canGoPrevious]){
         nextStepIndex--;
         PMStepController *currentStep = [self currentStep];
-        [[self currentView] setContentView: currentStep.view];
-        [self setStepTitle: currentStep.title];
-        [currentStep activate];
+        if([currentStep canActivate]){
+            [[self currentView] setContentView: currentStep.view];
+            [self setStepTitle: currentStep.title];
+            [currentStep activate];
+        }
+        else{
+            [self previousStepHandler];
+        }
     }
 }
 
