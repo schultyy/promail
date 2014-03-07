@@ -19,6 +19,7 @@
 @property IBOutlet NSBox *currentView;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (assign) NSString *stepTitle;
+@property (retain) NSString *nextButtonTitle;
 
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
 -(PMStepController *) currentStep;

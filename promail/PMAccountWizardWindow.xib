@@ -16,7 +16,7 @@
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="780" height="453"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="780" height="453"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -52,6 +52,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="nextStep:" target="-2" id="Uhl-ts-VCf"/>
+                            <binding destination="-2" name="title" keyPath="self.nextButtonTitle" id="5JR-ji-6da"/>
                         </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AKp-XQ-Ixm">

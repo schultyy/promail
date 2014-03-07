@@ -27,6 +27,7 @@
     if (self) {
         nextStepIndex = 0;
         wizardContext = [[PMAccountWizardContext alloc] init];
+        [self setNextButtonTitle:@"Next"];
     }
     return self;
 }
@@ -52,6 +53,10 @@
     return [steps objectAtIndex:nextStepIndex];
 }
 
+-(PMStepController *) lastStep{
+    return [steps lastObject];
+}
+
 -(IBAction)nextStep:(id)sender{
     [self nextStepHandler];
 }
@@ -71,14 +76,25 @@
             [[self currentView] setContentView: currentStep.view];
             [self setStepTitle: currentStep.title];
             [currentStep activate];
+            if([currentStep isEqualTo: [self lastStep]]){
+                [self setNextButtonTitle:@"Finish"];
+            }
         }
         else{
             [self nextStepHandler];
         }
     }
+    else{
+        [self close];
+    }
 }
 
 -(void) previousStepHandler{
+    
+    //A bit hacky, to set this every time, but because of recursion not so easy
+    //to transfer this state through all calls
+    [self setNextButtonTitle:@"Next"];
+    
     if([self canGoPrevious]){
         nextStepIndex--;
         PMStepController *currentStep = [self currentStep];
