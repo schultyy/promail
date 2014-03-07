@@ -12,6 +12,7 @@
 #import "PMAccountWelcomeController.h"
 #import "PMAccountIMAPViewController.h"
 #import "PMAccountSMTPViewController.h"
+#import "PMAccountFinishViewController.h"
 #import "PMAccountWizardContext.h"
 
 @interface PMAccountWizardController ()
@@ -99,6 +100,7 @@
     [controllers addObject: [[PMAccountWelcomeController alloc] initWithWizardContext:wizardContext]];
     [controllers addObject: [[PMAccountIMAPViewController alloc] initWithWizardContext:wizardContext]];
     [controllers addObject: [[PMAccountSMTPViewController alloc] initWithWizardContext:wizardContext]];
+    [controllers addObject: [[PMAccountFinishViewController alloc] initWithWizardContext: wizardContext]];
     
     //Sort steps after the result of their order method
     steps = controllers;

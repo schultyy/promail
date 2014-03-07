@@ -36,6 +36,8 @@
 		D4D39A7A18C397FE00E7F226 /* PMAccountDefault.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39A7918C397FE00E7F226 /* PMAccountDefault.m */; };
 		D4D39A7D18C3999400E7F226 /* PMAccountDefaultsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39A7C18C3999400E7F226 /* PMAccountDefaultsManager.m */; };
 		D4D39A8018C3D29700E7F226 /* PMAccountProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = D4D39A7F18C3D29700E7F226 /* PMAccountProvider.m */; };
+		D4E6B28818CA371500D26B4F /* PMAccountFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4E6B28618CA371500D26B4F /* PMAccountFinishViewController.m */; };
+		D4E6B28918CA371500D26B4F /* PMAccountFinishView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4E6B28718CA371500D26B4F /* PMAccountFinishView.xib */; };
 		D4EEDEEE1857C9D700653625 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EEDEED1857C9D700653625 /* Cocoa.framework */; };
 		D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D4EEDEF61857C9D700653625 /* InfoPlist.strings */; };
 		D4EEDEFA1857C9D700653625 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D4EEDEF91857C9D700653625 /* main.m */; };
@@ -177,6 +179,9 @@
 		D4D39A7C18C3999400E7F226 /* PMAccountDefaultsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountDefaultsManager.m; sourceTree = "<group>"; };
 		D4D39A7E18C3D29700E7F226 /* PMAccountProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountProvider.h; sourceTree = "<group>"; };
 		D4D39A7F18C3D29700E7F226 /* PMAccountProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountProvider.m; sourceTree = "<group>"; };
+		D4E6B28518CA371500D26B4F /* PMAccountFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountFinishViewController.h; sourceTree = "<group>"; };
+		D4E6B28618CA371500D26B4F /* PMAccountFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountFinishViewController.m; sourceTree = "<group>"; };
+		D4E6B28718CA371500D26B4F /* PMAccountFinishView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMAccountFinishView.xib; sourceTree = "<group>"; };
 		D4EEDEEA1857C9D700653625 /* promail.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = promail.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4EEDEED1857C9D700653625 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D4EEDEF01857C9D700653625 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -301,6 +306,8 @@
 				D4BE33AE18C3819400DE3A32 /* PMAccountSMTPViewController.m */,
 				D4BE33B018C3937900DE3A32 /* PMAccountProviderViewController.h */,
 				D4BE33B118C3937900DE3A32 /* PMAccountProviderViewController.m */,
+				D4E6B28518CA371500D26B4F /* PMAccountFinishViewController.h */,
+				D4E6B28618CA371500D26B4F /* PMAccountFinishViewController.m */,
 			);
 			name = Steps;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 		D4BE33A018C10B0100DE3A32 /* Steps */ = {
 			isa = PBXGroup;
 			children = (
+				D4E6B28718CA371500D26B4F /* PMAccountFinishView.xib */,
 				D4BE33B218C3937900DE3A32 /* PMAccountProviderView.xib */,
 				D4BE33A318C1356400DE3A32 /* PMAccountServerView.xib */,
 				D4BE339318C0F91300DE3A32 /* PMAccountWelcomeView.xib */,
@@ -598,6 +606,7 @@
 				D4BE33A518C1356400DE3A32 /* PMAccountServerView.xib in Resources */,
 				D46438BC186A4027001D26CB /* PMFolderListView.xib in Resources */,
 				CB029E5018763CD8004B9F7D /* README.md in Resources */,
+				D4E6B28918CA371500D26B4F /* PMAccountFinishView.xib in Resources */,
 				D4BE339B18C0F9B600DE3A32 /* PMAccountWizardWindow.xib in Resources */,
 				D4BE33B418C3937900DE3A32 /* PMAccountProviderView.xib in Resources */,
 				D4EEDEFE1857C9D700653625 /* Credits.rtf in Resources */,
@@ -676,6 +685,7 @@
 				D4F1781F188BFA6800C3B0D0 /* PMCIDURLProtocol.m in Sources */,
 				D4BE339A18C0F9B600DE3A32 /* PMAccountWizardController.m in Sources */,
 				D4BE33AC18C37E5E00DE3A32 /* PMAccountIMAPViewController.m in Sources */,
+				D4E6B28818CA371500D26B4F /* PMAccountFinishViewController.m in Sources */,
 				D4D39A7D18C3999400E7F226 /* PMAccountDefaultsManager.m in Sources */,
 				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
 				D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */,
