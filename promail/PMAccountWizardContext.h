@@ -18,7 +18,7 @@ typedef enum{
 
 @property (retain) NSString *emailAddress;
 @property (retain) NSString *fullName;
-
+@property (retain) NSColor *accountColor;
 @property (assign) BOOL customConfigurationEnabled;
 
 #pragma mark IMAP

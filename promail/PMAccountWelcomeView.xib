@@ -7,6 +7,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMAccountWelcomeController">
             <connections>
+                <outlet property="colorWell" destination="KML-Ry-oeK" id="8Qv-Pk-nlq"/>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
         </customObject>
@@ -82,6 +83,23 @@
                         <binding destination="-2" name="value" keyPath="password" id="eWu-Gz-OuJ"/>
                     </connections>
                 </secureTextField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ini-hf-31S">
+                    <rect key="frame" x="18" y="70" width="92" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Account color" id="SYN-Yc-wTh">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KML-Ry-oeK">
+                    <rect key="frame" x="20" y="39" width="44" height="23"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <color key="color" red="0.39104144046659617" green="1" blue="0.058841031986776482" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="changeAccountColor:" target="-2" id="ufB-Gv-fh1"/>
+                    </connections>
+                </colorWell>
             </subviews>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="U95-xd-t8N"/>

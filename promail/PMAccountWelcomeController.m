@@ -30,6 +30,12 @@
     return @"Welcome";
 }
 
+-(IBAction) changeAccountColor: (id) sender{
+    [self setColor: self.colorWell.color];
+    
+    NSLog(@"Changed color: %@", self.colorWell.color);
+}
+
 -(BOOL) isValid{
     BOOL nameValid = [[self fullName] length] > 0;
     BOOL emailValid = [[self emailAddress] length] > 0;
@@ -45,6 +51,7 @@
 -(void) beforeNext{
     [[self wizardContext] setEmailAddress: self.emailAddress];
     [[self wizardContext] setFullName: self.fullName];
+    [[self wizardContext] setAccountColor: self.color];
     [[self wizardContext] setImapPassword: self.password];
     [[self wizardContext] setSmtpPassword: self.password];
 }

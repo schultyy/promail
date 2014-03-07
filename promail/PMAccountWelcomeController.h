@@ -17,6 +17,12 @@
 
 @property (retain) NSString *password;
 
+@property (retain) NSColor *color;
+
+@property IBOutlet NSColorWell *colorWell;
+
 -(id) initWithWizardContext:(PMAccountWizardContext *) wizardContext;
+
+-(IBAction) changeAccountColor: (id)sender;
 
 @end
