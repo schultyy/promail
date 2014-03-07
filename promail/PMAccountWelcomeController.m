@@ -42,6 +42,7 @@
     [[self wizardContext] setEmailAddress: self.emailAddress];
     [[self wizardContext] setFullName: self.fullName];
     [[self wizardContext] setImapPassword: self.password];
+    [[self wizardContext] setSmtpPassword: self.password];
 }
 
 @end

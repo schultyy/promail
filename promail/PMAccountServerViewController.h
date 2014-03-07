@@ -18,7 +18,7 @@
 
 @property (assign) PMEncryptionType *encryptionType;
 
-@property (retain) NSString *imapPassword;
+@property (retain) NSString *password;
 
 @property (retain) NSString *username;
 

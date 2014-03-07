@@ -129,6 +129,9 @@
                             <string>NSAllRomanInputSourcesLocaleIdentifier</string>
                         </allowedInputSourceLocales>
                     </secureTextFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="password" id="QHc-Q6-8Ib"/>
+                    </connections>
                 </secureTextField>
             </subviews>
         </customView>

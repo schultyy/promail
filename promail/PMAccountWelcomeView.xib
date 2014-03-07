@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PMAccountWelcomeView">
+        <customObject id="-2" userLabel="File's Owner" customClass="PMAccountWelcomeController">
             <connections>
                 <outlet property="view" destination="1" id="2"/>
             </connections>
@@ -79,7 +79,7 @@
                         </allowedInputSourceLocales>
                     </secureTextFieldCell>
                     <connections>
-                        <binding destination="-2" name="value" keyPath="password" id="K2J-lR-XxJ"/>
+                        <binding destination="-2" name="value" keyPath="password" id="eWu-Gz-OuJ"/>
                     </connections>
                 </secureTextField>
             </subviews>

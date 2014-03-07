@@ -33,9 +33,8 @@
         [self setServer: context.smtpServer];
         [self setPort: context.smtpPort];
         
-        if([context useEmailAddressAsUsername]){
-            [self setUsername: context.emailAddress];
-        }
+        [self setUsername: context.emailAddress];
+        [self setPassword: context.smtpPassword];
         
         if([context imapEncryption] == EncryptionTypeTLS){
             [self setSelections: [NSIndexSet indexSetWithIndex:1]];

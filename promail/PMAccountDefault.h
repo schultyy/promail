@@ -24,6 +24,4 @@
 
 @property (retain) NSString *smtpEncryptionType;
 
-@property (assign) BOOL useEmailAsUsername;
-
 @end
