@@ -130,7 +130,7 @@
     id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
     
     // If the account has no server: bail out
-    if ([account valueForKey: @"server"] == NULL ) {
+    if ([account valueForKey: @"imapServer"] == NULL ) {
         [self notBusy];
         return;
     }

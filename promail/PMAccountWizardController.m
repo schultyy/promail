@@ -14,6 +14,8 @@
 #import "PMAccountSMTPViewController.h"
 #import "PMAccountFinishViewController.h"
 #import "PMAccountWizardContext.h"
+#import "PMConstants.h"
+#import "SSKeychain.h"
 
 @interface PMAccountWizardController ()
 
@@ -26,6 +28,7 @@
     self = [super initWithWindowNibName:@"PMAccountWizardWindow"];
     if (self) {
         nextStepIndex = 0;
+        [self setManagedObjectContext:context];
         wizardContext = [[PMAccountWizardContext alloc] init];
         [self setNextButtonTitle:@"Next"];
     }
@@ -93,7 +96,7 @@
 -(void) finish {
     NSManagedObject *newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
     [newAccount setValue: wizardContext.fullName forKey:@"username"];
-    [newAccount setValue: wizardContext.emailAddress forKey:@"emailAddress"];
+    [newAccount setValue: wizardContext.emailAddress forKey:@"email"];
     
     [newAccount setValue: [NSNumber numberWithInt:wizardContext.smtpEncryption ] forKey:@"smtpEncryption"];
     [newAccount setValue: wizardContext.smtpPort forKey:@"smtpPort"];
@@ -102,6 +105,8 @@
     [newAccount setValue: [NSNumber numberWithInt:wizardContext.imapEncryption ] forKey:@"imapEncryption"];
     [newAccount setValue: wizardContext.imapPort forKey:@"imapPort"];
     [newAccount setValue: wizardContext.imapServer forKey:@"imapServer"];
+    
+    [SSKeychain setPassword: wizardContext.imapPassword forService:PMApplicationName account: wizardContext.emailAddress];
 }
 
 -(void) previousStepHandler{

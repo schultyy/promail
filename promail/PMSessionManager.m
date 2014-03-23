@@ -23,12 +23,12 @@
 
 -(void) initializeSession{
     session = [[MCOIMAPSession alloc] init];
-    session.hostname = [account valueForKey:@"server"];
-    NSInteger num = [[account valueForKey:@"port"] integerValue];
+    session.hostname = [account valueForKey:@"imapServer"];
+    NSInteger num = [[account valueForKey:@"imapPort"] integerValue];
     session.port = num;
     session.username = [account valueForKey:@"email"];
     session.password = [self fetchPassword: [account valueForKey: @"email"]];
-    int connectionType = [[account valueForKey:@"encryption"] intValue];
+    int connectionType = [[account valueForKey:@"imapEncryption"] intValue];
     switch (connectionType) {
         case 0:
             session.connectionType = MCOConnectionTypeStartTLS;
