@@ -18,7 +18,7 @@
 		D46438BC186A4027001D26CB /* PMFolderListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46438BB186A4027001D26CB /* PMFolderListView.xib */; };
 		D46438C0186A403A001D26CB /* PMFolderListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438BE186A403A001D26CB /* PMFolderListController.m */; };
 		D49AB35918A7E4BE00532246 /* PMMessageContentAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D49AB35818A7E4BE00532246 /* PMMessageContentAdapter.m */; };
-		D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* AccountsWindow.xib */; };
+		D4AAB598186231DA00D38E9D /* PMAccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* PMAccountsWindow.xib */; };
 		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
 		D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB5A818623CBB00D38E9D /* PMConstants.m */; };
 		D4BE339418C0F91300DE3A32 /* PMAccountWelcomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4BE339218C0F91300DE3A32 /* PMAccountWelcomeController.m */; };
@@ -147,7 +147,7 @@
 		D46438BE186A403A001D26CB /* PMFolderListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMFolderListController.m; sourceTree = "<group>"; };
 		D49AB35718A7E4BE00532246 /* PMMessageContentAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMessageContentAdapter.h; sourceTree = "<group>"; };
 		D49AB35818A7E4BE00532246 /* PMMessageContentAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMessageContentAdapter.m; sourceTree = "<group>"; };
-		D4AAB597186231DA00D38E9D /* AccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AccountsWindow.xib; sourceTree = "<group>"; };
+		D4AAB597186231DA00D38E9D /* PMAccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMAccountsWindow.xib; sourceTree = "<group>"; };
 		D4AAB59D186231F100D38E9D /* PMAccountsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMAccountsWindowController.h; sourceTree = "<group>"; };
 		D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMAccountsWindowController.m; sourceTree = "<group>"; };
 		D4AAB5A318623C3700D38E9D /* PMConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PMConstants.h; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 			children = (
 				D4BE33A018C10B0100DE3A32 /* Steps */,
 				D4BE339918C0F9B600DE3A32 /* PMAccountWizardWindow.xib */,
-				D4AAB597186231DA00D38E9D /* AccountsWindow.xib */,
+				D4AAB597186231DA00D38E9D /* PMAccountsWindow.xib */,
 			);
 			name = Account;
 			sourceTree = "<group>";
@@ -597,7 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D4EEDEF81857C9D700653625 /* InfoPlist.strings in Resources */,
-				D4AAB598186231DA00D38E9D /* AccountsWindow.xib in Resources */,
+				D4AAB598186231DA00D38E9D /* PMAccountsWindow.xib in Resources */,
 				D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */,
 				D4BE339518C0F91300DE3A32 /* PMAccountWelcomeView.xib in Resources */,
 				D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */,

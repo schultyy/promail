@@ -19,7 +19,7 @@
 
 - (id)initWithManagedObjectContext:(NSManagedObjectContext *)context
 {
-    self = [super initWithWindowNibName:@"AccountsWindow"];
+    self = [super initWithWindowNibName:@"PMAccountsWindow"];
     if (self) {
         [self setManagedObjectContext:context];
         [self setSelections: [[NSMutableIndexSet alloc]init]];
