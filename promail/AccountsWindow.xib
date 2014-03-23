@@ -180,7 +180,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
-                            <action selector="add:" target="cL7-pM-0Kd" id="UA8-ns-3v6"/>
+                            <action selector="addNewAccount:" target="-2" id="RQ1-1I-KV1"/>
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="He7-rj-O09">

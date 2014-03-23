@@ -30,3 +30,5 @@ NSString *const PMAccountDefaultYahoo = @"PMAccountDefaultYahoo";
 NSString *const PMAccountDefaultOutlook = @"PMAccountDefaultOutlook";
 
 NSString *const PMAccountDefaultCustom = @"PMAccountDefaultCustom";
+
+NSString *const PMAccountCreateNewNotification = @"PMAccountCreateNewNotification";

@@ -58,6 +58,12 @@
     return YES;
 }
 
+-(IBAction)addNewAccount:(id)sender{
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    
+    [nc postNotificationName:PMAccountCreateNewNotification object:nil];
+}
+
 -(IBAction)setNewPassword:(id)sender{
     
     NSUInteger index = [[self selections] firstIndex];

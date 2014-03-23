@@ -7,6 +7,7 @@
 //
 
 #import "PMAppDelegate.h"
+#import "PMConstants.h"
 #import <MailCore/MailCore.h>
 #import "PMAccountsWindowController.h"
 #import "PMAccountWizardController.h"
@@ -23,6 +24,9 @@
     [self setMainController: [[PMMainController alloc] initWithObjectContext: self.managedObjectContext]];
     
     [[self mainController] showWindow: self];
+    
+    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(addAccount:) name:PMAccountCreateNewNotification object:nil];
 }
 
 -(IBAction)addAccount:(id)sender{

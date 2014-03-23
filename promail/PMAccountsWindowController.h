@@ -20,6 +20,8 @@
 
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
 
+-(IBAction)addNewAccount:(id)sender;
+
 -(IBAction)setNewPassword:(id)sender;
 
 @end

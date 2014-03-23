@@ -33,4 +33,6 @@ FOUNDATION_EXPORT NSString *const PMAccountDefaultOutlook;
 
 FOUNDATION_EXPORT NSString *const PMAccountDefaultCustom;
 
+FOUNDATION_EXPORT NSString *const PMAccountCreateNewNotification;
+
 #endif
