@@ -95,7 +95,7 @@
 
 -(void) finish {
     NSManagedObject *newAccount = [NSEntityDescription insertNewObjectForEntityForName:@"Account" inManagedObjectContext:self.managedObjectContext];
-    [newAccount setValue: wizardContext.fullName forKey:@"username"];
+    [newAccount setValue: wizardContext.fullName forKey:@"name"];
     [newAccount setValue: wizardContext.emailAddress forKey:@"email"];
     
     [newAccount setValue: [NSNumber numberWithInt:wizardContext.smtpEncryption ] forKey:@"smtpEncryption"];
@@ -107,6 +107,8 @@
     [newAccount setValue: wizardContext.imapServer forKey:@"imapServer"];
     
     [SSKeychain setPassword: wizardContext.imapPassword forService:PMApplicationName account: wizardContext.emailAddress];
+    
+    [[self managedObjectContext] save:nil];
 }
 
 -(void) previousStepHandler{
