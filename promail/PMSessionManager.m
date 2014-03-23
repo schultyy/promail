@@ -23,12 +23,12 @@
 
 -(void) initializeSession{
     session = [[MCOIMAPSession alloc] init];
-    session.hostname = [account valueForKey:@"server"];
-    NSInteger num = [[account valueForKey:@"port"] integerValue];
+    session.hostname = [account valueForKey:@"imapServer"];
+    NSInteger num = [[account valueForKey:@"imapPort"] integerValue];
     session.port = num;
     session.username = [account valueForKey:@"email"];
     session.password = [self fetchPassword: [account valueForKey: @"email"]];
-    int connectionType = [[account valueForKey:@"encryption"] intValue];
+    int connectionType = [[account valueForKey:@"imapEncryption"] intValue];
     switch (connectionType) {
         case 0:
             session.connectionType = MCOConnectionTypeStartTLS;
@@ -72,14 +72,32 @@
         uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];
     }
     
-    MCOIMAPFetchMessagesOperation *fetchOperation =
-    [session fetchMessagesByUIDOperationWithFolder:folder
-                                       requestKind:MCOIMAPMessagesRequestKindFullHeaders |
-                                                    MCOIMAPMessagesRequestKindStructure |
-                                                    MCOIMAPMessagesRequestKindFlags
-                                              uids:uidSet];
+    MCOIMAPCapabilityOperation * op = [session capabilityOperation];
+    [op start:^(NSError * error, MCOIndexSet * capabilities) {
+        BOOL isGmail = NO;
+        if ([capabilities containsIndex:MCOIMAPCapabilityGmail]) {
+            isGmail = YES;
+        }
+        MCOIMAPMessagesRequestKind kind = MCOIMAPMessagesRequestKindUid |
+                                          MCOIMAPMessagesRequestKindFullHeaders |
+                                          MCOIMAPMessagesRequestKindStructure |
+                                          MCOIMAPMessagesRequestKindFlags |
+                                          MCOIMAPMessagesRequestKindInternalDate;
+        
+        if (isGmail) {
+            kind |= MCOIMAPMessagesRequestKindGmailLabels |
+                    MCOIMAPMessagesRequestKindGmailThreadID |
+                    MCOIMAPMessagesRequestKindGmailMessageID;
+        }
+        
+        MCOIMAPFetchMessagesOperation *fetchOperation =
+        [session fetchMessagesByUIDOperationWithFolder:folder
+                                           requestKind:kind
+                                                  uids:uidSet];
+        
+        [fetchOperation start: completionBlock];
+    }];
     
-    [fetchOperation start: completionBlock];
 }
 
 -(NSString *) htmlBodyFromMessage: (NSData *)message{

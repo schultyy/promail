@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B3116" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Account" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="encryption" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="imapEncryption" optional="YES" attributeType="Integer 32" syncable="YES"/>
+        <attribute name="imapPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="imapServer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="port" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
-        <attribute name="server" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="smtpEncryption" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="smtpPort" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="smtpServer" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="account" inverseEntity="Message" syncable="YES"/>
     </entity>
@@ -16,6 +19,8 @@
         <attribute name="cc" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="from" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="gmail_message_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="gmail_thread_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="message_id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="received" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="seen" optional="YES" attributeType="Integer 32" syncable="YES"/>
@@ -25,7 +30,7 @@
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="messages" inverseEntity="Account" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="0" positionY="0" width="0" height="0"/>
-        <element name="Message" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="Account" positionX="0" positionY="0" width="128" height="195"/>
+        <element name="Message" positionX="0" positionY="0" width="128" height="270"/>
     </elements>
 </model>

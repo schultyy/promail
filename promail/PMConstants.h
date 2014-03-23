@@ -25,4 +25,12 @@ FOUNDATION_EXPORT NSString *const PMStatusFetchMailBusy;
 
 FOUNDATION_EXPORT NSString *const PMStatusFetchMailNotBusy;
 
+FOUNDATION_EXPORT NSString *const PMAccountDefaultGmail;
+
+FOUNDATION_EXPORT NSString *const PMAccountDefaultYahoo;
+
+FOUNDATION_EXPORT NSString *const PMAccountDefaultOutlook;
+
+FOUNDATION_EXPORT NSString *const PMAccountDefaultCustom;
+
 #endif

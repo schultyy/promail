@@ -9,6 +9,7 @@
 #import "PMAppDelegate.h"
 #import <MailCore/MailCore.h>
 #import "PMAccountsWindowController.h"
+#import "PMAccountWizardController.h"
 
 @implementation PMAppDelegate
 
@@ -23,6 +24,15 @@
     
     [[self mainController] showWindow: self];
 }
+
+-(IBAction)preferences:(id)sender{
+    [self setAccountsController: nil];
+    [self setAccountsController: [[PMAccountWizardController alloc] initWithManagedObjectContext: [self managedObjectContext]]];
+    [[self accountsController] showWindow: self];
+}
+
+#pragma mark Core Data
+
 
 // Returns the directory the application uses to store the Core Data store file. This code uses a directory named "schultyy.promail" in the user's Application Support directory.
 - (NSURL *)applicationFilesDirectory
@@ -193,11 +203,5 @@
     return NSTerminateNow;
 }
 
--(IBAction)preferences:(id)sender{
-    if(![self accountsController]){
-        [self setAccountsController: [[PMAccountsWindowController alloc] initWithManagedObjectContext: [self managedObjectContext]]];
-    }
-    [[self accountsController] showWindow: self];
-}
 
 @end
