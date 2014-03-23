@@ -72,14 +72,32 @@
         uidSet = [MCOIndexSet indexSetWithRange:MCORangeMake(1,UINT64_MAX)];
     }
     
-    MCOIMAPFetchMessagesOperation *fetchOperation =
-    [session fetchMessagesByUIDOperationWithFolder:folder
-                                       requestKind:MCOIMAPMessagesRequestKindFullHeaders |
-                                                    MCOIMAPMessagesRequestKindStructure |
-                                                    MCOIMAPMessagesRequestKindFlags
-                                              uids:uidSet];
+    MCOIMAPCapabilityOperation * op = [session capabilityOperation];
+    [op start:^(NSError * error, MCOIndexSet * capabilities) {
+        BOOL isGmail = NO;
+        if ([capabilities containsIndex:MCOIMAPCapabilityGmail]) {
+            isGmail = YES;
+        }
+        MCOIMAPMessagesRequestKind kind = MCOIMAPMessagesRequestKindUid |
+                                          MCOIMAPMessagesRequestKindFullHeaders |
+                                          MCOIMAPMessagesRequestKindStructure |
+                                          MCOIMAPMessagesRequestKindFlags |
+                                          MCOIMAPMessagesRequestKindInternalDate;
+        
+        if (isGmail) {
+            kind |= MCOIMAPMessagesRequestKindGmailLabels |
+                    MCOIMAPMessagesRequestKindGmailThreadID |
+                    MCOIMAPMessagesRequestKindGmailMessageID;
+        }
+        
+        MCOIMAPFetchMessagesOperation *fetchOperation =
+        [session fetchMessagesByUIDOperationWithFolder:folder
+                                           requestKind:kind
+                                                  uids:uidSet];
+        
+        [fetchOperation start: completionBlock];
+    }];
     
-    [fetchOperation start: completionBlock];
 }
 
 -(NSString *) htmlBodyFromMessage: (NSData *)message{
