@@ -48,7 +48,11 @@
 }
 
 -(void) beforeNext{
-    
+    [[self wizardContext] setImapEncryption: self.encryptionType];
+    [[self wizardContext] setImapPassword:self.password];
+    [[self wizardContext] setImapPort:self.port];
+    [[self wizardContext] setImapServer:self.server];
+    [[self wizardContext] setImapUsername:self.username];
 }
 
 @end

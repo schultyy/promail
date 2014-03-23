@@ -16,7 +16,7 @@
 
 @property (retain) NSNumber *port;
 
-@property (assign) PMEncryptionType *encryptionType;
+@property (assign) PMEncryptionType encryptionType;
 
 @property (retain) NSString *password;
 
