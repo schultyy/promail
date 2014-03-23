@@ -108,9 +108,11 @@
     
     if(wizardContext.customConfigurationEnabled){
         [newAccount setValue:wizardContext.imapUsername forKeyPath:@"imapUsername"];
+        [newAccount setValue:wizardContext.smtpUsername forKeyPath:@"smtpUsername"];
     }
     else {
         [newAccount setValue:wizardContext.emailAddress forKeyPath:@"imapUsername"];
+        [newAccount setValue:wizardContext.emailAddress forKeyPath:@"smtpUsername"];
     }
     
     [SSKeychain setPassword: wizardContext.imapPassword forService:PMApplicationName account: wizardContext.emailAddress];

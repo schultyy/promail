@@ -47,4 +47,12 @@
     }
 }
 
+-(void) beforeNext {
+    [[self wizardContext] setSmtpEncryption: self.encryptionType];
+    [[self wizardContext] setSmtpPassword: self.password];
+    [[self wizardContext] setSmtpPort:self.port];
+    [[self wizardContext] setSmtpServer: self.server];
+    [[self wizardContext] setSmtpUsername:self.username];
+}
+
 @end
