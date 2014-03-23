@@ -48,6 +48,8 @@
 -(void) processNewMails: (NSArray *) newMails forAccount: (NSManagedObject *) account{
     Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
         NSString *messageId = [[obj header] messageID];
+        NSNumber *gmailMessageId = [NSNumber numberWithUnsignedLongLong: obj.gmailMessageID];
+        NSNumber *gmailThreadId  = [NSNumber numberWithUnsignedLongLong: obj.gmailThreadID];
         
         if([self containsMessage:account messageID: messageId]){
             return;
@@ -71,13 +73,16 @@
         NSString *bcc  = [obj.header.bcc componentsJoinedByString:@","];
         
         [msg setValue: subject forKey: @"subject"];
-        [msg setValue:from forKey:@"from"];
-        [msg setValue:to forKey: @"to"];
-        [msg setValue:cc forKey:@"cc"];
-        [msg setValue:bcc forKey:@"bcc"];
+        [msg setValue: from forKey:@"from"];
+        [msg setValue: to forKey: @"to"];
+        [msg setValue: cc forKey:@"cc"];
+        [msg setValue: bcc forKey:@"bcc"];
         [msg setValue: messageId forKey: @"message_id"];
         [msg setValue: [[obj header] date] forKey: @"date"];
         [msg setValue: uid forKey:@"uid"];
+        [msg setValue: gmailThreadId forKey:@"gmail_thread_id"];
+        [msg setValue: gmailMessageId forKey:@"gmail_message_id"];
+        
         [msg setValue: [NSNumber numberWithBool:seen] forKey:@"seen"];
         [msg setValue: [NSNumber numberWithLong: obj.attachments.count] forKey:@"attachment_count"];
     });
