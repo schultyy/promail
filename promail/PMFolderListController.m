@@ -85,6 +85,14 @@
         
         [msg setValue: [NSNumber numberWithBool:seen] forKey:@"seen"];
         [msg setValue: [NSNumber numberWithLong: obj.attachments.count] forKey:@"attachment_count"];
+        
+        if (obj.gmailLabels) {
+            Underscore.arrayEach(obj.gmailLabels, ^(NSString *label){
+                id gmailLabel = [self gmailLabelForText:label];
+                NSMutableSet *messages = [gmailLabel mutableSetValueForKey:@"messages"];
+                [messages addObject:msg];
+            });
+        }
     });
     NSError *errors = nil;
     [[self managedObjectContext] save:&errors];
@@ -130,6 +138,24 @@
     return result;
 }
 
+-(id) gmailLabelForText: (NSString*) label {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity: [NSEntityDescription entityForName:@"GmailLabel" inManagedObjectContext: self.managedObjectContext ]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", label];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    if(!error && [resultset count] > 0){
+        return [resultset firstObject];
+    }
+
+    id gmailLabel = [NSEntityDescription insertNewObjectForEntityForName:@"GmailLabel" inManagedObjectContext: self.managedObjectContext];
+    [gmailLabel setValue: label forKey:@"name"];
+
+    return gmailLabel;
+}
 
 -(void) fetchMailsForAccount: (NSManagedObject *) account{
     id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
