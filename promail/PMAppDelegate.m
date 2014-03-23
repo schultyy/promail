@@ -25,10 +25,16 @@
     [[self mainController] showWindow: self];
 }
 
+-(IBAction)addAccount:(id)sender{
+    [self setAccountsWizardController: nil];
+    [self setAccountsWizardController: [[PMAccountWizardController alloc] initWithManagedObjectContext: [self managedObjectContext]]];
+    [[self accountsWizardController] showWindow: self];
+}
+
 -(IBAction)preferences:(id)sender{
-    [self setAccountsController: nil];
-    [self setAccountsController: [[PMAccountWizardController alloc] initWithManagedObjectContext: [self managedObjectContext]]];
-    [[self accountsController] showWindow: self];
+    [self setAccountsController:nil];
+    [self setAccountsController: [[PMAccountsWindowController alloc] initWithManagedObjectContext:self.managedObjectContext]];
+    [[self accountsController] showWindow:self];
 }
 
 #pragma mark Core Data
