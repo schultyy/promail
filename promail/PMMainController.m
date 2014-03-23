@@ -101,7 +101,8 @@
 }
 
 -(BOOL)validateToolbarItem:(NSToolbarItem *)toolbarItem{
-    if([[toolbarItem itemIdentifier] isEqualToString: PMToolbarRefresh]){
+    if([[toolbarItem itemIdentifier] isEqualToString: PMToolbarRefresh] ||
+       [[toolbarItem itemIdentifier] isEqualToString: PMToolbarWriteNew]){
         if([[[self folderList] accounts] count] == 0){
             return NO;
         }
