@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13B3116" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5053"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMAccountsWindowController">
@@ -17,7 +17,7 @@
                 <binding destination="-2" name="selectionIndexes" keyPath="selections" id="Kdy-Uu-IIG"/>
             </connections>
         </arrayController>
-        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="613" height="458"/>
@@ -26,14 +26,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="613" height="458"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2B-K6-scV">
+                    <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="68" horizontalPageScroll="10" verticalLineScroll="68" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2B-K6-scV">
                         <rect key="frame" x="-1" y="-70" width="249" height="529"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="edC-8z-R3W">
                             <rect key="frame" x="1" y="1" width="247" height="527"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="WwK-Fp-qPB">
+                                <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="66" rowSizeStyle="automatic" viewBased="YES" id="WwK-Fp-qPB">
                                     <rect key="frame" x="0.0" y="0.0" width="247" height="527"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
@@ -142,7 +142,7 @@
                             </allowedInputSourceLocales>
                         </secureTextFieldCell>
                         <connections>
-                            <binding destination="-2" name="value" keyPath="password" id="lzz-SR-kpf"/>
+                            <binding destination="-2" name="value" keyPath="password" id="eRt-OP-Td8"/>
                         </connections>
                     </secureTextField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fi6-Bf-P0b">
@@ -233,25 +233,20 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.username" id="L5Z-e7-uj3"/>
+                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.imapUsername" id="AMT-6I-Aiq"/>
                         </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kdQ-m9-5LY">
                         <rect key="frame" x="518" y="169" width="64" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ivW-CW-kUF">
-                            <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#" negativeFormat="#" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" minimumFractionDigits="0" maximumFractionDigits="0" id="hH3-7V-efK">
-                                <real key="roundingIncrement" value="0.0"/>
-                                <metadata>
-                                    <bool key="localizesFormat" value="YES"/>
-                                </metadata>
-                            </numberFormatter>
+                            <numberFormatter key="formatter" formatterBehavior="default10_4" positiveFormat="#" negativeFormat="#" usesGroupingSeparator="NO" paddingCharacter="*" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" decimalSeparator="." groupingSeparator="," currencyDecimalSeparator="." plusSign="+" minusSign="-" notANumberSymbol="NaN" perMillSymbol="‰" percentSymbol="%" exponentSymbol="E" positivePrefix="" positiveSuffix="" negativePrefix="-" negativeSuffix="" id="hH3-7V-efK"/>
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.port" id="3SO-77-1zd"/>
+                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.imapPort" id="2pO-Am-opo"/>
                         </connections>
                     </textField>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="w6E-ZD-dAU">
@@ -272,7 +267,7 @@
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
                         <connections>
-                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.server" id="FpR-s5-h4l"/>
+                            <binding destination="cL7-pM-0Kd" name="value" keyPath="selection.imapServer" id="OXQ-do-4Qa"/>
                         </connections>
                     </textField>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WSu-yV-HV1">
@@ -293,7 +288,7 @@
                             <binding destination="uF2-P6-Jc2" name="content" keyPath="arrangedObjects" id="PnD-EB-bix"/>
                             <binding destination="uF2-P6-Jc2" name="contentObjects" keyPath="arrangedObjects.key" previousBinding="PnD-EB-bix" id="3Ed-rh-jhF"/>
                             <binding destination="uF2-P6-Jc2" name="contentValues" keyPath="arrangedObjects.name" previousBinding="3Ed-rh-jhF" id="JT2-MM-AqN"/>
-                            <binding destination="cL7-pM-0Kd" name="selectedIndex" keyPath="selection.encryption" previousBinding="JT2-MM-AqN" id="mw2-ul-1wb"/>
+                            <binding destination="cL7-pM-0Kd" name="selectedIndex" keyPath="selection.imapEncryption" previousBinding="JT2-MM-AqN" id="HSr-2j-kOL"/>
                         </connections>
                     </popUpButton>
                 </subviews>
