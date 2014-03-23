@@ -26,7 +26,7 @@
     session.hostname = [account valueForKey:@"imapServer"];
     NSInteger num = [[account valueForKey:@"imapPort"] integerValue];
     session.port = num;
-    session.username = [account valueForKey:@"email"];
+    session.username = [account valueForKey:@"imapUsername"];
     session.password = [self fetchPassword: [account valueForKey: @"email"]];
     int connectionType = [[account valueForKey:@"imapEncryption"] intValue];
     switch (connectionType) {

@@ -106,6 +106,13 @@
     [newAccount setValue: wizardContext.imapPort forKey:@"imapPort"];
     [newAccount setValue: wizardContext.imapServer forKey:@"imapServer"];
     
+    if(wizardContext.customConfigurationEnabled){
+        [newAccount setValue:wizardContext.imapUsername forKeyPath:@"imapUsername"];
+    }
+    else {
+        [newAccount setValue:wizardContext.emailAddress forKeyPath:@"imapUsername"];
+    }
+    
     [SSKeychain setPassword: wizardContext.imapPassword forService:PMApplicationName account: wizardContext.emailAddress];
     
     [[self managedObjectContext] save:nil];
