@@ -53,6 +53,15 @@
     [[self wizardContext] setImapPort:self.port];
     [[self wizardContext] setImapServer:self.server];
     [[self wizardContext] setImapUsername:self.username];
+    
+    if([[self wizardContext] customConfigurationEnabled]){
+        if([[[self wizardContext] smtpServer] length] == 0) {
+            [[self wizardContext] setSmtpServer: self.wizardContext.imapServer];
+        }
+        if([[[self wizardContext] smtpUsername] length] == 0) {
+            [[self wizardContext] setSmtpUsername: self.wizardContext.imapUsername];
+        }
+    }
 }
 
 @end
