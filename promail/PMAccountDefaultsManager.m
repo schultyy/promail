@@ -81,6 +81,8 @@
     //Custom configuration regquires the user to configure all things by himself.
     //Nothing predefined here
     [accountDefault setCustomConfigurationEnabled:YES];
+    [accountDefault setImapPort: [NSNumber numberWithInt:993]];
+    [accountDefault setSmtpPort: [NSNumber numberWithInt:25]];
     return accountDefault;
 }
 
