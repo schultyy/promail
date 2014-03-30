@@ -71,7 +71,9 @@
 -(void) nextStepHandler{
     if([self canGoNext]){
         
-        [[self currentStep] beforeNext];
+        if([[self currentStep] canActivate]) {
+            [[self currentStep] beforeNext];   
+        }
         
         nextStepIndex++;
         PMStepController *currentStep = [self currentStep];
