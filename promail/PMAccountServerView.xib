@@ -35,6 +35,7 @@
                     </textFieldCell>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.server" id="IYS-4Z-AHR"/>
+                        <outlet property="nextKeyView" destination="q9V-XI-zeA" id="vyJ-aT-L13"/>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Kv-uO-NIh">
@@ -56,6 +57,7 @@
                     </textFieldCell>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.username" id="yEu-2v-YLg"/>
+                        <outlet property="nextKeyView" destination="xd8-fr-dJ6" id="I9J-WZ-Ua3"/>
                     </connections>
                 </textField>
                 <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xd8-fr-dJ6">
@@ -77,6 +79,7 @@
                         <binding destination="lhI-19-gjj" name="contentObjects" keyPath="arrangedObjects.key" previousBinding="Pg0-fw-y7y" id="weR-hB-BTV"/>
                         <binding destination="lhI-19-gjj" name="contentValues" keyPath="arrangedObjects.name" previousBinding="weR-hB-BTV" id="VHK-vf-Gvc"/>
                         <binding destination="lhI-19-gjj" name="selectedIndex" keyPath="selectionIndex" previousBinding="VHK-vf-Gvc" id="eoB-Lw-kNz"/>
+                        <outlet property="nextKeyView" destination="wHX-HE-IJk" id="hfx-KS-LMm"/>
                     </connections>
                 </popUpButton>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ico-Tf-B9D">
@@ -110,6 +113,7 @@
                     </textFieldCell>
                     <connections>
                         <binding destination="-2" name="value" keyPath="self.port" id="Re5-RL-LDa"/>
+                        <outlet property="nextKeyView" destination="bxs-OI-xzJ" id="SkN-U8-5uy"/>
                     </connections>
                 </textField>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1lQ-Cd-1y0">
