@@ -265,12 +265,10 @@
         NSLog(@"Error: %@\n%@", [error localizedDescription], [error userInfo]);
         return nil;
     }
-    NSLog(@"Accounts: %lu", (unsigned long)[results count]);
     return results;
 }
 
 -(void)loadMails{
-
     [self busy:@""];
     
     Underscore.arrayEach([self accounts], ^(id obj){
