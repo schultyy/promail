@@ -34,12 +34,17 @@
         <attribute name="uid" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
         <relationship name="account" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Account" inverseName="messages" inverseEntity="Account" syncable="YES"/>
         <relationship name="gmail_labels" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="GmailLabel" inverseName="messages" inverseEntity="GmailLabel" syncable="YES"/>
+        <relationship name="thread" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thread" inverseName="messages" inverseEntity="Thread" syncable="YES"/>
+    </entity>
+    <entity name="Thread" syncable="YES">
+        <attribute name="gmail_thread_id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="subject" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="messages" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="thread" inverseEntity="Message" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Account" positionX="0" positionY="0" width="128" height="210"/>
-        <element name="Message" positionX="0" positionY="0" width="128" height="240"/>
         <element name="Account" positionX="0" positionY="0" width="128" height="195"/>
-        <element name="Message" positionX="0" positionY="0" width="128" height="28"/>
-        <element name="GmailLabel" positionX="9" positionY="117" width="128" height="28"/>
+        <element name="GmailLabel" positionX="9" positionY="117" width="128" height="73"/>
+        <element name="Message" positionX="0" positionY="0" width="128" height="298"/>
+        <element name="Thread" positionX="9" positionY="126" width="128" height="88"/>
     </elements>
 </model>

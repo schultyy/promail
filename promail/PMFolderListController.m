@@ -83,6 +83,12 @@
         [msg setValue: gmailThreadId forKey:@"gmail_thread_id"];
         [msg setValue: gmailMessageId forKey:@"gmail_message_id"];
         
+        if (gmailThreadId != nil) {
+            [msg setValue: [self threadForMailWithSubject:subject andGmailThreadId:gmailThreadId] forKey: @"thread"];
+        } else {
+            [msg setValue: [self threadForMailWithSubject:subject] forKey: @"thread"];
+        }
+        
         [msg setValue: [NSNumber numberWithBool:seen] forKey:@"seen"];
         [msg setValue: [NSNumber numberWithLong: obj.attachments.count] forKey:@"attachment_count"];
         
@@ -136,6 +142,31 @@
     }
     BOOL result = [resultset count] > 0;
     return result;
+}
+
+-(id) threadForMailWithSubject: (NSString*)subject {
+    // Todo: implement a thread finder for stuff that doesn't have a gmail thread ID
+    return nil;
+}
+
+-(id) threadForMailWithSubject: (NSString*)subject andGmailThreadId:(NSNumber*) gmailThreadId {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity: [NSEntityDescription entityForName:@"Thread" inManagedObjectContext: self.managedObjectContext ]];
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"gmail_thread_id == %@", gmailThreadId];
+    [fetchRequest setPredicate:predicate];
+    
+    NSError *error = nil;
+    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
+    if(!error && [resultset count] > 0){
+        return [resultset firstObject];
+    }
+    
+    id thread = [NSEntityDescription insertNewObjectForEntityForName:@"Thread" inManagedObjectContext: self.managedObjectContext];
+    [thread setValue: gmailThreadId forKey:@"gmail_thread_id"];
+    [thread setValue: subject forKey:@"subject"];
+    
+    return thread;
 }
 
 -(id) gmailLabelForText: (NSString*) label {
