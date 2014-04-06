@@ -27,14 +27,14 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="68" horizontalPageScroll="10" verticalLineScroll="68" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2B-K6-scV">
-                        <rect key="frame" x="-1" y="-70" width="249" height="529"/>
+                        <rect key="frame" x="4" y="51" width="249" height="387"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" ambiguous="YES" misplaced="YES" id="edC-8z-R3W">
-                            <rect key="frame" x="1" y="1" width="247" height="527"/>
+                            <rect key="frame" x="1" y="1" width="247" height="385"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="66" rowSizeStyle="automatic" viewBased="YES" id="WwK-Fp-qPB">
-                                    <rect key="frame" x="0.0" y="0.0" width="247" height="527"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="247" height="385"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <size key="intercellSpacing" width="3" height="2"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -107,7 +107,7 @@
                         </scroller>
                     </scrollView>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mxz-5B-oPU">
-                        <rect key="frame" x="256" y="21" width="22" height="22"/>
+                        <rect key="frame" x="20" y="21" width="22" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSAddTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5cc-Sb-pk9">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -118,7 +118,7 @@
                         </connections>
                     </button>
                     <button fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="He7-rj-O09">
-                        <rect key="frame" x="286" y="21" width="22" height="22"/>
+                        <rect key="frame" x="50" y="21" width="22" height="22"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" image="NSRemoveTemplate" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jtv-lm-mhV">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -135,12 +135,12 @@
                         <font key="font" metaFont="system"/>
                         <tabViewItems>
                             <tabViewItem label="General" identifier="" id="9Mm-fw-VLJ" userLabel="Tab View Item - General">
-                                <view key="view" id="f1o-FG-0XB">
-                                    <rect key="frame" x="10" y="33" width="585" height="365"/>
+                                <view key="view" ambiguous="YES" id="f1o-FG-0XB">
+                                    <rect key="frame" x="10" y="33" width="191" height="0.0"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kea-dk-8Yt">
-                                            <rect key="frame" x="17" y="315" width="324" height="22"/>
+                                            <rect key="frame" x="17" y="-50" width="324" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="aKo-W9-KIL">
                                                 <font key="font" metaFont="system"/>
@@ -152,7 +152,7 @@
                                             </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fNM-ql-8PR">
-                                            <rect key="frame" x="17" y="261" width="324" height="22"/>
+                                            <rect key="frame" x="17" y="-104" width="324" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="ULL-ch-PK3">
                                                 <font key="font" metaFont="system"/>
@@ -164,7 +164,7 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qxm-yW-4cV">
-                                            <rect key="frame" x="15" y="345" width="94" height="17"/>
+                                            <rect key="frame" x="15" y="-20" width="94" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Account name" id="mzm-Qw-I7Z">
                                                 <font key="font" metaFont="system"/>
@@ -173,7 +173,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufv-D4-DFU">
-                                            <rect key="frame" x="15" y="291" width="91" height="17"/>
+                                            <rect key="frame" x="15" y="-74" width="91" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Email address" id="7g4-EZ-paS">
                                                 <font key="font" metaFont="system"/>
@@ -313,7 +313,7 @@
                                 </view>
                             </tabViewItem>
                             <tabViewItem label="SMTP" identifier="2" id="aZj-hk-jR7">
-                                <view key="view" ambiguous="YES" id="jRJ-LK-iNk">
+                                <view key="view" id="jRJ-LK-iNk">
                                     <rect key="frame" x="10" y="33" width="585" height="365"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
