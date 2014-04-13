@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "PMFolderListController.h"
 #import "PMMailDetailController.h"
+#import "PMNewMailSheet.h"
 
 @interface PMMainController : NSWindowController<NSToolbarDelegate>
 
@@ -19,6 +20,8 @@
 @property (retain) PMFolderListController *folderList;
 
 @property (retain) PMMailDetailController *mailDetail;
+
+@property (retain) PMNewMailSheet *composeMailSheet;
 
 @property (retain) NSString *statusText;
 

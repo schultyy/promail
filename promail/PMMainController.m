@@ -83,8 +83,8 @@
 }
 
 -(void) writeNew{
-    PMNewMailSheet *newMail = [[PMNewMailSheet alloc] init];
-    [NSApp beginSheet:newMail.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
+    [self setComposeMailSheet: [[PMNewMailSheet alloc] init]];
+    [NSApp beginSheet: self.composeMailSheet.window modalForWindow:self.window modalDelegate:self didEndSelector:@selector(didEndSheet:returnCode:contextInfo:) contextInfo:nil];
 }
 
 - (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
