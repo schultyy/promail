@@ -64,6 +64,19 @@
     [nc postNotificationName:PMAccountCreateNewNotification object:nil];
 }
 
+-(IBAction)removeAccount:(id)sender {
+    NSAlert *alert = [[NSAlert alloc] init];
+    [alert addButtonWithTitle:@"OK"];
+    [alert addButtonWithTitle:@"Cancel"];
+    [alert setMessageText:@"Delete account?"];
+    [alert setInformativeText:@"This also deletes all messages from hard disk. This cannot be made undone"];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    if ([alert runModal] == NSAlertFirstButtonReturn) {
+        [[self arrayController] removeObjectsAtArrangedObjectIndexes:self.selections];
+    }
+}
+
 -(IBAction)setNewPassword:(id)sender{
     
     NSUInteger index = [[self selections] firstIndex];

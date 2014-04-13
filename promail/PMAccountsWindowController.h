@@ -18,9 +18,13 @@
 
 @property (retain) NSArray *connectionTypes;
 
+@property IBOutlet NSArrayController *arrayController;
+
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
 
 -(IBAction)addNewAccount:(id)sender;
+
+-(IBAction)removeAccount:(id)sender;
 
 -(IBAction)setNewPassword:(id)sender;
 
