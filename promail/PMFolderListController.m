@@ -24,6 +24,7 @@
         [self setSortDescriptors: [NSArray arrayWithObject:
                                    [NSSortDescriptor sortDescriptorWithKey:@"date" ascending: NO]]];
         [self setMailFacade: [[PMMailFacade alloc] initWitManagedObjectContext: context]];
+        [self setAccountFacade:[[PMAccountFacade alloc] initWitManagedObjectContext:context]];
     }
     return self;
 }
@@ -59,22 +60,10 @@
     [nc postNotificationName:PMStatusFetchMailNotBusy object: userInfo];
 }
 
--(NSArray *) accounts{
-    NSFetchRequest *fetchAccounts = [[NSFetchRequest alloc] init];
-    [fetchAccounts setEntity: [NSEntityDescription entityForName:@"Account" inManagedObjectContext: self.managedObjectContext]];
-    NSError *error = nil;
-    NSArray *results = [self.managedObjectContext executeFetchRequest:fetchAccounts error:&error];
-    if (error) {
-        NSLog(@"Error: %@\n%@", [error localizedDescription], [error userInfo]);
-        return nil;
-    }
-    return results;
-}
-
 -(void)loadMails{
     [self busy:@""];
     
-    Underscore.arrayEach([self accounts], ^(id account){
+    Underscore.arrayEach([[self accountFacade] fetchAccounts], ^(id account){
         id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
         [self busy:str];
         [[self mailFacade] fetchMailsForAccount: account];

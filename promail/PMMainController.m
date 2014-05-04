@@ -22,8 +22,10 @@
 {
     self = [super initWithWindowNibName:@"MainWindow"];
     if(self){
+        [self setManagedObjectContext: context];
         [self setFolderList: [[PMFolderListController alloc] initWithObjectContext:context]];
         [self setMailDetail: [[PMMailDetailController alloc] init]];
+        [self setAccountFacade:[[PMAccountFacade alloc] initWitManagedObjectContext:context]];
         [self setBusyIndicatorVisible:NO];
         [self setStatusText:@""];
     }
@@ -84,14 +86,10 @@
 
 -(void) writeNew{
     if(![self composeMailEditor]) {
-        [self setComposeMailEditor:[[PMNewMailWindowController alloc] init]];
+        [self setComposeMailEditor:[[PMNewMailWindowController alloc] initWithManagedObjectContext:
+         self.managedObjectContext]];
     }
     [[self composeMailEditor] showWindow:self];
-}
-
-- (void)didEndSheet:(NSWindow *)sheet returnCode:(NSInteger)returnCode contextInfo:(void *)contextInfo
-{
-    [sheet orderOut:self];
 }
 
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
@@ -105,7 +103,8 @@
 -(BOOL)validateToolbarItem:(NSToolbarItem *)toolbarItem{
     if([[toolbarItem itemIdentifier] isEqualToString: PMToolbarRefresh] ||
        [[toolbarItem itemIdentifier] isEqualToString: PMToolbarWriteNew]){
-        if([[[self folderList] accounts] count] == 0){
+
+        if([[[self accountFacade] fetchAccounts] count] == 0) {
             return NO;
         }
     }

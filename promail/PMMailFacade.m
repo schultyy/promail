@@ -11,16 +11,6 @@
 
 @implementation PMMailFacade
 
-#pragma mark Initializers
-
--(id) initWitManagedObjectContext: (NSManagedObjectContext *) context {
-    self = [super init];
-    if(self) {
-        managedObjectContext = context;
-    }
-    return self;
-}
-
 #pragma mark helpers
 
 -(NSManagedObject *) createNewMessage{

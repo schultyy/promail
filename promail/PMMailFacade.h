@@ -4,19 +4,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "PMFacade.h"
 
 
-@interface PMMailFacade : NSObject {
-    NSManagedObjectContext *managedObjectContext;
-}
-
--(id) initWitManagedObjectContext: (NSManagedObjectContext *) context;
+@interface PMMailFacade : PMFacade
 
 -(NSManagedObject *) createNewMessage;
 
 -(void) fetchMailsForAccount: (NSManagedObject *) account;
-
-//-(void)processMessages: (NSArray *) newMails forAccount: (NSManagedObject *) account;
 
 -(void) mark: (BOOL) seen mail: (NSManagedObject *) message finished: (void(^)()) finishedCallback;
 

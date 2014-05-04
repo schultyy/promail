@@ -10,6 +10,7 @@
 #import "PMFolderListController.h"
 #import "PMMailDetailController.h"
 #import "PMNewMailWindowController.h"
+#import "PMAccountFacade.h"
 
 @interface PMMainController : NSWindowController<NSToolbarDelegate>
 
@@ -17,11 +18,15 @@
 
 -(void) refresh;
 
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+
 @property (retain) PMFolderListController *folderList;
 
 @property (retain) PMMailDetailController *mailDetail;
 
 @property (retain) PMNewMailWindowController *composeMailEditor;
+
+@property (retain) PMAccountFacade *accountFacade;
 
 @property (retain) NSString *statusText;
 

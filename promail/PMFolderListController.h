@@ -8,12 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "PMMailFacade.h"
+#import "PMAccountFacade.h"
 
 @interface PMFolderListController : NSViewController
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (retain) NSArray *sortDescriptors;
+
+@property (retain) PMAccountFacade *accountFacade;
 
 @property (retain) PMMailFacade *mailFacade;
 
@@ -22,8 +25,6 @@
 @property IBOutlet NSArrayController *mailArrayController;
 
 -(id) initWithObjectContext: (NSManagedObjectContext *) context;
-
--(NSArray *) accounts;
 
 -(void) tableViewDoubleClick: (id) sender;
 

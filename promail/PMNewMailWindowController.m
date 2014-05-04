@@ -14,11 +14,10 @@
 
 @implementation PMNewMailWindowController
 
--(id) init
-{
-    self = [super initWithWindowNibName:@"PMNewMailSheet"];
+-(id)initWithManagedObjectContext:(NSManagedObjectContext *)context {
+    self = [super initWithWindowNibName:@"PMNewMailWindow"];
     if (self) {
-        // Initialization code here.
+        [self setManagedObjectContext:context];
     }
     return self;
 }
