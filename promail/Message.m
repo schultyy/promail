@@ -29,6 +29,15 @@
 @dynamic gmail_labels;
 @dynamic thread;
 
+-(NSString *) subjectTeaser {
+    if([[self subject] length] > 60) {
+        return [[[self subject] substringToIndex:60] stringByAppendingString:@"..."];
+    }
+    else {
+        return [self subject];
+    }
+}
+
 -(NSString *) accountName {
     return [[self valueForKey:@"account"] valueForKey:@"name"];
 }

@@ -17,14 +17,14 @@
             <rect key="frame" x="0.0" y="0.0" width="376" height="463"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="152" horizontalPageScroll="10" verticalLineScroll="152" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-LC-yuB">
+                <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="127" horizontalPageScroll="10" verticalLineScroll="127" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GBR-LC-yuB">
                     <rect key="frame" x="0.0" y="0.0" width="376" height="463"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <clipView key="contentView" id="iDE-w2-du6">
                         <rect key="frame" x="0.0" y="0.0" width="376" height="463"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="150" rowSizeStyle="automatic" viewBased="YES" id="duk-FH-eAA">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="125" rowSizeStyle="automatic" viewBased="YES" id="duk-FH-eAA">
                                 <rect key="frame" x="0.0" y="0.0" width="376" height="463"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
@@ -45,11 +45,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView id="sdf-Mm-FDU">
-                                                <rect key="frame" x="1" y="1" width="373" height="150"/>
+                                                <rect key="frame" x="1" y="1" width="373" height="125"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzg-gt-4zB">
-                                                        <rect key="frame" x="0.0" y="87" width="373" height="60"/>
+                                                        <rect key="frame" x="0.0" y="85" width="373" height="37"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="left" title="Subject" id="HbT-iW-DwE">
                                                             <font key="font" metaFont="system"/>
@@ -57,11 +57,11 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
-                                                            <binding destination="sdf-Mm-FDU" name="value" keyPath="objectValue.Subject" id="ikt-oO-hrg"/>
+                                                            <binding destination="sdf-Mm-FDU" name="value" keyPath="objectValue.subjectTeaser" id="YbZ-bi-zVf"/>
                                                         </connections>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kM-OS-fqc">
-                                                        <rect key="frame" x="0.0" y="59" width="373" height="20"/>
+                                                        <rect key="frame" x="1" y="57" width="373" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="From" id="pLv-Pl-V21">
                                                             <font key="font" metaFont="smallSystem"/>
@@ -73,7 +73,7 @@
                                                         </connections>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dtF-Jx-kpz">
-                                                        <rect key="frame" x="1" y="31" width="373" height="20"/>
+                                                        <rect key="frame" x="2" y="29" width="373" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Sent" id="3pd-kX-6pa">
                                                             <dateFormatter key="formatter" dateStyle="short" timeStyle="short" doesRelativeDateFormatting="YES" id="YFx-RD-imd"/>
@@ -86,7 +86,7 @@
                                                         </connections>
                                                     </textField>
                                                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nC2-76-fqu" userLabel="Text Field - Seen">
-                                                        <rect key="frame" x="1" y="3" width="373" height="20"/>
+                                                        <rect key="frame" x="2" y="1" width="373" height="20"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Seen" id="SYd-eH-yzg">
                                                             <font key="font" metaFont="smallSystem"/>
