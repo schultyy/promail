@@ -14,6 +14,10 @@
 
 -(NSManagedObject *) createNewMessage;
 
--(void)processMessages: (NSArray *) newMails forAccount: (NSManagedObject *) account;
+-(void) fetchMailsForAccount: (NSManagedObject *) account;
+
+//-(void)processMessages: (NSArray *) newMails forAccount: (NSManagedObject *) account;
+
+-(void) mark: (BOOL) seen mail: (NSManagedObject *) message finished: (void(^)()) finishedCallback;
 
 @end

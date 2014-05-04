@@ -5,12 +5,9 @@
 //  Created by Jan Schulte on 24/12/13.
 //  Copyright (c) 2013 schultyy. All rights reserved.
 //
-#import <MailCore/MailCore.h>
+
 #import "Underscore.h"
-#import "SSKeychain.h"
 #import "PMFolderListController.h"
-#import "PMSessionManager.h"
-#import "PMMailFacade.h"
 #import "PMConstants.h"
 
 @interface PMFolderListController ()
@@ -46,12 +43,6 @@
     [nc postNotificationName:PMShowMessageDetail object:nil userInfo:userInfo];
 }
 
--(void) processNewMails: (NSArray *) newMails forAccount: (NSManagedObject *) account{
-
-    [[self mailFacade] processMessages:newMails forAccount: account];
-    [self notBusy];
-}
-
 -(void) busy: (NSString *) busyText{
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
     
@@ -66,78 +57,6 @@
     NSDictionary *userInfo = [[NSDictionary alloc] initWithObjectsAndKeys:NO, @"busy", nil];
     
     [nc postNotificationName:PMStatusFetchMailNotBusy object: userInfo];
-}
-
-
-
-
-
--(void) fetchMailsForAccount: (NSManagedObject *) account{
-    id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
-    
-    // If the account has no server: bail out
-    if ([account valueForKey: @"imapServer"] == NULL ) {
-        [self notBusy];
-        return;
-    }
-    
-    [self busy:str];
-    
-    PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
-
-    [sessionManager fetchFlagsAndUIDsForFolder:@"INBOX" completionBlock:^(NSError *error, NSArray *messages, MCOIndexSet *vanishedMessages) {
-        
-        if(error){
-            NSLog(@"***Error ocurred while fetching mails for account: %@", [account valueForKey:@"name"]);
-            NSLog(@"%@", [error localizedDescription]);
-            [self notBusy];
-            return;
-        }
-        
-        NSArray *fetchedUids = Underscore.array(messages)
-        .map(^(MCOIMAPMessage *obj){
-            return [obj valueForKey:@"uid"];
-        }).unwrap;
-        
-        NSArray *existingMessages = [account valueForKey:@"messages"];
-        
-        NSArray *existingUids = Underscore.array(existingMessages)
-        .map(^(NSManagedObject *obj){
-            return [obj valueForKey:@"uid"];
-        }).unwrap;
-        
-        NSArray *uidsToBeDeleted = Underscore.without(existingUids, fetchedUids);
-        
-        //get me (solo and the wookie)*
-        //* all messages which need to be deleted
-        NSArray *messagesToBeDeleted = Underscore.filter(existingMessages, ^BOOL (NSManagedObject *obj){
-            NSNumber *uid = [obj valueForKey:@"uid"];
-            return Underscore.any(uidsToBeDeleted, ^BOOL (NSNumber *number){
-                return [number isEqualToNumber:uid];
-            });
-        });
-        
-        Underscore.arrayEach(messagesToBeDeleted, ^(id msg){
-            [self.managedObjectContext deleteObject: msg];
-        });
-        
-        //Update flags
-        Underscore.arrayEach(messages, ^(MCOIMAPMessage *msg){
-            BOOL seen = ([msg flags] & MCOMessageFlagSeen) == MCOMessageFlagSeen;
-            NSManagedObject *found = Underscore.find([account valueForKey:@"messages"], ^BOOL (NSManagedObject *obj){
-                return [[obj valueForKey:@"uid"] isEqualToNumber: [msg valueForKey:@"uid"]];
-            });
-            [found setValue:[NSNumber numberWithBool:seen] forKey:@"seen"];
-        });
-        
-        [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: [sessionManager lastUID] completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
-            if(error) {
-                NSLog(@"Error downloading message headers:%@", [error localizedDescription]);
-
-            }
-            [self processNewMails:fetchedMessages forAccount: account];
-        }];
-    }];
 }
 
 -(NSArray *) accounts{
@@ -155,8 +74,10 @@
 -(void)loadMails{
     [self busy:@""];
     
-    Underscore.arrayEach([self accounts], ^(id obj){
-        [self fetchMailsForAccount: obj];
+    Underscore.arrayEach([self accounts], ^(id account){
+        id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];
+        [self busy:str];
+        [[self mailFacade] fetchMailsForAccount: account];
     });
 }
 
@@ -169,21 +90,10 @@
 }
 
 -(void) mark: (BOOL) seen {
-    NSUInteger selectedRow = [self.tableView selectedRow];
-    
-    NSManagedObject *message = [[[self mailArrayController] arrangedObjects] objectAtIndex: selectedRow];
-    NSNumber *uid = [message valueForKey:@"uid"];
-    NSManagedObject *account = [message valueForKey:@"account"];
-    PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
-    
-    [self busy:@""];
-    
-    [sessionManager markSeen:uid Seen:seen completionBlock:^(NSError *error) {
-        if(error){
-            NSLog(@"Error: %@", [error localizedDescription]);
-        }else{
-            [message setValue: [NSNumber numberWithBool: seen] forKey:@"seen"];
-        }
+    NSInteger selectedRow = [self.tableView selectedRow];
+    NSManagedObject *thisMessage = [[[self mailArrayController] arrangedObjects] objectAtIndex: ((NSUInteger)selectedRow)];
+    [self busy:@"Marking message"];
+    [[self mailFacade] mark: seen mail: thisMessage finished:^ {
         [self notBusy];
     }];
 }

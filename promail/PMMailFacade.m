@@ -4,6 +4,7 @@
 //
 
 #import "PMMailFacade.h"
+#import "PMSessionManager.h"
 #import "Underscore.h"
 #import <MailCore/MailCore.h>
 
@@ -42,6 +43,71 @@
 }
 
 #pragma mark public facade
+
+-(void) fetchMailsForAccount: (NSManagedObject *) account {
+
+    // If the account has no server: bail out
+    if ([account valueForKey: @"imapServer"] == NULL ) {
+        //[self notBusy];
+        return;
+    }
+
+    PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
+
+    [sessionManager fetchFlagsAndUIDsForFolder:@"INBOX" completionBlock:^(NSError *error, NSArray *messages, MCOIndexSet *vanishedMessages) {
+
+        if(error){
+            NSLog(@"***Error ocurred while fetching mails for account: %@", [account valueForKey:@"name"]);
+            NSLog(@"%@", [error localizedDescription]);
+
+            return;
+        }
+
+        NSArray *fetchedUids = Underscore.array(messages)
+                .map(^(MCOIMAPMessage *obj){
+            return [obj valueForKey:@"uid"];
+        }).unwrap;
+
+        NSArray *existingMessages = [account valueForKey:@"messages"];
+
+        NSArray *existingUids = Underscore.array(existingMessages)
+                .map(^(NSManagedObject *obj){
+            return [obj valueForKey:@"uid"];
+        }).unwrap;
+
+        NSArray *uidsToBeDeleted = Underscore.without(existingUids, fetchedUids);
+
+        //get me (solo and the wookie)*
+        //* all messages which need to be deleted
+        NSArray *messagesToBeDeleted = Underscore.filter(existingMessages, ^BOOL (NSManagedObject *obj){
+            NSNumber *uid = [obj valueForKey:@"uid"];
+            return Underscore.any(uidsToBeDeleted, ^BOOL (NSNumber *number){
+                return [number isEqualToNumber:uid];
+            });
+        });
+
+        Underscore.arrayEach(messagesToBeDeleted, ^(id msg){
+            [managedObjectContext deleteObject: msg];
+        });
+
+        //Update flags
+        Underscore.arrayEach(messages, ^(MCOIMAPMessage *msg){
+            BOOL seen = ([msg flags] & MCOMessageFlagSeen) == MCOMessageFlagSeen;
+            NSManagedObject *found = Underscore.find([account valueForKey:@"messages"], ^BOOL (NSManagedObject *obj){
+                return [[obj valueForKey:@"uid"] isEqualToNumber: [msg valueForKey:@"uid"]];
+            });
+            [found setValue:[NSNumber numberWithBool:seen] forKey:@"seen"];
+        });
+
+        [sessionManager fetchMessagesForFolder:@"INBOX" lastUID: [sessionManager lastUID] completionBlock:^(NSError * error, NSArray * fetchedMessages, MCOIndexSet * vanishedMessages) {
+            if(error) {
+                NSLog(@"Error downloading message headers:%@", [error localizedDescription]);
+
+            }
+            [self processMessages: fetchedMessages forAccount: account];
+        }];
+    }];
+}
 
 -(void)processMessages: (NSArray *) newMails forAccount: (NSManagedObject *) account {
     Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
@@ -107,6 +173,23 @@
     }
 }
 
+-(void) mark: (BOOL) seen mail: (NSManagedObject *) message finished: (void(^)()) finishedCallback {
+
+    NSNumber *uid = [message valueForKey:@"uid"];
+    NSManagedObject *account = [message valueForKey:@"account"];
+    PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount: account];
+
+    [sessionManager markSeen:uid Seen:seen completionBlock:^(NSError *error) {
+        if(error){
+            NSLog(@"Error: %@", [error localizedDescription]);
+        }else{
+            [message setValue: [NSNumber numberWithBool: seen] forKey:@"seen"];
+        }
+        if(finishedCallback){
+            finishedCallback();
+        }
+    }];
+}
 
 #pragma mark GmailThread
 
