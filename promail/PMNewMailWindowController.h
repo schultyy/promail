@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface PMNewMailSheet : NSWindowController
+@interface PMNewMailWindowController : NSWindowController
 
 @property (retain) NSString *to;
 

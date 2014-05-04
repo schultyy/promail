@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 schultyy. All rights reserved.
 //
 
-#import "PMNewMailSheet.h"
+#import "PMNewMailWindowController.h"
 
-@interface PMNewMailSheet ()
+@interface PMNewMailWindowController()
 
 @end
 
-@implementation PMNewMailSheet
+@implementation PMNewMailWindowController
 
 -(id) init
 {
