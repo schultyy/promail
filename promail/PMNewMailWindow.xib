@@ -28,6 +28,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.to" id="CL7-cO-3ZA"/>
+                        </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nng-fI-Jb3">
                         <rect key="frame" x="20" y="255" width="540" height="22"/>
@@ -37,6 +40,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.subject" id="wO8-xd-ot7"/>
+                        </connections>
                     </textField>
                     <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J56-xe-l4I">
                         <rect key="frame" x="20" y="20" width="540" height="225"/>
@@ -46,6 +52,10 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <binding destination="-2" name="value" keyPath="self.body" id="JLJ-lE-tcE"/>
+                            <outlet property="delegate" destination="-2" id="jJ7-0h-b98"/>
+                        </connections>
                     </textField>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eJm-Ak-HQh">
                         <rect key="frame" x="462" y="323" width="104" height="32"/>
@@ -55,6 +65,7 @@
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                         <connections>
+                            <action selector="sendMail:" target="-2" id="qlv-bY-No6"/>
                             <binding destination="-2" name="enabled" keyPath="self.selectedAccount" id="EhQ-5d-T1P">
                                 <dictionary key="options">
                                     <string key="NSValueTransformerName">NSIsNotNil</string>

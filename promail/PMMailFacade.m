@@ -181,6 +181,16 @@
     }];
 }
 
+-(void) sendMail: (NSManagedObject *) account
+      recipients: (NSArray *) recipients
+              cc: (NSArray *) cc
+             bcc: (NSArray *) bcc
+         subject: (NSString *) subject
+            body: (NSString *) body {
+    PMSessionManager *sessionManager = [[PMSessionManager alloc] initWithAccount:account];
+    [sessionManager sendMail:recipients cc:cc bcc:bcc subject:subject body:body];
+}
+
 #pragma mark GmailThread
 
 -(id) threadForMailWithSubject: (NSString*)subject {

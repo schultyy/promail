@@ -15,4 +15,11 @@
 
 -(void) mark: (BOOL) seen mail: (NSManagedObject *) message finished: (void(^)()) finishedCallback;
 
+-(void) sendMail: (NSManagedObject *) account
+      recipients: (NSArray *) recipients
+              cc: (NSArray *) cc
+             bcc: (NSArray *) bcc
+         subject: (NSString *) subject
+            body: (NSString *) body;
+
 @end

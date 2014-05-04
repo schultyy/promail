@@ -11,7 +11,8 @@
 
 @interface PMSessionManager : NSObject{
     NSManagedObject *account;
-    MCOIMAPSession *session;
+    MCOIMAPSession *imapSession;
+    MCOSMTPSession *smtpSession;
 }
 
 -(id) initWithAccount: (NSManagedObject *) account;
@@ -28,4 +29,9 @@
 
 -(NSNumber *) lastUID;
 
+-(void) sendMail: (NSArray *) recipients
+              cc: (NSArray *) cc
+             bcc: (NSArray *) bcc
+         subject: (NSString *) subject
+            body: (NSString *) body;
 @end

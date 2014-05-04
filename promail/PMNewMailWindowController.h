@@ -7,7 +7,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "PMAccountFacade.h"
+#import "PMMailFacade.h"
 
 @interface PMNewMailWindowController : NSWindowController
 
@@ -19,9 +19,13 @@
 
 @property (retain) NSManagedObjectContext *managedObjectContext;
 
+@property (retain) PMMailFacade *mailFacade;
+
 @property (assign) NSManagedObject *selectedAccount;
 
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
+
+-(IBAction) sendMail: (id) sender;
 
 -(IBAction)discard:(id)sender;
 
