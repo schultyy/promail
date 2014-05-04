@@ -27,7 +27,7 @@
 }
 
 -(IBAction)discard:(id)sender{
-    [NSApp endSheet: [self window]];
+    [self close];
 }
 
 @end

@@ -19,6 +19,8 @@
 
 @property (retain) NSManagedObjectContext *managedObjectContext;
 
+@property (assign) NSManagedObject *selectedAccount;
+
 -(id) initWithManagedObjectContext: (NSManagedObjectContext *) context;
 
 -(IBAction)discard:(id)sender;

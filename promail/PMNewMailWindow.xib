@@ -54,6 +54,13 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <binding destination="-2" name="enabled" keyPath="self.selectedAccount" id="EhQ-5d-T1P">
+                                <dictionary key="options">
+                                    <string key="NSValueTransformerName">NSIsNotNil</string>
+                                </dictionary>
+                            </binding>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pjj-is-I7E">
                         <rect key="frame" x="375" y="323" width="87" height="32"/>
@@ -84,6 +91,7 @@
                             <binding destination="egl-e1-oAx" name="content" keyPath="arrangedObjects" id="mGm-Xw-2pY"/>
                             <binding destination="egl-e1-oAx" name="contentObjects" keyPath="arrangedObjects" previousBinding="mGm-Xw-2pY" id="tGb-VB-aBt"/>
                             <binding destination="egl-e1-oAx" name="contentValues" keyPath="arrangedObjects.name" previousBinding="tGb-VB-aBt" id="wey-oz-tKE"/>
+                            <binding destination="-2" name="selectedObject" keyPath="selectedAccount" previousBinding="wey-oz-tKE" id="79D-kU-dIj"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NL4-wu-6Cd">
