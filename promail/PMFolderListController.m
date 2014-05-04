@@ -5,13 +5,13 @@
 //  Created by Jan Schulte on 24/12/13.
 //  Copyright (c) 2013 schultyy. All rights reserved.
 //
-
-#import "PMFolderListController.h"
-#import "PMSessionManager.h"
 #import <MailCore/MailCore.h>
-#import "PMConstants.h"
 #import "Underscore.h"
 #import "SSKeychain.h"
+#import "PMFolderListController.h"
+#import "PMSessionManager.h"
+#import "PMMailFacade.h"
+#import "PMConstants.h"
 
 @interface PMFolderListController ()
 
@@ -26,6 +26,7 @@
         [self setManagedObjectContext: context];
         [self setSortDescriptors: [NSArray arrayWithObject:
                                    [NSSortDescriptor sortDescriptorWithKey:@"date" ascending: NO]]];
+        [self setMailFacade: [[PMMailFacade alloc] initWitManagedObjectContext: context]];
     }
     return self;
 }
@@ -46,66 +47,8 @@
 }
 
 -(void) processNewMails: (NSArray *) newMails forAccount: (NSManagedObject *) account{
-    Underscore.arrayEach(newMails, ^(MCOIMAPMessage *obj){
-        NSString *messageId = [[obj header] messageID];
-        NSNumber *gmailMessageId = [NSNumber numberWithUnsignedLongLong: obj.gmailMessageID];
-        NSNumber *gmailThreadId  = [NSNumber numberWithUnsignedLongLong: obj.gmailThreadID];
-        
-        if([self containsMessage:account messageID: messageId]){
-            return;
-        }
-        
-        id msg = [self createNewMessage];
-        [msg setValue:account forKey:@"account"];
-        
-        NSString *subject = obj.header.subject;
-        NSString *from = obj.header.from.mailbox;
-        NSNumber *uid = [NSNumber numberWithInt:obj.uid];
-        BOOL seen = ([obj flags] & MCOMessageFlagSeen) == MCOMessageFlagSeen;
-        
-        NSArray *toList = Underscore.array([[obj header] to])
-        .map(^id (MCOAddress *address){
-            return [address nonEncodedRFC822String];
-        }).unwrap;
-        
-        NSString *to   = [toList componentsJoinedByString:@","];
-        NSString *cc   = [obj.header.cc componentsJoinedByString:@","];
-        NSString *bcc  = [obj.header.bcc componentsJoinedByString:@","];
-        
-        [msg setValue: subject forKey: @"subject"];
-        [msg setValue: from forKey:@"from"];
-        [msg setValue: to forKey: @"to"];
-        [msg setValue: cc forKey:@"cc"];
-        [msg setValue: bcc forKey:@"bcc"];
-        [msg setValue: messageId forKey: @"message_id"];
-        [msg setValue: [[obj header] date] forKey: @"date"];
-        [msg setValue: uid forKey:@"uid"];
-        [msg setValue: gmailThreadId forKey:@"gmail_thread_id"];
-        [msg setValue: gmailMessageId forKey:@"gmail_message_id"];
-        
-        if (gmailThreadId != nil) {
-            [msg setValue: [self threadForMailWithSubject:subject andGmailThreadId:gmailThreadId] forKey: @"thread"];
-        } else {
-            [msg setValue: [self threadForMailWithSubject:subject] forKey: @"thread"];
-        }
-        
-        [msg setValue: [NSNumber numberWithBool:seen] forKey:@"seen"];
-        [msg setValue: [NSNumber numberWithLong: obj.attachments.count] forKey:@"attachment_count"];
-        
-        if (obj.gmailLabels) {
-            Underscore.arrayEach(obj.gmailLabels, ^(NSString *label){
-                id gmailLabel = [self gmailLabelForText:label];
-                NSMutableSet *messages = [gmailLabel mutableSetValueForKey:@"messages"];
-                [messages addObject:msg];
-            });
-        }
-    });
-    NSError *errors = nil;
-    [[self managedObjectContext] save:&errors];
-    if(errors){
-        NSLog(@"Errors: %@", [errors localizedDescription]);
-        return;
-    }
+
+    [[self mailFacade] processMessages:newMails forAccount: account];
     [self notBusy];
 }
 
@@ -125,68 +68,9 @@
     [nc postNotificationName:PMStatusFetchMailNotBusy object: userInfo];
 }
 
--(NSManagedObject *) createNewMessage{
-    return [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext: self.managedObjectContext];
-}
 
--(BOOL) containsMessage: (NSManagedObject *) account messageID: (NSString *) messageId{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity: [NSEntityDescription entityForName:@"Message" inManagedObjectContext: self.managedObjectContext ]];
-    NSLog(@"Fetching for account %@", [account valueForKey:@"email"]);
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"message_id == %@ AND account == %@", messageId, account];
-    [fetchRequest setPredicate:predicate];
-    NSError *error = nil;
-    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    if(error){
-        NSLog(@"%@", [error localizedDescription]);
-    }
-    BOOL result = [resultset count] > 0;
-    return result;
-}
 
--(id) threadForMailWithSubject: (NSString*)subject {
-    // Todo: implement a thread finder for stuff that doesn't have a gmail thread ID
-    return nil;
-}
 
--(id) threadForMailWithSubject: (NSString*)subject andGmailThreadId:(NSNumber*) gmailThreadId {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity: [NSEntityDescription entityForName:@"Thread" inManagedObjectContext: self.managedObjectContext ]];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"gmail_thread_id == %@", gmailThreadId];
-    [fetchRequest setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    if(!error && [resultset count] > 0){
-        return [resultset firstObject];
-    }
-    
-    id thread = [NSEntityDescription insertNewObjectForEntityForName:@"Thread" inManagedObjectContext: self.managedObjectContext];
-    [thread setValue: gmailThreadId forKey:@"gmail_thread_id"];
-    [thread setValue: subject forKey:@"subject"];
-    
-    return thread;
-}
-
--(id) gmailLabelForText: (NSString*) label {
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-    [fetchRequest setEntity: [NSEntityDescription entityForName:@"GmailLabel" inManagedObjectContext: self.managedObjectContext ]];
-    
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"name == %@", label];
-    [fetchRequest setPredicate:predicate];
-    
-    NSError *error = nil;
-    NSArray *resultset = [[self managedObjectContext] executeFetchRequest:fetchRequest error:&error];
-    if(!error && [resultset count] > 0){
-        return [resultset firstObject];
-    }
-
-    id gmailLabel = [NSEntityDescription insertNewObjectForEntityForName:@"GmailLabel" inManagedObjectContext: self.managedObjectContext];
-    [gmailLabel setValue: label forKey:@"name"];
-
-    return gmailLabel;
-}
 
 -(void) fetchMailsForAccount: (NSManagedObject *) account{
     id str = [NSString stringWithFormat:@"Fetching mails for account %@", [account valueForKey: @"name"]];

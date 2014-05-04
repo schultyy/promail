@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "PMMailFacade.h"
 
 @interface PMFolderListController : NSViewController
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 @property (retain) NSArray *sortDescriptors;
+
+@property (retain) PMMailFacade *mailFacade;
 
 @property IBOutlet NSTableView *tableView;
 

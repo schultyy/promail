@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6964F10EB5A1B0438E4806A2 /* PMMailFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 6964F12EEC06CE987A875D5B /* PMMailFacade.m */; };
 		884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEC80EFA28469188412AF3 /* libPods.a */; };
 		CB029E5018763CD8004B9F7D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CB029E4F18763CD8004B9F7D /* README.md */; };
 		D403C780187C94070003E4BE /* PMNewMailSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = D403C77E187C94070003E4BE /* PMNewMailSheet.m */; };
@@ -127,6 +128,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6964F12EEC06CE987A875D5B /* PMMailFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailFacade.m; sourceTree = "<group>"; };
+		6964FAE93AC9CA33770E0B84 /* PMMailFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailFacade.h; sourceTree = "<group>"; };
 		8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CB029E4F18763CD8004B9F7D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CCFEC80EFA28469188412AF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -241,6 +244,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6964F3301C6D1D10AC5FC924 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				6964F12EEC06CE987A875D5B /* PMMailFacade.m */,
+				6964FAE93AC9CA33770E0B84 /* PMMailFacade.h */,
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
 		D44382B21871047500A81635 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +279,14 @@
 				D49AB35818A7E4BE00532246 /* PMMessageContentAdapter.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		D47DB83319168B840060C9F3 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				D44382B21871047500A81635 /* Managers */,
+			);
+			name = Infrastructure;
 			sourceTree = "<group>";
 		};
 		D4BE338C18C0F8EF00DE3A32 /* Account */ = {
@@ -385,8 +405,8 @@
 		D4EEDEF31857C9D700653625 /* promail */ = {
 			isa = PBXGroup;
 			children = (
+				D47DB83319168B840060C9F3 /* Infrastructure */,
 				D4BE33A618C25E4C00DE3A32 /* Models */,
-				D44382B21871047500A81635 /* Managers */,
 				D46438A41868904C001D26CB /* Utils */,
 				D4EEDF411857CFC400653625 /* Controllers */,
 				D4EEDF401857CFBC00653625 /* Resources */,
@@ -396,6 +416,7 @@
 				D4EEDEF41857C9D700653625 /* Supporting Files */,
 				D4AAB5A318623C3700D38E9D /* PMConstants.h */,
 				D4AAB5A818623CBB00D38E9D /* PMConstants.m */,
+				6964F3301C6D1D10AC5FC924 /* Domain */,
 			);
 			path = promail;
 			sourceTree = "<group>";
@@ -689,6 +710,7 @@
 				D4D39A7D18C3999400E7F226 /* PMAccountDefaultsManager.m in Sources */,
 				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
 				D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */,
+				6964F10EB5A1B0438E4806A2 /* PMMailFacade.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
