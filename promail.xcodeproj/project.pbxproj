@@ -18,6 +18,7 @@
 		D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46438B2186A3EEB001D26CB /* PMMailDetailView.xib */; };
 		D46438BC186A4027001D26CB /* PMFolderListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D46438BB186A4027001D26CB /* PMFolderListView.xib */; };
 		D46438C0186A403A001D26CB /* PMFolderListController.m in Sources */ = {isa = PBXBuildFile; fileRef = D46438BE186A403A001D26CB /* PMFolderListController.m */; };
+		D47DB83B1916A5730060C9F3 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = D47DB83A1916A5730060C9F3 /* Message.m */; };
 		D49AB35918A7E4BE00532246 /* PMMessageContentAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = D49AB35818A7E4BE00532246 /* PMMessageContentAdapter.m */; };
 		D4AAB598186231DA00D38E9D /* PMAccountsWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D4AAB597186231DA00D38E9D /* PMAccountsWindow.xib */; };
 		D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AAB59E186231F100D38E9D /* PMAccountsWindowController.m */; };
@@ -148,6 +149,8 @@
 		D46438BB186A4027001D26CB /* PMFolderListView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMFolderListView.xib; sourceTree = "<group>"; };
 		D46438BD186A403A001D26CB /* PMFolderListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMFolderListController.h; sourceTree = "<group>"; };
 		D46438BE186A403A001D26CB /* PMFolderListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMFolderListController.m; sourceTree = "<group>"; };
+		D47DB8391916A5730060C9F3 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
+		D47DB83A1916A5730060C9F3 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
 		D49AB35718A7E4BE00532246 /* PMMessageContentAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMessageContentAdapter.h; sourceTree = "<group>"; };
 		D49AB35818A7E4BE00532246 /* PMMessageContentAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMessageContentAdapter.m; sourceTree = "<group>"; };
 		D4AAB597186231DA00D38E9D /* PMAccountsWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMAccountsWindow.xib; sourceTree = "<group>"; };
@@ -347,6 +350,8 @@
 			isa = PBXGroup;
 			children = (
 				D4EEDF051857C9D700653625 /* promail.xcdatamodeld */,
+				D47DB8391916A5730060C9F3 /* Message.h */,
+				D47DB83A1916A5730060C9F3 /* Message.m */,
 				D4BE33A718C25E5E00DE3A32 /* PMAccountWizardContext.h */,
 				D4BE33A818C25E5E00DE3A32 /* PMAccountWizardContext.m */,
 				D4D39A7818C397FE00E7F226 /* PMAccountDefault.h */,
@@ -711,6 +716,7 @@
 				D4AAB59F186231F100D38E9D /* PMAccountsWindowController.m in Sources */,
 				D4AAB5A918623CBB00D38E9D /* PMConstants.m in Sources */,
 				6964F10EB5A1B0438E4806A2 /* PMMailFacade.m in Sources */,
+				D47DB83B1916A5730060C9F3 /* Message.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
