@@ -1,6 +1,5 @@
 # promail
-
-[![Build Status](https://travis-ci.org/schultyy/promail.png?branch=master)](https://travis-ci.org/schultyy/promail)
+[![Build Status](https://travis-ci.org/schultyy/promail.svg?branch=master)](https://travis-ci.org/schultyy/promail)
 [![Stories in Ready](https://badge.waffle.io/schultyy/promail.png)](http://waffle.io/schultyy/promail)
 
 
