@@ -9,6 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import <WebKit/WebKit.h>
 #import "PMMessageView.h"
+#import "PMMailHeaderViewController.h"
 
 @interface PMMailDetailController : NSViewController{
     NSMutableDictionary * _storage;
@@ -22,9 +23,13 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
+@property (retain) PMMailHeaderViewController *mailHeader;
+
 @property (retain) NSManagedObject *currentMail;
 
 @property (assign) BOOL isBusy;
+
+@property IBOutlet NSBox *headerView;
 
 @property IBOutlet PMMessageView *messageView;
 

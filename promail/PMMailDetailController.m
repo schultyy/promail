@@ -21,16 +21,19 @@
 {
     self = [super initWithNibName:@"PMMailDetailView" bundle:nil];
     if (self) {
+        [self setMailHeader:[[PMMailHeaderViewController alloc] init]];
     }
     return self;
 }
 
 -(void) awakeFromNib{
     [self addObserver:self forKeyPath:@"currentMail" options:NSKeyValueObservingOptionNew context:nil];
+    [[self headerView] setContentView:[self.mailHeader view]];
 }
 
 -(void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
     if([keyPath isEqualToString: NSStringFromSelector(@selector(currentMail))]){
+        [[self mailHeader] setMessage: self.currentMail];
         NSData *data = [[self currentMail] valueForKey:@"body"];
         if(!data){
             [self reset];
