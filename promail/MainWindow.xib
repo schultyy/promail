@@ -1,33 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PMMainController">
             <connections>
-                <outlet property="detailView" destination="NXK-zz-zgI" id="lsn-H7-4Uy"/>
                 <outlet property="listView" destination="nd9-sD-aqy" id="lf0-Km-aYI"/>
                 <outlet property="window" destination="1" id="zrl-M2-FJy"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
-        <window title="promail" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" wantsToBeColor="NO" animationBehavior="default" id="1">
+        <window title="promail" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" animationBehavior="default" id="1">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="960" height="523"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
-                        <rect key="frame" x="-3" y="30" width="351" height="495"/>
+                    <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
+                        <rect key="frame" x="-3" y="30" width="966" height="495"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
-                            <rect key="frame" x="0.0" y="0.0" width="351" height="495"/>
+                            <rect key="frame" x="0.0" y="0.0" width="966" height="495"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         </view>
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
@@ -60,30 +59,13 @@
                             <binding destination="-2" name="animate" keyPath="self.busyIndicatorVisible" id="fPA-qF-5n9"/>
                         </connections>
                     </progressIndicator>
-                    <box autoresizesSubviews="NO" transparent="YES" title="Box" borderType="line" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="NXK-zz-zgI">
-                        <rect key="frame" x="350" y="30" width="593" height="495"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <view key="contentView">
-                            <rect key="frame" x="1" y="1" width="591" height="493"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        </view>
-                        <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
-                        <color key="fillColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    </box>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" id="AVd-Kv-ilr"/>
-                    <constraint firstAttribute="bottom" secondItem="NXK-zz-zgI" secondAttribute="bottom" constant="34" id="Lkh-O7-TGv"/>
-                    <constraint firstItem="NXK-zz-zgI" firstAttribute="leading" secondItem="nd9-sD-aqy" secondAttribute="trailing" constant="8" id="Lll-1B-yfU"/>
-                    <constraint firstAttribute="bottom" secondItem="B3j-iT-7NB" secondAttribute="bottom" constant="9" id="NTu-H9-VoT"/>
-                    <constraint firstItem="nd9-sD-aqy" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="PV2-CB-xfh"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="44" id="VGL-sN-4MO"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="PGM-1q-7L1" secondAttribute="trailing" constant="8" symbolic="YES" id="Xv9-Jl-kjc"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="trailing" secondItem="nd9-sD-aqy" secondAttribute="trailing" id="jkL-Pf-haZ"/>
-                    <constraint firstItem="NXK-zz-zgI" firstAttribute="top" secondItem="2" secondAttribute="top" id="l1M-Th-cgj"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="bottom" secondItem="PGM-1q-7L1" secondAttribute="bottom" id="n7E-yg-f8m"/>
-                    <constraint firstAttribute="trailing" secondItem="NXK-zz-zgI" secondAttribute="trailing" constant="20" id="pDJ-gF-Itg"/>
-                    <constraint firstItem="nd9-sD-aqy" firstAttribute="top" secondItem="2" secondAttribute="top" id="qJi-Ou-clU"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="PGM-1q-7L1" secondAttribute="trailing" constant="8" symbolic="YES" id="3ol-P4-3NE"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" symbolic="YES" id="HuG-X8-Gqc"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="44" id="Zln-F9-o35"/>
+                    <constraint firstAttribute="bottom" secondItem="B3j-iT-7NB" secondAttribute="bottom" constant="9" id="tcQ-Y3-zDo"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="bottom" secondItem="PGM-1q-7L1" secondAttribute="bottom" id="tgs-mQ-5mg"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ekX-xO-GH4">
