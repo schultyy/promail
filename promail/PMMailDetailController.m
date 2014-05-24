@@ -33,12 +33,17 @@
     if([keyPath isEqualToString: NSStringFromSelector(@selector(currentMail))]){
         NSData *data = [[self currentMail] valueForKey:@"body"];
         if(!data){
+            [self reset];
             [self fetchBodyText];
         }
         else{
             [self showMessage:data];
         }
     }
+}
+
+-(void) reset {
+    [_messageView setMessage:nil];
 }
 
 -(void) showMessage: (NSData *) data{
