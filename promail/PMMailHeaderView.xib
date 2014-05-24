@@ -12,14 +12,14 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="748" height="128"/>
+            <rect key="frame" x="0.0" y="0.0" width="748" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fhp-Lg-hz8">
-                    <rect key="frame" x="18" y="84" width="712" height="24"/>
+                    <rect key="frame" x="18" y="21" width="712" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Subject" id="4qU-eK-hcs">
-                        <font key="font" metaFont="system" size="20"/>
+                        <font key="font" metaFont="system" size="17"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
@@ -27,11 +27,59 @@
                         <binding destination="-2" name="value" keyPath="self.message.subject" id="I2n-cP-M1x"/>
                     </connections>
                 </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rBA-yu-Mlu">
+                    <rect key="frame" x="18" y="53" width="710" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Date" id="yme-7g-0fm">
+                        <dateFormatter key="formatter" dateStyle="short" timeStyle="short" id="VmF-2p-ZqJ"/>
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.message.date" id="7w3-Re-qpv"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8J9-GO-wgU">
+                    <rect key="frame" x="18" y="103" width="712" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="To" usesSingleLineMode="YES" id="C7S-gN-raK">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.message.to" id="qnE-B4-2kB"/>
+                    </connections>
+                </textField>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qJh-Ee-jai">
+                    <rect key="frame" x="18" y="78" width="710" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="From" id="6MH-AO-RZJ">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="-2" name="value" keyPath="self.message.from" id="Fkx-YI-tNs"/>
+                    </connections>
+                </textField>
             </subviews>
             <constraints>
-                <constraint firstItem="Fhp-Lg-hz8" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="3ec-ea-xR2"/>
-                <constraint firstItem="Fhp-Lg-hz8" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" symbolic="YES" id="L2l-b4-9Ds"/>
-                <constraint firstAttribute="trailing" secondItem="Fhp-Lg-hz8" secondAttribute="trailing" constant="20" id="Nej-3j-wHf"/>
+                <constraint firstItem="rBA-yu-Mlu" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="38f-DH-Ct9"/>
+                <constraint firstAttribute="trailing" secondItem="Fhp-Lg-hz8" secondAttribute="trailing" constant="20" id="5PH-SM-DvS"/>
+                <constraint firstItem="rBA-yu-Mlu" firstAttribute="top" secondItem="qJh-Ee-jai" secondAttribute="bottom" constant="8" id="6qN-yH-UyL"/>
+                <constraint firstAttribute="trailing" secondItem="8J9-GO-wgU" secondAttribute="trailing" constant="20" id="ATx-2O-s6m"/>
+                <constraint firstAttribute="trailing" secondItem="qJh-Ee-jai" secondAttribute="trailing" constant="22" id="AsB-7l-Mjn"/>
+                <constraint firstItem="Fhp-Lg-hz8" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="HlS-DR-FKS"/>
+                <constraint firstItem="Fhp-Lg-hz8" firstAttribute="top" secondItem="rBA-yu-Mlu" secondAttribute="bottom" constant="11" id="IQ1-1m-H2L"/>
+                <constraint firstItem="rBA-yu-Mlu" firstAttribute="top" secondItem="qJh-Ee-jai" secondAttribute="bottom" constant="8" id="S5a-pv-uqB"/>
+                <constraint firstItem="qJh-Ee-jai" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="Yad-Ch-v05"/>
+                <constraint firstItem="8J9-GO-wgU" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="hax-dm-dbZ"/>
+                <constraint firstAttribute="bottom" secondItem="Fhp-Lg-hz8" secondAttribute="bottom" constant="21" id="mgd-4P-j6a"/>
+                <constraint firstItem="8J9-GO-wgU" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="rd1-pg-uU3"/>
+                <constraint firstAttribute="trailing" secondItem="rBA-yu-Mlu" secondAttribute="trailing" constant="22" id="wZ1-Xe-WjO"/>
+                <constraint firstItem="qJh-Ee-jai" firstAttribute="top" secondItem="8J9-GO-wgU" secondAttribute="bottom" constant="8" id="zFZ-Gh-EqN"/>
             </constraints>
         </customView>
         <userDefaultsController representsSharedInstance="YES" id="n5k-KR-MDy"/>

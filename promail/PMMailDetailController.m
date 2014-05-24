@@ -136,7 +136,7 @@ typedef void (^DownloadCallback)(NSError * error);
 
 - (NSString *) PMMessageView_templateForMessage:(PMMessageView *)view
 {
-    return @"<div style=\"padding-bottom: 20px; font-family: Helvetica; font-size: 13px;\">{{HEADER}}</div><div>{{BODY}}</div>";
+    return @"<div>{{BODY}}</div>";
 }
 
 - (BOOL) PMMessageView:(PMMessageView *)view canPreviewPart:(MCOAbstractPart *)part
