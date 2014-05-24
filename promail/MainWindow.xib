@@ -17,12 +17,12 @@
             <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="240" width="960" height="523"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="800"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="2">
                 <rect key="frame" x="0.0" y="0.0" width="960" height="523"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <box autoresizesSubviews="NO" ambiguous="YES" misplaced="YES" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
+                    <box autoresizesSubviews="NO" borderType="none" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="nd9-sD-aqy">
                         <rect key="frame" x="-3" y="30" width="966" height="495"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView">
@@ -32,13 +32,13 @@
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </box>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-iT-7NB">
-                        <rect key="frame" x="42" y="9" width="305" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-iT-7NB">
+                        <rect key="frame" x="42" y="9" width="604" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="301" id="yXV-rX-K3m"/>
                         </constraints>
-                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="This could be your commercial" id="wUf-Ml-ctQ">
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status Text here..." id="wUf-Ml-ctQ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
@@ -61,11 +61,14 @@
                     </progressIndicator>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="PGM-1q-7L1" secondAttribute="trailing" constant="8" symbolic="YES" id="3ol-P4-3NE"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" symbolic="YES" id="HuG-X8-Gqc"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="44" id="Zln-F9-o35"/>
-                    <constraint firstAttribute="bottom" secondItem="B3j-iT-7NB" secondAttribute="bottom" constant="9" id="tcQ-Y3-zDo"/>
-                    <constraint firstItem="B3j-iT-7NB" firstAttribute="bottom" secondItem="PGM-1q-7L1" secondAttribute="bottom" id="tgs-mQ-5mg"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" id="9de-Io-hT8"/>
+                    <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="PGM-1q-7L1" secondAttribute="trailing" constant="8" symbolic="YES" id="Iql-hf-fKQ"/>
+                    <constraint firstAttribute="trailing" secondItem="nd9-sD-aqy" secondAttribute="trailing" id="QYe-QF-Rxw"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="leading" secondItem="2" secondAttribute="leading" id="XRv-Jd-1Xs"/>
+                    <constraint firstAttribute="bottom" secondItem="PGM-1q-7L1" secondAttribute="bottom" constant="9" id="hkc-8q-sch"/>
+                    <constraint firstItem="PGM-1q-7L1" firstAttribute="leading" secondItem="2" secondAttribute="leading" constant="20" id="rPc-mx-cn5"/>
+                    <constraint firstItem="nd9-sD-aqy" firstAttribute="top" secondItem="2" secondAttribute="top" id="ukb-Qf-ZOb"/>
+                    <constraint firstItem="PGM-1q-7L1" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="9" id="xWq-Go-y9J"/>
                 </constraints>
             </view>
             <toolbar key="toolbar" implicitIdentifier="97EEBC73-DF37-45DD-8493-44A4CF446F2E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ekX-xO-GH4">
