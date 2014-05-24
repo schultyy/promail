@@ -57,6 +57,11 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
+                                                            <binding destination="raH-gd-I48" name="fontBold" keyPath="objectValue.seen" id="1hV-T8-Udn">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="raH-gd-I48" name="value" keyPath="objectValue.from" id="bAQ-Cf-92v"/>
                                                         </connections>
                                                     </textField>
@@ -64,11 +69,16 @@
                                                         <rect key="frame" x="165" y="8" width="451.5" height="17"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ZDy-5Q-5NM">
-                                                            <font key="font" metaFont="systemBold"/>
+                                                            <font key="font" metaFont="system"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
+                                                            <binding destination="raH-gd-I48" name="fontBold" keyPath="objectValue.seen" id="Lcx-NG-bRe">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="raH-gd-I48" name="value" keyPath="objectValue.subject" id="Q8P-Sf-Ulc"/>
                                                         </connections>
                                                     </textField>
@@ -82,6 +92,11 @@
                                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                         </textFieldCell>
                                                         <connections>
+                                                            <binding destination="raH-gd-I48" name="fontBold" keyPath="objectValue.seen" id="ndA-d0-QG2">
+                                                                <dictionary key="options">
+                                                                    <string key="NSValueTransformerName">NSNegateBoolean</string>
+                                                                </dictionary>
+                                                            </binding>
                                                             <binding destination="raH-gd-I48" name="value" keyPath="objectValue.date" id="Pzb-Ko-lB3"/>
                                                         </connections>
                                                     </textField>
@@ -96,6 +111,7 @@
                                 <connections>
                                     <binding destination="Jvl-aW-nS8" name="content" keyPath="arrangedObjects" id="fNH-yZ-Qdp"/>
                                     <binding destination="Jvl-aW-nS8" name="selectionIndexes" keyPath="selectionIndexes" previousBinding="fNH-yZ-Qdp" id="HkY-nY-aW3"/>
+                                    <outlet property="menu" destination="2w7-aT-WTj" id="KG6-jl-IMn"/>
                                 </connections>
                             </tableView>
                         </subviews>
