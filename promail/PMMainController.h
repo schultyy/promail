@@ -11,6 +11,7 @@
 #import "PMMailDetailController.h"
 #import "PMNewMailWindowController.h"
 #import "PMAccountFacade.h"
+#import "PMMailFacade.h"
 
 @interface PMMainController : NSWindowController<NSToolbarDelegate>
 
@@ -23,6 +24,8 @@
 @property (retain) PMNewMailWindowController *composeMailEditor;
 
 @property (retain) PMAccountFacade *accountFacade;
+
+@property (retain) PMMailFacade *mailFacade;
 
 @property (retain) NSString *statusText;
 

@@ -26,6 +26,7 @@
         [self setFolderList: [[PMFolderListController alloc] initWithObjectContext:context]];
         [self setMailDetail: [[PMMailDetailController alloc] init]];
         [self setAccountFacade:[[PMAccountFacade alloc] initWitManagedObjectContext:context]];
+        [self setMailFacade: [[PMMailFacade alloc] initWitManagedObjectContext:context]];
         [self setBusyIndicatorVisible:NO];
         [self setStatusText:@""];
     }
@@ -73,7 +74,14 @@
     [[self listView] setContentView: [self.mailDetail view]];
     
     NSManagedObject *mail = [[notification userInfo] valueForKey:@"message"];
+
+    BOOL seen = [[mail valueForKey:@"seen"] boolValue];
     
+    if(!seen){
+        [[self mailFacade] mark: YES mail: mail finished:^ {
+            [mail setValue: [NSNumber numberWithBool:YES] forKey:@"seen"];
+        }];
+    }
     [[self mailDetail] setCurrentMail:mail];
 }
 
