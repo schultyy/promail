@@ -17,6 +17,8 @@ NSString *const PMToolbarRefresh = @"PMToolbarRefresh";
 
 NSString *const PMToolbarWriteNew = @"PMToolbarWriteNew";
 
+NSString *const PMToolbarNavigateBack = @"PMToolbarNavigateBack";
+
 NSString *const PMStatusFetchMailBusy = @"PMStatusFetchMailBusy";
 
 NSString *const PMStatusFetchMailNotBusy = @"PMStatusFetchMailNotBusy";

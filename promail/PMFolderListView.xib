@@ -7,6 +7,7 @@
         <customObject id="-2" userLabel="File's Owner" customClass="PMFolderListController">
             <connections>
                 <outlet property="mailArrayController" destination="Jvl-aW-nS8" id="D7n-Mx-JPy"/>
+                <outlet property="tableView" destination="zu3-Er-Ok3" id="pmB-BT-PjN"/>
                 <outlet property="view" destination="1" id="meJ-Q0-jn4"/>
             </connections>
         </customObject>

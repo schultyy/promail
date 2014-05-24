@@ -34,17 +34,14 @@
 
 -(void) awakeFromNib{
     [[self window] setBackgroundColor: NSColor.whiteColor];
-    
     [[self listView] setContentView: [[self folderList] view]];
-    NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
-    [nc addObserver:self selector:@selector(showMessage:) name:PMShowMessageDetail object:nil];
-    
     [self registerAsObserver];
 }
 
 
 -(void) registerAsObserver{
     NSNotificationCenter *nc = [NSNotificationCenter defaultCenter];
+    [nc addObserver:self selector:@selector(showMessage:) name:PMShowMessageDetail object:nil];
     [nc addObserver:self selector:@selector(busyStatus:) name:PMStatusFetchMailBusy object:nil];
     [nc addObserver:self selector:@selector(busyStatus:) name:PMStatusFetchMailNotBusy object:nil];
 }
@@ -73,12 +70,14 @@
 }
     
 -(void) showMessage: (NSNotification *) notification{
-    [[self detailView] setContentView: [[self mailDetail] view]];
+    [[self listView] setContentView: [self.mailDetail view]];
     
     NSManagedObject *mail = [[notification userInfo] valueForKey:@"message"];
     
     [[self mailDetail] setCurrentMail:mail];
 }
+
+# pragma mark Toolbar Actions
 
 -(void)refresh{
     [[self folderList] loadMails];
@@ -92,12 +91,18 @@
     [[self composeMailEditor] showWindow:self];
 }
 
+-(void) navigateBack {
+    [[self listView] setContentView: self.folderList.view];
+}
+
+#pragma mark Toolbar Delegate methods
+
 - (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar {
-    return [NSArray arrayWithObjects: PMToolbarRefresh, PMToolbarWriteNew, nil];
+    return [NSArray arrayWithObjects: PMToolbarNavigateBack, PMToolbarRefresh, PMToolbarWriteNew, nil];
 }
 
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar {
-    return [NSArray arrayWithObjects: PMToolbarRefresh, PMToolbarWriteNew, nil];
+    return [NSArray arrayWithObjects: PMToolbarNavigateBack, PMToolbarRefresh, PMToolbarWriteNew, nil];
 }
 
 -(BOOL)validateToolbarItem:(NSToolbarItem *)toolbarItem{
@@ -105,6 +110,14 @@
        [[toolbarItem itemIdentifier] isEqualToString: PMToolbarWriteNew]){
 
         if([[[self accountFacade] fetchAccounts] count] == 0) {
+            return NO;
+        }
+    }
+    else if([[toolbarItem itemIdentifier] isEqualToString:PMToolbarNavigateBack]) {
+        if([[[self accountFacade] fetchAccounts] count] == 0) {
+            return NO;
+        }
+        else if ([[[self listView] contentView] isEqual:self.folderList.view]){
             return NO;
         }
     }
@@ -129,6 +142,14 @@
         [writeNew setLabel:@"Write new"];
         [writeNew setImage: [NSImage imageNamed:@"NSAddTemplate"]];
         return writeNew;
+    }
+    else if([itemIdentifier isEqualToString:PMToolbarNavigateBack]) {
+        NSToolbarItem *navigateBack = [[NSToolbarItem alloc] initWithItemIdentifier:PMToolbarNavigateBack];
+        [navigateBack setTarget:self];
+        [navigateBack setAction:@selector(navigateBack)];
+        [navigateBack setLabel:@"Back"];
+        [navigateBack setImage: [NSImage imageNamed:@"NSGoLeftTemplate"]];
+        return navigateBack;
     }
     return nil;
 }
