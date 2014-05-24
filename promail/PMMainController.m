@@ -84,7 +84,7 @@
     [[self folderList] loadMails];
 }
 
--(void) writeNew{
+-(void) writeNew {
     if(![self composeMailEditor]) {
         [self setComposeMailEditor:[[PMNewMailWindowController alloc] initWithManagedObjectContext:
          self.managedObjectContext]];

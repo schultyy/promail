@@ -14,10 +14,6 @@
 
 @interface PMMainController : NSWindowController<NSToolbarDelegate>
 
--(id) initWithObjectContext: (NSManagedObjectContext *) context;
-
--(void) refresh;
-
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 @property (retain) PMFolderListController *folderList;
@@ -35,5 +31,11 @@
 @property IBOutlet NSBox *detailView;
 
 @property IBOutlet NSBox *listView;
+
+-(id) initWithObjectContext: (NSManagedObjectContext *) context;
+
+-(void) refresh;
+
+-(void) writeNew;
 
 @end

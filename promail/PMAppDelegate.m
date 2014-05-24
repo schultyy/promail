@@ -41,6 +41,10 @@
     [[self accountsController] showWindow:self];
 }
 
+-(IBAction)writeNewMail:(id)sender {
+    [[self mainController] writeNew];
+}
+
 #pragma mark Core Data
 
 

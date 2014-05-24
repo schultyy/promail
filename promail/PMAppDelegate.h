@@ -28,4 +28,6 @@
 
 -(IBAction)addAccount:(id)sender;
 
+-(IBAction)writeNewMail:(id)sender;
+
 @end
