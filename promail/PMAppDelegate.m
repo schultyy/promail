@@ -45,6 +45,10 @@
     [[self mainController] writeNew];
 }
 
+-(IBAction)refreshAccounts:(id)sender {
+    [[self mainController] refresh];
+}
+
 #pragma mark Core Data
 
 

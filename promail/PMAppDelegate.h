@@ -30,4 +30,6 @@
 
 -(IBAction)writeNewMail:(id)sender;
 
+-(IBAction)refreshAccounts:(id)sender;
+
 @end

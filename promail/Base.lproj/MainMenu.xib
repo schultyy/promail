@@ -569,6 +569,17 @@
                         </items>
                     </menu>
                 </menuItem>
+                <menuItem title="Messages" id="0kb-wP-WTu">
+                    <menu key="submenu" title="Messages" id="C4n-Vh-tSA">
+                        <items>
+                            <menuItem title="Refresh" keyEquivalent="r" id="u8e-Pv-z2P">
+                                <connections>
+                                    <action selector="refreshAccounts:" target="494" id="Jar-jX-r2y"/>
+                                </connections>
+                            </menuItem>
+                        </items>
+                    </menu>
+                </menuItem>
                 <menuItem title="Window" id="19">
                     <menu key="submenu" title="Window" systemMenu="window" id="24">
                         <items>
