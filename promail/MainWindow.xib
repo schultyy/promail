@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="5056"/>
     </dependencies>
@@ -32,12 +32,9 @@
                         <color key="borderColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
                         <color key="fillColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                     </box>
-                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-iT-7NB">
-                        <rect key="frame" x="42" y="9" width="604" height="17"/>
+                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="B3j-iT-7NB">
+                        <rect key="frame" x="42" y="9" width="900" height="17"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="301" id="yXV-rX-K3m"/>
-                        </constraints>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Status Text here..." id="wUf-Ml-ctQ">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -61,6 +58,7 @@
                     </progressIndicator>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="B3j-iT-7NB" secondAttribute="trailing" constant="20" id="7mD-Gd-mLC"/>
                     <constraint firstItem="B3j-iT-7NB" firstAttribute="top" secondItem="nd9-sD-aqy" secondAttribute="bottom" constant="8" id="9de-Io-hT8"/>
                     <constraint firstItem="B3j-iT-7NB" firstAttribute="leading" secondItem="PGM-1q-7L1" secondAttribute="trailing" constant="8" symbolic="YES" id="Iql-hf-fKQ"/>
                     <constraint firstAttribute="trailing" secondItem="nd9-sD-aqy" secondAttribute="trailing" id="QYe-QF-Rxw"/>
