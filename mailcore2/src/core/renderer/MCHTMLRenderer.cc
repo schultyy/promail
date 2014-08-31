@@ -17,8 +17,33 @@
 using namespace mailcore;
 
 class HTMLRendererIMAPDummyCallback : public HTMLRendererIMAPCallback {
+private:
+    Array *mRequiredParts;
+    
 public:
-    virtual Data * dataForIMAPPart(String * folder, IMAPPart * part) { return Data::data(); }
+    HTMLRendererIMAPDummyCallback()
+    {
+        mRequiredParts = Array::array();
+        mRequiredParts->retain();
+    }
+    
+    virtual ~HTMLRendererIMAPDummyCallback()
+    {
+        MC_SAFE_RELEASE(mRequiredParts);
+    }
+    
+    
+    virtual Data * dataForIMAPPart(String * folder, IMAPPart * part)
+    {
+        mRequiredParts->addObject(part);
+        return Data::data();
+    }
+    
+    Array * requiredParts()
+    {
+        return mRequiredParts;
+    }
+
 };
 
 enum {
@@ -122,6 +147,7 @@ static bool partContainsMimeType(AbstractPart * part, String * mimeType)
         case PartTypeMultipartMixed:
         case PartTypeMultipartRelated:
         case PartTypeMultipartAlternative:
+        case PartTypeMultipartSigned:
             return multipartContainsMimeType((AbstractMultipart *) part, mimeType);
         default:
             return false;
@@ -178,11 +204,12 @@ static String * htmlForAbstractMessage(String * folder, AbstractMessage * messag
     context.firstRendered = 0;
     context.folder = folder;
     context.state = RENDER_STATE_NONE;
-    
+
     context.hasMixedTextAndAttachments = false;
     context.pass = 0;
     context.firstAttachment = false;
     context.hasTextPart = false;
+
     htmlForAbstractPart(mainPart, &context);
     
     context.relatedAttachments = relatedAttachments;
@@ -228,6 +255,8 @@ static String * htmlForAbstractPart(AbstractPart * part, htmlRendererContext * c
             return htmlForAbstractMultipartRelated((AbstractMultipart *) part, context);
         case PartTypeMultipartAlternative:
             return htmlForAbstractMultipartAlternative((AbstractMultipart *) part, context);
+        case PartTypeMultipartSigned:
+            return htmlForAbstractMultipartMixed((AbstractMultipart *) part, context);
         default:
             MCAssert(0);
     }
@@ -266,8 +295,9 @@ static String * htmlForAbstractSinglePart(AbstractPart * part, htmlRendererConte
                 return NULL;
             
             String * str = data->stringWithDetectedCharset(charset, false);
+            str = str->htmlMessageContent();
             context->firstRendered = true;
-            return str->htmlEncodedString();
+            return str;
         }
         else if (mimeType->isEqual(MCSTR("text/html"))) {
             String * charset = part->charset();
@@ -283,7 +313,7 @@ static String * htmlForAbstractSinglePart(AbstractPart * part, htmlRendererConte
                 return NULL;
             
             String * str = data->stringWithDetectedCharset(charset, true);
-            str = str->cleanedHTMLString();
+            str = context->htmlCallback->cleanHTMLForPart(str);
             str = context->htmlCallback->filterHTMLForPart(str);
             context->firstRendered = true;
             return str;
@@ -377,8 +407,27 @@ String * htmlForAbstractMultipartAlternative(AbstractMultipart * part, htmlRende
     AbstractPart * preferredAlternative = preferredPartInMultipartAlternative(part);
     if (preferredAlternative == NULL)
         return MCSTR("");
+
+    // Exchange sends calendar invitation as alternative part. We need to extract it.
+    AbstractPart * calendar = NULL;
+    for(unsigned int i = 0 ; i < part->parts()->count() ; i ++) {
+        AbstractPart * subpart = (AbstractPart *) part->parts()->objectAtIndex(i);
+        if (partContainsMimeType(subpart, MCSTR("text/calendar"))) {
+            calendar = subpart;
+        }
+    }
+
+    String * html = htmlForAbstractPart(preferredAlternative, context);
+    if (html == NULL) {
+        return NULL;
+    }
     
-    return htmlForAbstractPart(preferredAlternative, context);
+    String * result = String::string();
+    result->appendString(html);
+    if (calendar != NULL) {
+        result->appendString(htmlForAbstractPart(calendar, context));
+    }
+    return result;
 }
 
 static String * htmlForAbstractMultipartMixed(AbstractMultipart * part, htmlRendererContext * context)
@@ -413,7 +462,9 @@ static String * htmlForAbstractMultipartRelated(AbstractMultipart * part, htmlRe
     if (context->relatedAttachments != NULL) {
         for(unsigned int i = 1 ; i < part->parts()->count() ; i ++) {
             AbstractPart * otherSubpart = (AbstractPart *) part->parts()->objectAtIndex(i);
-            context->relatedAttachments->addObject(otherSubpart);
+            if (context->relatedAttachments != NULL) {
+                context->relatedAttachments->addObject(otherSubpart);
+            }
         }
     }
     return htmlForAbstractPart(subpart, context);
@@ -507,4 +558,17 @@ Array * HTMLRenderer::htmlInlineAttachmentsForMessage(AbstractMessage * message)
     dataCallback = NULL;
     (void) ignoredResult; // remove unused variable warning.
     return htmlInlineAttachments;
+}
+
+Array * HTMLRenderer::requiredPartsForRendering(AbstractMessage * message)
+{
+    HTMLRendererIMAPDummyCallback * dataCallback = new HTMLRendererIMAPDummyCallback();
+    String * ignoredResult = htmlForAbstractMessage(NULL, message, dataCallback, NULL, NULL, NULL);
+    
+    Array *requiredParts = dataCallback->requiredParts();
+    
+    delete dataCallback;
+    dataCallback = NULL;
+    (void) ignoredResult; // remove unused variable warning.
+    return requiredParts;
 }

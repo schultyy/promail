@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOIMAPSEARCHEXPRESSION_H_
+#ifndef MAILCORE_MCOIMAPSEARCHEXPRESSION_H
 
-#define __MAILCORE_MCOIMAPSEARCHEXPRESSION_H_
+#define MAILCORE_MCOIMAPSEARCHEXPRESSION_H
 
 /** Used to construct an IMAP search query */
 
@@ -287,6 +287,27 @@
  */
 + (MCOIMAPSearchExpression *) searchGmailThreadID:(uint64_t)number;
 
+
+/**
+ Creates a search expression that matches emails with the given gmail message id
+ 
+ Example:
+ 
+ MCOIMAPSearchExpression * expr = [MCOIMAPSearchExpression searchGmailMessageID:aMessageID]
+ */
++ (MCOIMAPSearchExpression *) searchGmailMessageID:(uint64_t)number;
+
+/**
+ Creates a search expression that gets emails that match a gmail raw search
+ expression.
+ 
+ Example:
+ 
+ MCOIMAPSearchExpression * expr = [MCOIMAPSearchExpression searchGmailRaw:@"from:bill has:attachment filename:cal meeting schedule"]
+ */
++ (MCOIMAPSearchExpression *) searchGmailRaw:(NSString *)expr;
+
+
 /**
  Creates a search expression that's a disjunction of two search expressions.
 
@@ -308,6 +329,18 @@
      MCOIMAPSearchExpression * expr = [MCOIMAPSearchExpression searchOr:exprFrom exprOtherFrom];
 */
 + (MCOIMAPSearchExpression *) searchOr:(MCOIMAPSearchExpression *)expression other:(MCOIMAPSearchExpression *)other;
+
+/**
+ Creates a search expression that matches when the argument is not matched.
+ 
+ Example:
+ 
+ MCOIMAPSearchExpression * exprSubject = [MCOIMAPSearchExpression searchSubject:@"airline"]
+ MCOIMAPSearchExpression * expr = [MCOIMAPSearchExpression searchNot:exprSubject];
+ The expression will match when the subject does not contain the word airline
+ 
+ */
++ (MCOIMAPSearchExpression *) searchNot:(MCOIMAPSearchExpression *)expression;
 
 @end
 

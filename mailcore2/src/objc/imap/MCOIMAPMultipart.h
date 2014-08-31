@@ -6,15 +6,15 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOIMAPMULTIPART_H_
+#ifndef MAILCORE_MCOIMAPMULTIPART_H
 
-#define __MAILCORE_MCOIMAPMULTIPART_H_
+#define MAILCORE_MCOIMAPMULTIPART_H
 
 /** Represents the a multipart retrieved from IMAP */
 
 #import <MailCore/MCOAbstractMultipart.h>
 
-@interface MCOIMAPMultipart : MCOAbstractMultipart
+@interface MCOIMAPMultipart : MCOAbstractMultipart <NSCoding>
 
 /** A part identifier looks like 1.2.1 */
 @property (nonatomic, copy) NSString * partID;

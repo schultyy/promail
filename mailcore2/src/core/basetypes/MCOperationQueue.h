@@ -1,6 +1,6 @@
-#ifndef __MAILCORE_MCOPERATIONQUEUE_H_
+#ifndef MAILCORE_MCOPERATIONQUEUE_H
 
-#define __MAILCORE_MCOPERATIONQUEUE_H_
+#define MAILCORE_MCOPERATIONQUEUE_H
 
 #include <pthread.h>
 #include <semaphore.h>
@@ -21,11 +21,17 @@ namespace mailcore {
         virtual ~OperationQueue();
         
         virtual void addOperation(Operation * op);
+        virtual void cancelAllOperations();
         
         virtual unsigned int count();
         
         virtual void setCallback(OperationQueueCallback * callback);
         virtual OperationQueueCallback * callback();
+        
+#ifdef __APPLE__
+        virtual void setDispatchQueue(dispatch_queue_t dispatchQueue);
+        virtual dispatch_queue_t dispatchQueue();
+#endif
         
     private:
         Array * mOperations;
@@ -39,6 +45,10 @@ namespace mailcore {
         struct mailsem * mWaitingFinishedSem;
         bool mQuitting;
         OperationQueueCallback * mCallback;
+#if __APPLE__
+        dispatch_queue_t mDispatchQueue;
+#endif
+        bool _pendingCheckRunning;
         
         void startThread();
         static void runOperationsOnThread(OperationQueue * queue);

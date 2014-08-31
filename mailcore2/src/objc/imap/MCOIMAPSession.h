@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOIMAPSESSION_H_
+#ifndef MAILCORE_MCOIMAPSESSION_H
 
-#define __MAILCORE_MCOIMAPSESSION_H_
+#define MAILCORE_MCOIMAPSESSION_H
 
 #import <Foundation/Foundation.h>
 #import <MailCore/MCOConstants.h>
@@ -89,6 +89,9 @@
 /** The identity of the IMAP server. */
 @property (nonatomic, strong, readonly) MCOIMAPIdentity * serverIdentity;
 
+/** Display name of the Gmail user. It will be nil if it's not a Gmail server. */
+@property (nonatomic, copy, readonly) NSString * gmailUserDisplayName;
+
 /**
  When set to YES, the session is allowed open to open several connections to the same folder.
  @warning Some older IMAP servers don't like this
@@ -104,10 +107,21 @@
  Sets logger callback. The network traffic will be sent to this block.
  
  [session setConnectionLogger:^(void * connectionID, MCOConnectionLogType type, NSData * data) {
-    ...
+    NSLog(@"%@", [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease]);
+    // ...
  }];
 */
 @property (nonatomic, copy) MCOConnectionLogger connectionLogger;
+
+/** This property provides some hints to MCOIMAPSession about where it's called from.
+ It will make MCOIMAPSession safe. It will also set all the callbacks of operations to run on this given queue.
+ Defaults to the main queue.
+ This property should be used only if there's performance issue using MCOIMAPSession in the main thread. */
+#if OS_OBJECT_USE_OBJC
+@property (nonatomic, retain) dispatch_queue_t dispatchQueue;
+#else
+@property (nonatomic, assign) dispatch_queue_t dispatchQueue;
+#endif
 
 /**
  The value will be YES when asynchronous operations are running, else it will return NO.
@@ -127,6 +141,11 @@
  }];
 */
 @property (nonatomic, copy) MCOOperationQueueRunningChangeBlock operationQueueRunningChangeBlock;
+
+/**
+ Cancel all operations
+ */
+- (void) cancelAllOperations;
 
 /** @name Folder Operations */
 
@@ -262,13 +281,28 @@
                                                               flags:(MCOMessageFlag)flags;
 
 /**
+ Returns an operation to add a message with custom flags to a folder.
+ 
+     MCOIMAPOperation * op = [session appendMessageOperationWithFolder:@"Sent Mail" messageData:rfc822Data flags:MCOMessageFlagNone customFlags:@[@"$CNS-Greeting-On"]];
+     [op start:^(NSError * error, uint32_t createdUID) {
+       if (error == nil) {
+         NSLog(@"created message with UID %lu", (unsigned long) createdUID);
+       }
+     }];
+ */
+- (MCOIMAPAppendMessageOperation *)appendMessageOperationWithFolder:(NSString *)folder
+                                                        messageData:(NSData *)messageData
+                                                              flags:(MCOMessageFlag)flags
+                                                        customFlags:(NSArray *)customFlags;
+
+/**
  Returns an operation to copy messages to a folder.
 
      MCOIMAPCopyMessagesOperation * op = [session copyMessagesOperationWithFolder:@"INBOX"
                                                                              uids:[MCIndexSet indexSetWithIndex:456]
                                                                        destFolder:@"Cocoa"];
-     [op start:^(NSError * error, MCOIndexSet * destUids) {
-          NSLog(@"copied to folder with UID %@", destUids);
+     [op start:^(NSError * error, NSDictionary * uidMapping) {
+          NSLog(@"copied to folder with UID mapping %@", uidMapping);
      }];
 */
 - (MCOIMAPCopyMessagesOperation *)copyMessagesOperationWithFolder:(NSString *)folder
@@ -292,6 +326,25 @@
                                                 uids:(MCOIndexSet *)uids
                                                 kind:(MCOIMAPStoreFlagsRequestKind)kind
                                                flags:(MCOMessageFlag)flags;
+/**
+ Returns an operation to change flags and custom flags of messages.
+ 
+ For example: Adds the seen flag and $CNS-Greeting-On flag to the message with UID 456.
+ 
+     MCOIMAPOperation * op = [session storeFlagsOperationWithFolder:@"INBOX"
+                                                               uids:[MCOIndexSet indexSetWithIndex:456]
+                                                               kind:MCOIMAPStoreFlagsRequestKindAdd
+                                                              flags:MCOMessageFlagSeen
+                                                        customFlags:@["$CNS-Greeting-On"]];
+     [op start:^(NSError * error) {
+         ...
+     }];
+ */
+- (MCOIMAPOperation *) storeFlagsOperationWithFolder:(NSString *)folder
+                                                uids:(MCOIndexSet *)uids
+                                                kind:(MCOIMAPStoreFlagsRequestKind)kind
+                                               flags:(MCOMessageFlag)flags
+                                         customFlags:(NSArray *)customFlags;
 /**
  Returns an operation to change labels of messages. Intended for Gmail
 
@@ -367,6 +420,7 @@
      }];
 
 @warn *Important*: This is only for servers that support Conditional Store. See [RFC4551](http://tools.ietf.org/html/rfc4551)
+vanishedMessages will be set only for servers that support QRESYNC. See [RFC5162](http://tools.ietf.org/html/rfc5162)
 */
 - (MCOIMAPFetchMessagesOperation *) syncMessagesByUIDWithFolder:(NSString *)folder
                                                     requestKind:(MCOIMAPMessagesRequestKind)requestKind

@@ -313,6 +313,22 @@ IMAPSearchExpression * IMAPSearchExpression::searchGmailThreadID(uint64_t number
     return (IMAPSearchExpression *) expr->autorelease();
 }
 
+IMAPSearchExpression * IMAPSearchExpression::searchGmailMessageID(uint64_t number)
+{
+    IMAPSearchExpression * expr = new IMAPSearchExpression();
+    expr->mKind = IMAPSearchKindGmailMessageID;
+    expr->mLongNumber = number;
+    return (IMAPSearchExpression *) expr->autorelease();
+}
+
+IMAPSearchExpression * IMAPSearchExpression::searchGmailRaw(String * searchExpr)
+{
+    IMAPSearchExpression * expr = new IMAPSearchExpression();
+    expr->mKind = IMAPSearchKindGmailRaw;
+    MC_SAFE_REPLACE_COPY(String, expr->mValue, searchExpr);
+    return (IMAPSearchExpression *) expr->autorelease();
+}
+
 IMAPSearchExpression * IMAPSearchExpression::searchAnd(IMAPSearchExpression * left, IMAPSearchExpression * right)
 {
     IMAPSearchExpression * expr = new IMAPSearchExpression();
@@ -328,6 +344,14 @@ IMAPSearchExpression * IMAPSearchExpression::searchOr(IMAPSearchExpression * lef
     expr->mKind = IMAPSearchKindOr;
     MC_SAFE_REPLACE_RETAIN(IMAPSearchExpression, expr->mLeftExpression, left);
     MC_SAFE_REPLACE_RETAIN(IMAPSearchExpression, expr->mRightExpression, right);
+    return (IMAPSearchExpression *) expr->autorelease();
+}
+
+IMAPSearchExpression * IMAPSearchExpression::searchNot(IMAPSearchExpression * notExpr)
+{
+    IMAPSearchExpression * expr = new IMAPSearchExpression();
+    expr->mKind = IMAPSearchKindNot;
+    MC_SAFE_REPLACE_RETAIN(IMAPSearchExpression, expr->mLeftExpression, notExpr);
     return (IMAPSearchExpression *) expr->autorelease();
 }
 

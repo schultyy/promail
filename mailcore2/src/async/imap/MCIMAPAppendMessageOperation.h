@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCIMAPAPPENDMESSAGEOPERATION_H_
+#ifndef MAILCORE_MCIMAPAPPENDMESSAGEOPERATION_H
 
-#define __MAILCORE_MCIMAPAPPENDMESSAGEOPERATION_H_
+#define MAILCORE_MCIMAPAPPENDMESSAGEOPERATION_H
 
 #include <MailCore/MCIMAPOperation.h>
 #include <MailCore/MCMessageConstants.h>
@@ -28,6 +28,12 @@ namespace mailcore {
         virtual void setFlags(MessageFlag flags);
         virtual MessageFlag flags();
         
+        virtual void setCustomFlags(Array * customFlags);
+        virtual Array * customFlags();
+        
+        virtual void setDate(time_t date);
+        virtual time_t date();
+        
         virtual uint32_t createdUID();
         
     public: // subclass behavior
@@ -36,6 +42,8 @@ namespace mailcore {
     private:
         Data * mMessageData;
         MessageFlag mFlags;
+        Array * mCustomFlags;
+        time_t mDate;
         uint32_t mCreatedUID;
         
     };

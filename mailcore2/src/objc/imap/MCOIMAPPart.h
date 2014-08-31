@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOIMAPABSTRACTPART_H_
+#ifndef MAILCORE_MCOIMAPABSTRACTPART_H
 
-#define __MAILCORE_MCOIMAPABSTRACTPART_H_
+#define MAILCORE_MCOIMAPABSTRACTPART_H
 
 #import <MailCore/MCOAbstractPart.h>
 
@@ -16,7 +16,7 @@
 
 /** Represents a single IMAP message part */
 
-@interface MCOIMAPPart : MCOAbstractPart
+@interface MCOIMAPPart : MCOAbstractPart <NSCoding>
 
 /** A part identifier looks like 1.2.1 */
 @property (nonatomic, copy) NSString * partID;

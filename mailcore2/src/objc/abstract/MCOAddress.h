@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOADDRESS_H_
+#ifndef MAILCORE_MCOADDRESS_H
 
-#define __MAILCORE_MCOADDRESS_H_
+#define MAILCORE_MCOADDRESS_H
 
 #import <Foundation/Foundation.h>
 
-@interface MCOAddress : NSObject <NSCopying>
+@interface MCOAddress : NSObject <NSCopying, NSCoding>
 
 /** Creates an address with a display name and a mailbox.
 
@@ -32,7 +32,7 @@
 
 /** Creates an address with a non-MIME-encoded RFC822 string.
 
-    Example: [MCOAddress addressWithRFC822String:@"DINH Viêt Hoà <hoa@etpan.org>"]*/
+    Example: [MCOAddress addressWithNonEncodedRFC822String:@"DINH Viêt Hoà <hoa@etpan.org>"]*/
 + (MCOAddress *) addressWithNonEncodedRFC822String:(NSString *)nonEncodedRFC822String;
 
 /** 

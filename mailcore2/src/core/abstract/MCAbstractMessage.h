@@ -1,5 +1,6 @@
-#ifndef __MAILCORE_MCABSTRACTMESSAGE_H_
-#define __MAILCORE_MCABSTRACTMESSAGE_H_
+#ifndef MAILCORE_MCABSTRACTMESSAGE_H
+
+#define MAILCORE_MCABSTRACTMESSAGE_H
 
 #include <MailCore/MCBaseTypes.h>
 
@@ -23,6 +24,7 @@ namespace mailcore {
         
         virtual Array * /* AbstractPart */ attachments();
         virtual Array * /* AbstractPart */ htmlInlineAttachments();
+        virtual Array * /* AbstractPart */ requiredPartsForRendering();
         
     public: //subclass behavior
         AbstractMessage(AbstractMessage * other);

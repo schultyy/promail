@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOBJC_H_
+#ifndef MAILCORE_MCOBJC_H
 
-#define __MAILCORE_MCOBJC_H_
+#define MAILCORE_MCOBJC_H
 
 #ifdef __OBJC__
 
@@ -18,6 +18,7 @@
 #import <MailCore/MCORFC822.h>
 #import <MailCore/MCOPOP.h>
 #import <MailCore/MCOSMTP.h>
+#import <MailCore/MCONNTP.h>
 #import <MailCore/MCOProvider.h>
 
 #endif

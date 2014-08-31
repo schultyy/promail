@@ -148,7 +148,7 @@ int IndexSet::leftRangeIndexForIndexWithBounds(uint64_t idx, unsigned int left, 
     Range middleRange = mRanges[middle];
     
     if (left == right) {
-        if (idx <= middleRange.location) {
+        if (idx <= RangeRightBound(middleRange)) {
             return left;
         }
         else {
@@ -156,7 +156,7 @@ int IndexSet::leftRangeIndexForIndexWithBounds(uint64_t idx, unsigned int left, 
         }
     }
     
-    if (idx <= middleRange.location) {
+    if (idx <= RangeRightBound(middleRange)) {
         return leftRangeIndexForIndexWithBounds(idx, left, middle);
     }
     else {
@@ -277,6 +277,9 @@ void IndexSet::removeRange(Range range)
     int left = -1;
     int right = -1;
     int leftRangeIndex = leftRangeIndexForIndex(range.location);
+    if (leftRangeIndex >= mCount) {
+        leftRangeIndex = mCount - 1;
+    }
     for(int i = leftRangeIndex ; i < mCount ; i ++) {
         if (RangeHasIntersection(mRanges[i], range)) {
             IndexSet * indexSet = RangeRemoveRange(mRanges[i], range);
@@ -330,10 +333,8 @@ Range * IndexSet::allRanges()
 
 void IndexSet::removeAllIndexes()
 {
-    if (mRanges != NULL) {
-        delete[] mRanges;
-        mRanges = NULL;
-    }
+    delete[] mRanges;
+    mRanges = NULL;
     mAllocated = 0;
     mCount = 0;
 }
@@ -371,7 +372,7 @@ void IndexSet::intersectsRange(Range range)
     }
     else {
         removeRange(RangeMake(0, range.location - 1));
-        removeRange(RangeMake(right, UINT64_MAX));
+        removeRange(RangeMake(right + 1, UINT64_MAX));
     }
 }
 
@@ -394,6 +395,34 @@ void IndexSet::importSerializable(HashMap * serializable)
         String * rangeStr = (String *) ranges->objectAtIndex(i);
         addRange(RangeFromString(rangeStr));
     }
+}
+
+void IndexSet::addIndexSet(IndexSet * indexSet)
+{
+    for(unsigned int i = 0 ; i < indexSet->rangesCount() ; i ++) {
+        addRange(indexSet->allRanges()[i]);
+    }
+}
+
+void IndexSet::removeIndexSet(IndexSet * indexSet)
+{
+    for(unsigned int i = 0 ; i < indexSet->rangesCount() ; i ++) {
+        removeRange(indexSet->allRanges()[i]);
+    }
+}
+
+void IndexSet::intersectsIndexSet(IndexSet * indexSet)
+{
+    IndexSet * result = new IndexSet();
+    for(unsigned int i = 0 ; i < indexSet->rangesCount() ; i ++) {
+        IndexSet * rangeIntersect = (IndexSet *) copy();
+        rangeIntersect->intersectsRange(indexSet->allRanges()[i]);
+        result->addIndexSet(rangeIntersect);
+        rangeIntersect->release();
+    }
+    removeAllIndexes();
+    addIndexSet(result);
+    result->release();
 }
 
 static void * createObject()

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOPOPSESSION_H_
+#ifndef MAILCORE_MCOPOPSESSION_H
 
-#define __MAILCORE_MCOPOPSESSION_H_
+#define MAILCORE_MCOPOPSESSION_H
 
 #import <Foundation/Foundation.h>
 
@@ -62,6 +62,16 @@ See MCOConnectionType for more information.*/
  */
 @property (nonatomic, copy) MCOConnectionLogger connectionLogger;
 
+/** This property provides some hints to MCOPOPSession about where it's called from.
+ It will make MCOPOPSession safe. It will also set all the callbacks of operations to run on this given queue.
+ Defaults to the main queue.
+ This property should be used only if there's performance issue using MCOPOPSession in the main thread. */
+#if OS_OBJECT_USE_OBJC
+@property (nonatomic, retain) dispatch_queue_t dispatchQueue;
+#else
+@property (nonatomic, assign) dispatch_queue_t dispatchQueue;
+#endif
+
 /** @name Operations */
 
 /**
@@ -82,7 +92,7 @@ See MCOConnectionType for more information.*/
      [op start:^(NSError * error, MCOMessageHeader * header) {
           // header is the parsed header of the message.
      }];
-*/  
+*/
 - (MCOPOPFetchHeaderOperation *) fetchHeaderOperationWithIndex:(unsigned int)index;
 
 /**

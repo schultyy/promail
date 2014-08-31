@@ -1,5 +1,6 @@
-#ifndef __MAILCORE_MCMESSAGECONSTANTS_H_
-#define __MAILCORE_MCMESSAGECONSTANTS_H_
+#ifndef MAILCORE_MCMESSAGECONSTANTS_H
+
+#define MAILCORE_MCMESSAGECONSTANTS_H
 
 #ifdef __cplusplus
 
@@ -22,6 +23,7 @@ namespace mailcore {
         AuthTypeSASLNTLM          = 1 << 6,
         AuthTypeSASLKerberosV4    = 1 << 7,
         AuthTypeXOAuth2           = 1 << 8,
+        AuthTypeXOAuth2Outlook    = 1 << 9,
     };
     
     enum IMAPFolderFlag {
@@ -42,6 +44,8 @@ namespace mailcore {
         IMAPFolderFlagAll = IMAPFolderFlagAllMail,
         IMAPFolderFlagJunk = IMAPFolderFlagSpam,
         IMAPFolderFlagFlagged = IMAPFolderFlagStarred,
+        IMAPFolderFlagFolderTypeMask = IMAPFolderFlagInbox | IMAPFolderFlagSentMail | IMAPFolderFlagStarred | IMAPFolderFlagAllMail |
+          IMAPFolderFlagTrash| IMAPFolderFlagDrafts | IMAPFolderFlagSpam | IMAPFolderFlagImportant | IMAPFolderFlagArchive,
     };
     
     enum MessageFlag {
@@ -55,6 +59,9 @@ namespace mailcore {
         MessageFlagForwarded     = 1 << 6,
         MessageFlagSubmitPending = 1 << 7,
         MessageFlagSubmitted     = 1 << 8,
+        MessageFlagMaskAll = MessageFlagSeen | MessageFlagAnswered | MessageFlagFlagged |
+        MessageFlagDeleted | MessageFlagDraft | MessageFlagMDNSent | MessageFlagForwarded |
+        MessageFlagSubmitPending | MessageFlagSubmitted,
     } ;
     
     enum IMAPMessagesRequestKind {
@@ -192,8 +199,11 @@ namespace mailcore {
         IMAPSearchKindSizeLarger,
         IMAPSearchKindSizeSmaller,
         IMAPSearchKindGmailThreadID,
+        IMAPSearchKindGmailMessageID,
+        IMAPSearchKindGmailRaw,
         IMAPSearchKindOr,
         IMAPSearchKindAnd,
+        IMAPSearchKindNot,
     };
     
     enum ErrorCode {
@@ -245,6 +255,7 @@ namespace mailcore {
         PartTypeMultipartMixed,
         PartTypeMultipartRelated,
         PartTypeMultipartAlternative,
+        PartTypeMultipartSigned,
     };
     
     // Private type - It should not be used directly.

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOHTMLRENDERERDELEGATE_H_
+#ifndef MAILCORE_MCOHTMLRENDERERDELEGATE_H
 
-#define __MAILCORE_MCOHTMLRENDERERDELEGATE_H_
+#define MAILCORE_MCOHTMLRENDERERDELEGATE_H
 
 #import <Foundation/Foundation.h>
 
@@ -83,6 +83,11 @@ If not, the attachment template will be used.*/
 /** This delegate method returns the separator between the text of the message and the attachments.
  This delegate method returns the template for the header of an embedded message.*/
 - (NSString *) MCOAbstractMessage_templateForAttachmentSeparator:(MCOAbstractMessage *)msg;
+
+/** This delegate method cleans HTML content.
+ For example, it could fix broken tags, add missing <html>, <body> tags.
+ Default implementation uses HTMLCleaner::cleanHTML to clean HTML content. */
+- (NSString *) MCOAbstractMessage:(MCOAbstractMessage *)msg cleanHTMLForPart:(NSString *)html;
 
 /** @name Filters
    

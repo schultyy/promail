@@ -1,9 +1,9 @@
-#ifndef __MAILCORE_MCOCONSTANTS_H_
+#ifndef MAILCORE_MCOCONSTANTS_H
 
-#define __MAILCORE_MCOCONSTANTS_H_
+#define MAILCORE_MCOCONSTANTS_H
 
 /** It's the connection type.*/
-typedef enum {
+typedef NS_OPTIONS(NSInteger, MCOConnectionType) {
     /** Clear-text connection for the protocol.*/
     MCOConnectionTypeClear             = 1 << 0,
     /** Clear-text connection at the beginning, then switch to encrypted connection using TLS/SSL*/
@@ -11,10 +11,10 @@ typedef enum {
     MCOConnectionTypeStartTLS          = 1 << 1,
     /** Encrypted connection using TLS/SSL.*/
     MCOConnectionTypeTLS               = 1 << 2,
-} MCOConnectionType;
+};
 
 /** It's the authentication type.*/
-typedef enum {
+typedef NS_OPTIONS(NSInteger, MCOAuthType) {
     /** Default authentication scheme of the protocol.*/
     MCOAuthTypeSASLNone          = 0,
     /** CRAM-MD5 authentication RFC 2195.*/
@@ -35,10 +35,12 @@ typedef enum {
     MCOAuthTypeSASLKerberosV4    = 1 << 7,
     /** OAuth2 authentication.*/
     MCOAuthTypeXOAuth2           = 1 << 8,
-} MCOAuthType;
+    /** OAuth2 authentication on outlook.com.*/
+    MCOAuthTypeXOAuth2Outlook    = 1 << 9,
+};
 
 /** It's the IMAP flags of the folder.*/
-typedef enum {
+typedef NS_OPTIONS(NSInteger, MCOIMAPFolderFlag) {
     MCOIMAPFolderFlagNone        = 0,
     /** \Marked*/
     MCOIMAPFolderFlagMarked      = 1 << 0,
@@ -72,10 +74,13 @@ typedef enum {
     MCOIMAPFolderFlagJunk        = MCOIMAPFolderFlagSpam,
     /** \Flagged: When the folder contains all the flagged emails.*/
     MCOIMAPFolderFlagFlagged     = MCOIMAPFolderFlagStarred,
-} MCOIMAPFolderFlag;
+    /** Mask to identify the folder */
+    MCOIMAPFolderFlagFolderTypeMask = MCOIMAPFolderFlagInbox | MCOIMAPFolderFlagSentMail | MCOIMAPFolderFlagStarred | MCOIMAPFolderFlagAllMail |
+      MCOIMAPFolderFlagTrash| MCOIMAPFolderFlagDrafts | MCOIMAPFolderFlagSpam | MCOIMAPFolderFlagImportant | MCOIMAPFolderFlagArchive,
+};
 
 /** It's the flags of a message.*/
-typedef enum {
+typedef NS_OPTIONS(NSInteger, MCOMessageFlag) {
     MCOMessageFlagNone          = 0,
     /** Seen/Read flag.*/
     MCOMessageFlagSeen          = 1 << 0,
@@ -95,10 +100,10 @@ typedef enum {
     MCOMessageFlagSubmitPending = 1 << 7,
     /** $Submitted flag.*/
     MCOMessageFlagSubmitted     = 1 << 8,
-} MCOMessageFlag;
+};
 
 /** It's the encoding of a part.*/
-typedef enum {
+typedef NS_ENUM(NSInteger, MCOEncoding) {
     /** 7bit encoding.*/
     MCOEncoding7Bit = 0,            /** should match MAILIMAP_BODY_FLD_ENC_7BIT*/
     /** 8bit encoding.*/
@@ -116,10 +121,10 @@ typedef enum {
     
     /** UUEncode encoding.*/
     MCOEncodingUUEncode = -1
-} MCOEncoding;
+};
 
 /** It's the information to fetch for a given message in the IMAP FETCH request.*/
-typedef enum {
+typedef NS_OPTIONS(NSInteger, MCOIMAPMessagesRequestKind) {
     /** UID of the message.*/
     MCOIMAPMessagesRequestKindUid            = 0, /** This is the default and it's always fetched*/
     /** Flags of the message.*/
@@ -145,20 +150,20 @@ typedef enum {
     /* Request size of message */
     MCOIMAPMessagesRequestKindSize           = 1 << 10,
 
-} MCOIMAPMessagesRequestKind;
+};
 
 /** It defines the behavior of the STORE flags request.*/
-typedef enum {
+typedef NS_ENUM(NSInteger, MCOIMAPStoreFlagsRequestKind) {
     /** Add the given flags.*/
     MCOIMAPStoreFlagsRequestKindAdd,
     /** Remove the given flags.*/
     MCOIMAPStoreFlagsRequestKindRemove,
     /** Set the given flags.*/
     MCOIMAPStoreFlagsRequestKindSet,
-} MCOIMAPStoreFlagsRequestKind;
+};
 
 /** It's the search type.*/
-typedef enum {
+typedef NS_ENUM(NSInteger, MCOIMAPSearchKind) {
     /** Search All */
     MCOIMAPSearchKindAll,
     /** No search.*/
@@ -181,13 +186,55 @@ typedef enum {
     MCOIMAPSearchKindUids,
     /** Match headers of the message.*/
     MCOIMAPSearchKindHeader,
+    /** Match messages that are read.*/
+    MCOIMAPSearchKindRead,
+    /** Match messages that are not read.*/
+    MCOIMAPSearchKindUnread,
+    /** Match messages that are flagged.*/
+    MCOIMAPSearchKindFlagged,
+    /** Match messages that are not flagged.*/
+    MCOIMAPSearchKindUnflagged,
+    /** Match messages that are answered.*/
+    MCOIMAPSearchKindAnswered,
+    /** Match messages that are not answered.*/
+    MCOIMAPSearchKindUnanswered,
+    /** Match messages that are a drafts.*/
+    MCOIMAPSearchKindDraft,
+    /** Match messages that are not drafts.*/
+    MCOIMAPSearchKindUndraft,
+    /** Match messages that are deleted.*/
+    MCOIMAPSearchKindDeleted,
+    /** Match messages that are spam.*/
+    MCOIMAPSearchKindSpam,
+    /** Match messages before the given date.*/
+    MCOIMAPSearchKindBeforeDate,
+    /** Match messages on the given date.*/
+    MCOIMAPSearchKindOnDate,
+    /** Match messages after the given date.*/
+    MCOIMAPSearchKindSinceDate,
+    /** Match messages before the given received date.*/
+    MCOIMAPSearchKindBeforeReceivedDate,
+    /** Match messages on the given received date.*/
+    MCOIMAPSearchKindOnReceivedDate,
+    /** Match messages after the given received date.*/
+    MCOIMAPSearchKindSinceReceivedDate,
+    /** Match messages that are larger than the given size in bytes.*/
+    MCOIMAPSearchKindSizeLarger,
+    /** Match messages that are smaller than the given size in bytes.*/
+    MCOIMAPSearchKindSizeSmaller,
     /** Match X-GM-THRID.*/
     MCOIMAPSearchGmailThreadID,
+    /** Match X-GM-MSGID.*/
+    MCOIMAPSearchGmailMessageID,
+    /** Match X-GM-RAW.*/
+    MCOIMAPSearchGmailRaw,
     /** Or expresssion.*/
     MCOIMAPSearchKindOr,
     /** And expression.*/
     MCOIMAPSearchKindAnd,
-} MCOIMAPSearchKind;
+    /** Not expression.*/
+    MCOIMAPSearchKindNot,
+};
 
 /** Keys for the namespace dictionary.*/
 #define MCOIMAPNamespacePersonal @"IMAPNamespacePersonal"
@@ -196,7 +243,7 @@ typedef enum {
 
 /** This is the constants for the IMAP capabilities.*/
 /** See corresponding RFC for more information.*/
-typedef enum {
+typedef NS_ENUM(NSInteger, MCOIMAPCapability) {
     /** ACL Capability.*/
     MCOIMAPCapabilityACL,
     /** BINARY Capability.*/
@@ -267,13 +314,13 @@ typedef enum {
     MCOIMAPCapabilityXOAuth2,
     /** X-GM-EXT-1 Capability.*/
     MCOIMAPCapabilityGmail
-} MCOIMAPCapability;
+};
 
 /** Error domain for mailcore.*/
 #define MCOErrorDomain @"MCOErrorDomain"
 
 /** Here's the list of errors.*/
-typedef enum {
+typedef NS_ENUM(NSInteger, MCOErrorCode) {
     /** No error occurred.*/
     MCOErrorNone,
     /** An error related to the connection occurred.*/
@@ -355,10 +402,10 @@ typedef enum {
     MCOErrorNoop,
     /** The count of all errors */
     MCOErrorCodeCount,
-} MCOErrorCode;
+};
 
 /** Here's the list of connection log types.*/
-typedef enum {
+typedef NS_ENUM(NSInteger, MCOConnectionLogType) {
     /** Received data.*/
     MCOConnectionLogTypeReceived,
     /** Sent data.*/
@@ -371,7 +418,7 @@ typedef enum {
     MCOConnectionLogTypeErrorReceived,
     /** Error while sending dataThe data passed to the log will be nil.*/
     MCOConnectionLogTypeErrorSent,
-} MCOConnectionLogType;
+};
 
 /**
  It's a network traffic logger.

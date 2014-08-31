@@ -25,10 +25,19 @@ OperationQueue::OperationQueue()
     mWaitingFinishedSem = mailsem_new();
     mQuitting = false;
     mCallback = NULL;
+#if __APPLE__
+    mDispatchQueue = dispatch_get_main_queue();
+#endif
+    _pendingCheckRunning = false;
 }
 
 OperationQueue::~OperationQueue()
 {
+#if __APPLE__
+    if (mDispatchQueue != NULL) {
+        dispatch_release(mDispatchQueue);
+    }
+#endif
     MC_SAFE_RELEASE(mOperations);
     pthread_mutex_destroy(&mLock);
     mailsem_free(mOperationSem);
@@ -44,6 +53,16 @@ void OperationQueue::addOperation(Operation * op)
     pthread_mutex_unlock(&mLock);
     mailsem_up(mOperationSem);
     startThread();
+}
+
+void OperationQueue::cancelAllOperations()
+{
+    pthread_mutex_lock(&mLock);
+    for (unsigned int i = 0 ; i < mOperations->count() ; i ++) {
+        Operation * op = (Operation *) mOperations->objectAtIndex(i);
+        op->cancel();
+    }
+    pthread_mutex_unlock(&mLock);
 }
 
 void OperationQueue::runOperationsOnThread(OperationQueue * queue)
@@ -78,7 +97,11 @@ void OperationQueue::runOperations()
             mailsem_up(mStopSem);
             
             retain(); // (2)
+#if __APPLE__
+            performMethodOnDispatchQueue((Object::Method) &OperationQueue::stoppedOnMainThread, NULL, mDispatchQueue, true);
+#else
             performMethodOnMainThread((Object::Method) &OperationQueue::stoppedOnMainThread, NULL, true);
+#endif
             
             pool->release();
             break;
@@ -86,7 +109,9 @@ void OperationQueue::runOperations()
 
         performOnCallbackThread(op, (Object::Method) &OperationQueue::beforeMain, op, true);
         
-        op->main();
+        if (!op->isCancelled() || op->shouldRunWhenCancelled()) {
+            op->main();
+        }
         
         op->retain()->autorelease();
         
@@ -106,8 +131,12 @@ void OperationQueue::runOperations()
         
         if (needsCheckRunning) {
             retain(); // (1)
-            MCLog("check running %p", this);
+            //MCLog("check running %p", this);
+#if __APPLE__
+            performMethodOnDispatchQueue((Object::Method) &OperationQueue::checkRunningOnMainThread, this, mDispatchQueue);
+#else
             performMethodOnMainThread((Object::Method) &OperationQueue::checkRunningOnMainThread, this);
+#endif
         }
         
         pool->release();
@@ -122,7 +151,7 @@ void OperationQueue::performOnCallbackThread(Operation * op, Method method, void
     if (queue == NULL) {
         queue = dispatch_get_main_queue();
     }
-    performMethodOnDispatchQueue(method, context, op->callbackDispatchQueue(), waitUntilDone);
+    performMethodOnDispatchQueue(method, context, queue, waitUntilDone);
 #else
     performMethodOnMainThread(method, context, waitUntilDone);
 #endif
@@ -147,12 +176,19 @@ void OperationQueue::callbackOnMainThread(Operation * op)
 
 void OperationQueue::checkRunningOnMainThread(void * context)
 {
-    cancelDelayedPerformMethod((Object::Method) &OperationQueue::checkRunningAfterDelay, NULL);
+    retain(); // (4)
+    if (_pendingCheckRunning) {
+        cancelDelayedPerformMethod((Object::Method) &OperationQueue::checkRunningAfterDelay, NULL);
+        release(); // (4)
+    }
+    _pendingCheckRunning = true;
     performMethodAfterDelay((Object::Method) &OperationQueue::checkRunningAfterDelay, NULL, 1);
+    release(); // (1)
 }
 
 void OperationQueue::checkRunningAfterDelay(void * context)
 {
+    _pendingCheckRunning = false;
     pthread_mutex_lock(&mLock);
     if (!mQuitting) {
         if (mOperations->count() == 0) {
@@ -166,7 +202,7 @@ void OperationQueue::checkRunningAfterDelay(void * context)
     // Number of operations can't be changed because it runs on main thread.
     // And addOperation() should also be called from main thread.
     
-    release(); // (1)
+    release(); // (4)
 }
 
 void OperationQueue::stoppedOnMainThread(void * context)
@@ -237,5 +273,23 @@ void OperationQueue::waitUntilAllOperationsAreFinished()
         sem_wait(&mWaitingFinishedSem);
     }
     mWaiting = false;
+}
+#endif
+
+#if __APPLE__
+void OperationQueue::setDispatchQueue(dispatch_queue_t dispatchQueue)
+{
+    if (mDispatchQueue != NULL) {
+        dispatch_release(mDispatchQueue);
+    }
+    mDispatchQueue = dispatchQueue;
+    if (mDispatchQueue != NULL) {
+        dispatch_retain(mDispatchQueue);
+    }
+}
+
+dispatch_queue_t OperationQueue::dispatchQueue()
+{
+    return mDispatchQueue;
 }
 #endif

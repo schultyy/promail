@@ -6,13 +6,15 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCCORE_H_
-#define __MAILCORE_MCCORE_H_
+#ifndef MAILCORE_MCCORE_H
+
+#define MAILCORE_MCCORE_H
 
 #include <MailCore/MCAbstract.h>
 #include <MailCore/MCBaseTypes.h>
 #include <MailCore/MCIMAP.h>
 #include <MailCore/MCPOP.h>
+#include <MailCore/MCNNTP.h>
 #include <MailCore/MCRFC822.h>
 #include <MailCore/MCSMTP.h>
 #include <MailCore/MCRenderer.h>

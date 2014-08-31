@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOIMAPAPPENDMESSAGEOPERATION_H_
+#ifndef MAILCORE_MCOIMAPAPPENDMESSAGEOPERATION_H
 
-#define __MAILCORE_MCOIMAPAPPENDMESSAGEOPERATION_H_
+#define MAILCORE_MCOIMAPAPPENDMESSAGEOPERATION_H
 
 /** This class implements an operation that adds a message to a folder. */
 
@@ -16,6 +16,8 @@
 #import <MailCore/MCOConstants.h>
 
 @interface MCOIMAPAppendMessageOperation : MCOIMAPBaseOperation
+
+@property (nonatomic, assign) time_t date;
 
 /** 
  This block will be called as bytes are sent

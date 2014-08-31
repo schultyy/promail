@@ -9,9 +9,6 @@
 #include "MCIMAPOperation.h"
 
 #include <stdlib.h>
-#if __APPLE__
-#include <dispatch/dispatch.h>
-#endif
 
 #include "MCIMAPAsyncSession.h"
 #include "MCIMAPSession.h"
@@ -23,13 +20,16 @@ using namespace mailcore;
 IMAPOperation::IMAPOperation()
 {
     mSession = NULL;
+    mMainSession = NULL;
     mImapCallback = NULL;
     mError = ErrorNone;
     mFolder = NULL;
+    mUrgent = false;
 }
 
 IMAPOperation::~IMAPOperation()
 {
+    MC_SAFE_RELEASE(mMainSession);
     MC_SAFE_RELEASE(mFolder);
     MC_SAFE_RELEASE(mSession);
 }
@@ -37,11 +37,31 @@ IMAPOperation::~IMAPOperation()
 void IMAPOperation::setSession(IMAPAsyncConnection * session)
 {
     MC_SAFE_REPLACE_RETAIN(IMAPAsyncConnection, mSession, session);
+#if __APPLE__
+    dispatch_queue_t queue;
+    if (session != NULL) {
+        queue = session->dispatchQueue();
+    }
+    else {
+        queue = dispatch_get_main_queue();
+    }
+    setCallbackDispatchQueue(queue);
+#endif
 }
 
 IMAPAsyncConnection * IMAPOperation::session()
 {
     return mSession;
+}
+
+void IMAPOperation::setMainSession(IMAPAsyncSession * session)
+{
+    MC_SAFE_REPLACE_RETAIN(IMAPAsyncSession, mMainSession, session);
+}
+
+IMAPAsyncSession * IMAPOperation::mainSession()
+{
+    return mMainSession;
 }
 
 void IMAPOperation::setFolder(String * folder)
@@ -52,6 +72,16 @@ void IMAPOperation::setFolder(String * folder)
 String * IMAPOperation::folder()
 {
     return mFolder;
+}
+
+void IMAPOperation::setUrgent(bool urgent)
+{
+    mUrgent = urgent;
+}
+
+bool IMAPOperation::isUrgent()
+{
+    return mUrgent;
 }
 
 void IMAPOperation::setImapCallback(IMAPOperationCallback * callback)
@@ -76,6 +106,10 @@ ErrorCode IMAPOperation::error()
 
 void IMAPOperation::start()
 {
+    if (session() == NULL) {
+        IMAPAsyncConnection * connection = mMainSession->sessionForFolder(mFolder, mUrgent);
+        setSession(connection);
+    }
     mSession->runOperation(this);
 }
 
@@ -93,7 +127,7 @@ void IMAPOperation::bodyProgress(IMAPSession * session, unsigned int current, un
     context->current = current;
     context->maximum = maximum;
     retain();
-    performMethodOnMainThread((Object::Method) &IMAPOperation::bodyProgressOnMainThread, context, true);
+    performMethodOnCallbackThread((Object::Method) &IMAPOperation::bodyProgressOnMainThread, context, true);
 }
 
 void IMAPOperation::bodyProgressOnMainThread(void * ctx)
@@ -120,7 +154,7 @@ void IMAPOperation::itemsProgress(IMAPSession * session, unsigned int current, u
     context->current = current;
     context->maximum = maximum;
     retain();
-    performMethodOnMainThread((Object::Method) &IMAPOperation::itemsProgressOnMainThread, context, true);
+    performMethodOnCallbackThread((Object::Method) &IMAPOperation::itemsProgressOnMainThread, context, true);
 }
 
 void IMAPOperation::itemsProgressOnMainThread(void * ctx)

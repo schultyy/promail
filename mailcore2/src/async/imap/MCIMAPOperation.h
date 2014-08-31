@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCIMAPOPERATION_H_
+#ifndef MAILCORE_MCIMAPOPERATION_H
 
-#define __MAILCORE_MCIMAPOPERATION_H_
+#define MAILCORE_MCIMAPOPERATION_H
 
 #include <MailCore/MCBaseTypes.h>
 #include <MailCore/MCIMAPProgressCallback.h>
@@ -18,6 +18,7 @@
 namespace mailcore {
     
     class IMAPAsyncConnection;
+    class IMAPAsyncSession;
     class IMAPOperationCallback;
     
     class IMAPOperation : public Operation, public IMAPProgressCallback {
@@ -25,11 +26,17 @@ namespace mailcore {
         IMAPOperation();
         virtual ~IMAPOperation();
         
+        virtual void setMainSession(IMAPAsyncSession * session);
+        virtual IMAPAsyncSession * mainSession();
+
         virtual void setSession(IMAPAsyncConnection * session);
         virtual IMAPAsyncConnection * session();
         
         virtual void setFolder(String * folder);
         virtual String * folder();
+        
+        virtual void setUrgent(bool urgent);
+        virtual bool isUrgent();
         
         virtual void setImapCallback(IMAPOperationCallback * callback);
         virtual IMAPOperationCallback * imapCallback();
@@ -44,10 +51,12 @@ namespace mailcore {
         virtual ErrorCode error();
         
     private:
+        IMAPAsyncSession * mMainSession;
         IMAPAsyncConnection * mSession;
         String * mFolder;
         IMAPOperationCallback * mImapCallback;
         ErrorCode mError;
+        bool mUrgent;
         
     private:
         virtual void bodyProgress(IMAPSession * session, unsigned int current, unsigned int maximum);

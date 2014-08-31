@@ -1,18 +1,24 @@
 #!/bin/sh
 
-if xcodebuild -showsdks|grep iphoneos6.1 >/dev/null ; then
-	sdkversion=6.1
-         devicearchs="armv7 armv7s"
+if xcodebuild -showsdks|grep iphoneos8.0 >/dev/null ; then
+	sdkversion=8.0
+    devicearchs="armv7 armv7s arm64"
+elif xcodebuild -showsdks|grep iphoneos7.1 >/dev/null ; then
+	sdkversion=7.1
+    devicearchs="armv7 armv7s arm64"
 elif xcodebuild -showsdks|grep iphoneos7.0 >/dev/null ; then
-	sdkversion=7.0
-         devicearchs="armv7 armv7s arm64"
+ 	sdkversion=7.0
+    devicearchs="armv7 armv7s arm64"
+elif xcodebuild -showsdks|grep iphoneos6.1 >/dev/null ; then
+	sdkversion=6.1
+    devicearchs="armv7 armv7s"
 else
 	echo SDK not found
 	exit 1
 fi	
 
 url="https://github.com/dinhviethoa/libetpan.git"
-rev=23f1554f21fac3aadede8281b79828ca92268755
+rev=4d5df1aec89ec19f2c51249986007267a1adea27
 
 pushd `dirname $0` > /dev/null
 scriptpath=`pwd`

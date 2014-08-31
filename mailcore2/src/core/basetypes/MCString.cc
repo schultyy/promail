@@ -26,6 +26,7 @@
 #include "MCValue.h"
 #include "MCHTMLCleaner.h"
 #include "MCBase64.h"
+#include "MCIterator.h"
 
 using namespace mailcore;
 
@@ -760,6 +761,9 @@ String * String::string()
 
 String * String::stringWithData(Data * data, const char * charset)
 {
+    if (data == NULL) {
+        return String::string();
+    }
     String * result = NULL;
     result = new String(data->bytes(), data->length(), charset);
     result->autorelease();
@@ -806,6 +810,9 @@ String * String::stringWithCharacters(const UChar * characters, unsigned int len
 
 void String::appendCharactersLength(const UChar * unicodeCharacters, unsigned int length)
 {
+    if (unicodeCharacters == NULL) {
+        return;
+    }
     allocate(mLength + length);
     u_strncpy(&mUnicodeChars[mLength], unicodeCharacters, length);
     mLength += length;
@@ -814,6 +821,9 @@ void String::appendCharactersLength(const UChar * unicodeCharacters, unsigned in
 
 void String::appendString(String * otherString)
 {
+    if (otherString == NULL) {
+        return;
+    }
     appendCharactersLength(otherString->unicodeCharacters(), otherString->length());
 }
 
@@ -830,8 +840,9 @@ void String::appendUTF8Format(const char * format, ...)
 
 void String::appendUTF8CharactersLength(const char * UTF8Characters, unsigned int length)
 {
-    if (UTF8Characters == NULL)
+    if (UTF8Characters == NULL) {
         return;
+    }
     
     UChar * dest;
     int32_t destLength;
@@ -1123,6 +1134,10 @@ String * String::uppercaseString()
 
 void String::appendBytes(const char * bytes, unsigned int length, const char * charset)
 {
+    if (bytes == NULL) {
+        return;
+    }
+
 #if __APPLE__
     CFStringEncoding encoding;
     if (strcasecmp(charset, "mutf-7") == 0) {
@@ -1137,7 +1152,16 @@ void String::appendBytes(const char * bytes, unsigned int length, const char * c
     if (cfStr != NULL) {
         CFDataRef data = CFStringCreateExternalRepresentation(NULL, cfStr, kCFStringEncodingUTF16LE, '_');
         if (data != NULL) {
-            appendCharactersLength((const UChar *) CFDataGetBytePtr(data), (unsigned int) CFDataGetLength(data) / 2);
+            UChar * fixedData = (UChar *) malloc(CFDataGetLength(data));
+            memcpy(fixedData, CFDataGetBytePtr(data), CFDataGetLength(data));
+            unsigned int length = (unsigned int) CFDataGetLength(data) / 2;
+            for(int32_t i = 0 ; i < length ; i ++) {
+                if (fixedData[i] == 0) {
+                    fixedData[i] = ' ';
+                }
+            }
+            appendCharactersLength(fixedData, length);
+            free(fixedData);
             CFRelease(data);
         }
         CFRelease(cfStr);
@@ -1268,7 +1292,10 @@ void String::deleteCharactersInRange(Range range)
     if (range.location > mLength)
         return;
     
-    if (range.location + range.length > mLength) {
+    if (range.length > mLength) {
+        range.length = mLength - range.location;
+    }
+    else if (range.location + range.length > mLength) {
         range.length = mLength - range.location;
     }
     
@@ -1744,7 +1771,7 @@ String * String::flattenHTMLAndShowBlockquoteAndLink(bool showBlockquote, bool s
     String * result = String::string();
     xmlSAXHandler handler;
     bzero(&handler, sizeof(xmlSAXHandler));
-    handler.characters = &charactersParsed;
+    handler.characters = charactersParsed;
     handler.startElement = elementStarted;
     handler.endElement = elementEnded;
     handler.comment = commentParsed;
@@ -1794,6 +1821,24 @@ String * String::flattenHTML()
     return flattenHTMLAndShowBlockquote(true);
 }
 
+String * String::stripWhitespace()
+{
+    String *str = (String *)copy();
+    
+    str->replaceOccurrencesOfString(MCSTR("\t"), MCSTR(" "));
+    str->replaceOccurrencesOfString(MCSTR("\n"), MCSTR(" "));
+    str->replaceOccurrencesOfString(MCSTR("\v"), MCSTR(" "));
+    str->replaceOccurrencesOfString(MCSTR("\f"), MCSTR(" "));
+    str->replaceOccurrencesOfString(MCSTR("\r"), MCSTR(" "));
+    
+    while (str->replaceOccurrencesOfString(MCSTR("  "), MCSTR(" ")) > 0) {
+        /* do nothing */
+    }
+    
+    return str;
+}
+
+
 bool String::hasSuffix(String * suffix)
 {
     if (mLength >= suffix->mLength) {
@@ -1817,6 +1862,7 @@ bool String::hasPrefix(String * prefix)
 
 String * String::lastPathComponent()
 {
+    // TODO: Improve Windows compatibility.
     UChar * component = u_strrchr(mUnicodeChars, '/');
     if (component == NULL)
         return (String *) this->copy()->autorelease();
@@ -1911,6 +1957,7 @@ String * String::stringWithFileSystemRepresentation(const char * filename)
 
 String * String::stringByAppendingPathComponent(String * component)
 {
+    // TODO: Improve Windows compatibility.
     String * result = (String *) this->copy()->autorelease();
     if (result->length() > 0) {
         UChar lastChar = result->unicodeCharacters()[result->length() - 1];
@@ -2112,6 +2159,86 @@ String * String::htmlEncodedString()
 String * String::cleanedHTMLString()
 {
     return HTMLCleaner::cleanHTML(this);
+}
+
+String * String::htmlMessageContent()
+{
+    String * str = this;
+    
+    Array * lines = str->componentsSeparatedByString(MCSTR("\n"));
+    
+    while (1) {
+        if (lines->count() == 0) {
+            break;
+        }
+        
+        if (((String *) lines->lastObject())->length() > 0) {
+            break;
+        }
+        
+        lines->removeLastObject();
+    }
+    
+    String * localString;
+    int state;
+    localString = String::string();
+    
+    String * quoted = NULL;
+    state = 0;
+    mc_foreacharray(String, line, lines) {
+        if (state == 0) {
+            if (line->hasPrefix(MCSTR(">"))) {
+                state = 1;
+                quoted = new String();
+                int i = 1;
+                while (i < line->length()) {
+                    if (line->characterAtIndex(i) != ' ') {
+                        break;
+                    }
+                    i ++;
+                }
+                quoted->appendString(line->substringFromIndex(i));
+                quoted->appendString(MCSTR("\n"));
+            }
+            else {
+                localString->appendString(line->htmlEncodedString());
+                localString->appendString(MCSTR("<br/>"));
+            }
+        }
+        else if (state == 1) {
+            if (line->hasPrefix(MCSTR(">"))) {
+                int i = 1;
+                while (i < line->length()) {
+                    if (line->characterAtIndex(i) != ' ') {
+                        break;
+                    }
+                    i ++;
+                }
+                quoted->appendString(line->substringFromIndex(i));
+                quoted->appendString(MCSTR("\n"));
+            }
+            else {
+                if (quoted != NULL) {
+                    localString->appendString(MCSTR("<blockquote type=\"cite\">"));
+                    localString->appendString(quoted->htmlMessageContent());
+                    localString->appendString(MCSTR("</blockquote>"));
+                    MC_SAFE_RELEASE(quoted);
+                    state = 0;
+                }
+                localString->appendString(line->htmlEncodedString());
+                localString->appendString(MCSTR("<br/>"));
+            }
+        }
+    }
+    
+    if (quoted != NULL) {
+        localString->appendString(MCSTR("<blockquote type=\"cite\">"));
+        localString->appendString(quoted->htmlMessageContent());
+        localString->appendString(MCSTR("</blockquote>"));
+        MC_SAFE_RELEASE(quoted);
+    }
+    
+    return localString;
 }
 
 bool String::isEqualCaseInsensitive(String * otherString)

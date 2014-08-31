@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 MailCore. All rights reserved.
 //
 
-#ifndef __MAILCORE_MCOATTACHMENT_H_
+#ifndef MAILCORE_MCOATTACHMENT_H
 
-#define __MAILCORE_MCOATTACHMENT_H_
+#define MAILCORE_MCOATTACHMENT_H
 
 #import <MailCore/MCOAbstractPart.h>
 
@@ -41,7 +41,19 @@
 
 /** Returns string representation according to charset*/
 - (NSString *) decodedString;
- 
+
+/** Adds a content type parameter.*/
+- (void) setContentTypeParameterValue:(NSString *)value forName:(NSString *)name;
+
+/** Remove a given content type parameter.*/
+- (void) removeContentTypeParameterForName:(NSString *)name;
+
+/** Returns the value of a given content type parameter.*/
+- (NSString *) contentTypeParameterValueForName:(NSString *)name;
+
+/** Returns an array with the names of all content type parameters.*/
+- (NSArray * /* NSString */) allContentTypeParametersNames;
+
 @end
 
 #endif

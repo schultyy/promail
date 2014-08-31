@@ -1,6 +1,6 @@
-#ifndef __MAILCORE_MCSTR_H_
+#ifndef MAILCORE_MCSTR_H
 
-#define __MAILCORE_MCSTR_H_
+#define MAILCORE_MCSTR_H
 
 #include <MailCore/MCObject.h>
 #include <MailCore/MCRange.h>
@@ -86,6 +86,8 @@ namespace mailcore {
         virtual String * flattenHTMLAndShowBlockquote(bool showBlockquote);
         virtual String * flattenHTMLAndShowBlockquoteAndLink(bool showBlockquote, bool showLink);
         
+        virtual String * stripWhitespace();
+        
         virtual String * lastPathComponent();
         virtual String * pathExtension();
         virtual Data * dataUsingEncoding(const char * charset = NULL);
@@ -108,6 +110,7 @@ namespace mailcore {
         
         virtual String * htmlEncodedString();
         virtual String * cleanedHTMLString();
+        virtual String * htmlMessageContent();
         
         virtual Data * decodedBase64Data();
         
