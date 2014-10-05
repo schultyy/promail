@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "PMFolderListController.h"
 #import "PMMailDetailController.h"
-#import "PMNewMailWindowController.h"
+#import "PMMailDetailWindowController.h"
 #import "PMAccountFacade.h"
 #import "PMMailFacade.h"
 
@@ -21,7 +21,7 @@
 
 @property (retain) PMMailDetailController *mailDetail;
 
-@property (retain) PMNewMailWindowController *composeMailEditor;
+@property (retain) PMMailDetailWindowController *composeMailEditor;
 
 @property (retain) PMAccountFacade *accountFacade;
 

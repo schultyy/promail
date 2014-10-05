@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "PMMailFacade.h"
 
-@interface PMNewMailWindowController : NSWindowController
+@interface PMMailDetailWindowController : NSWindowController
 
 @property (retain) NSString *to;
 

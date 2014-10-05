@@ -12,8 +12,8 @@
 		6964F94BACB4B04991C08155 /* PMAccountFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = 6964F778B297C685BFAC3ECB /* PMAccountFacade.m */; };
 		884EC42C269C45AAA5A14FAD /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CCFEC80EFA28469188412AF3 /* libPods.a */; };
 		CB029E5018763CD8004B9F7D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = CB029E4F18763CD8004B9F7D /* README.md */; };
-		D403C780187C94070003E4BE /* PMNewMailWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D403C77E187C94070003E4BE /* PMNewMailWindowController.m */; };
-		D403C781187C94070003E4BE /* PMNewMailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D403C77F187C94070003E4BE /* PMNewMailWindow.xib */; };
+		D403C780187C94070003E4BE /* PMMailDetailWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D403C77E187C94070003E4BE /* PMMailDetailWindowController.m */; };
+		D403C781187C94070003E4BE /* PMMailDetailWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = D403C77F187C94070003E4BE /* PMMailDetailWindow.xib */; };
 		D44382B51871048500A81635 /* PMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D44382B41871048500A81635 /* PMSessionManager.m */; };
 		D453D01919314591005D6B6C /* PMMailHeaderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D453D01719314591005D6B6C /* PMMailHeaderViewController.m */; };
 		D453D01A19314591005D6B6C /* PMMailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D453D01819314591005D6B6C /* PMMailHeaderView.xib */; };
@@ -142,9 +142,9 @@
 		8AFECCB988D041EAAB5F6577 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CB029E4F18763CD8004B9F7D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		CCFEC80EFA28469188412AF3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		D403C77D187C94070003E4BE /* PMNewMailWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMNewMailWindowController.h; sourceTree = "<group>"; };
-		D403C77E187C94070003E4BE /* PMNewMailWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMNewMailWindowController.m; sourceTree = "<group>"; };
-		D403C77F187C94070003E4BE /* PMNewMailWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMNewMailWindow.xib; sourceTree = "<group>"; };
+		D403C77D187C94070003E4BE /* PMMailDetailWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailDetailWindowController.h; sourceTree = "<group>"; };
+		D403C77E187C94070003E4BE /* PMMailDetailWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMMailDetailWindowController.m; sourceTree = "<group>"; };
+		D403C77F187C94070003E4BE /* PMMailDetailWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PMMailDetailWindow.xib; sourceTree = "<group>"; };
 		D44382B31871048500A81635 /* PMSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMSessionManager.h; sourceTree = "<group>"; };
 		D44382B41871048500A81635 /* PMSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PMSessionManager.m; sourceTree = "<group>"; };
 		D453D01619314591005D6B6C /* PMMailHeaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PMMailHeaderViewController.h; sourceTree = "<group>"; };
@@ -511,7 +511,7 @@
 				D4EEDF021857C9D700653625 /* MainMenu.xib */,
 				D4EEDF421857CFE300653625 /* MainWindow.xib */,
 				D46438BB186A4027001D26CB /* PMFolderListView.xib */,
-				D403C77F187C94070003E4BE /* PMNewMailWindow.xib */,
+				D403C77F187C94070003E4BE /* PMMailDetailWindow.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -521,8 +521,8 @@
 			children = (
 				D453D01B19314620005D6B6C /* Mail Detail */,
 				D4BE338C18C0F8EF00DE3A32 /* Account */,
-				D403C77D187C94070003E4BE /* PMNewMailWindowController.h */,
-				D403C77E187C94070003E4BE /* PMNewMailWindowController.m */,
+				D403C77D187C94070003E4BE /* PMMailDetailWindowController.h */,
+				D403C77E187C94070003E4BE /* PMMailDetailWindowController.m */,
 				D4EEDF441857CFFF00653625 /* PMMainController.h */,
 				D4EEDF451857CFFF00653625 /* PMMainController.m */,
 				D46438BD186A403A001D26CB /* PMFolderListController.h */,
@@ -661,7 +661,7 @@
 				D4EEDF431857CFE300653625 /* MainWindow.xib in Resources */,
 				D4BE339518C0F91300DE3A32 /* PMAccountWelcomeView.xib in Resources */,
 				D46438B4186A3EEB001D26CB /* PMMailDetailView.xib in Resources */,
-				D403C781187C94070003E4BE /* PMNewMailWindow.xib in Resources */,
+				D403C781187C94070003E4BE /* PMMailDetailWindow.xib in Resources */,
 				D4EEDF091857C9D700653625 /* Images.xcassets in Resources */,
 				D453D01A19314591005D6B6C /* PMMailHeaderView.xib in Resources */,
 				D4BE33A518C1356400DE3A32 /* PMAccountServerView.xib in Resources */,
@@ -738,7 +738,7 @@
 				D4BE339F18C0FC0000DE3A32 /* PMStepController.m in Sources */,
 				D4D39A7A18C397FE00E7F226 /* PMAccountDefault.m in Sources */,
 				D4F17818188B49E000C3B0D0 /* PMMessageView.m in Sources */,
-				D403C780187C94070003E4BE /* PMNewMailWindowController.m in Sources */,
+				D403C780187C94070003E4BE /* PMMailDetailWindowController.m in Sources */,
 				D4BE33B318C3937900DE3A32 /* PMAccountProviderViewController.m in Sources */,
 				D4EEDF071857C9D700653625 /* promail.xcdatamodeld in Sources */,
 				D4EEDF461857CFFF00653625 /* PMMainController.m in Sources */,

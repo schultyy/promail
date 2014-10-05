@@ -7,16 +7,16 @@
 //  Copyright (c) 2014 schultyy. All rights reserved.
 //
 
-#import "PMNewMailWindowController.h"
+#import "PMMailDetailWindowController.h"
 
-@interface PMNewMailWindowController()
+@interface PMMailDetailWindowController ()
 
 @end
 
-@implementation PMNewMailWindowController
+@implementation PMMailDetailWindowController
 
 -(id)initWithManagedObjectContext:(NSManagedObjectContext *)context {
-    self = [super initWithWindowNibName:@"PMNewMailWindow"];
+    self = [super initWithWindowNibName:@"PMMailDetailWindow"];
     if (self) {
         [self setManagedObjectContext:context];
         [self setMailFacade: [[PMMailFacade alloc] initWitManagedObjectContext: context]];

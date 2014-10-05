@@ -9,7 +9,7 @@
 #import "PMMainController.h"
 #import "PMFolderListController.h"
 #import "PMMailDetailController.h"
-#import "PMNewMailWindowController.h"
+#import "PMMailDetailWindowController.h"
 #import "PMConstants.h"
 
 @interface PMMainController ()
@@ -93,7 +93,7 @@
 
 -(void) writeNew {
     if(![self composeMailEditor]) {
-        [self setComposeMailEditor:[[PMNewMailWindowController alloc] initWithManagedObjectContext:
+        [self setComposeMailEditor:[[PMMailDetailWindowController alloc] initWithManagedObjectContext:
          self.managedObjectContext]];
     }
     [[self composeMailEditor] showWindow:self];
